@@ -5,7 +5,7 @@ export default ({ data }) => {
   return (
     <>
       <h1>{data.nodeKorisneInformacije.title}</h1>
-      <p
+      <div
         dangerouslySetInnerHTML={{
           __html: data.nodeKorisneInformacije.body.value,
         }}

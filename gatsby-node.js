@@ -14,18 +14,22 @@ exports.createPages = ({ actions, graphql }) => {
     "src/templates/korisneInformacije.jsx"
   );
 
+  const edges = `
+    edges {
+      node {
+        drupal_internal__nid
+        path {
+          alias
+        }
+        status
+      }
+    }
+  `;
+  
   const korisneInformacijePages = graphql(`
     query nodesQuery {
       allNodeKorisneInformacije(filter: { status: { eq: true } }) {
-        edges {
-          node {
-            drupal_internal__nid
-            path {
-              alias
-            }
-            status
-          }
-        }
+        ${edges}
       }
     }
   `).then(result => {
