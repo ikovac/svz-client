@@ -1,0 +1,133 @@
+#header {
+  background-color: $background-color;
+
+  .header-top {
+    border-bottom: 3px solid white;
+    .layout-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      outline: none;
+      color: $primary-color;
+      margin: 0px;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .header-top__site-branding {
+      padding: 5px 0;
+
+      a {
+        display: flex;
+        align-items: center;
+        color: $primary-color;
+        img {
+          max-width: 60px;
+        }
+        h3 {
+          display: none;
+          font-size: 12px;
+          margin-left: 10px;
+          span {
+            font-size: 45px;
+          }
+        }
+      }
+    }
+    .header-top__icons-block {
+      display: flex;
+      align-self: center;
+
+      .header-top__wishlist-block {
+        position: relative;
+        margin-right: 20px;
+        a {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+
+          .header-top__wishlist-icon {
+            font-size: 20px;
+            color: #006950;
+          }
+
+          #items-count {
+            position: absolute;
+            top: 0px;
+            right: -5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 2.1em;
+            background: white;
+            color: $primary-color;
+            font-weight: bold;
+          }
+        }
+      }
+      .header-top__search-icon {
+        font-size: 20px;
+        color: #006950;
+
+        a {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  .header-bottom {
+    display: none;
+    background-color: white;
+    &.open {
+      display: block;
+    }
+  }
+}
+
+.cookie-span {
+  font-family: "Cookie", sans-serif;
+}
+
+/* Medium and up */
+@media screen and (min-width: $main-breakpoint) {
+  #header {
+    .header-top {
+      border-bottom: none;
+      .layout-container {
+        align-items: unset;
+      }
+      #menu-toggle {
+        display: none;
+      }
+      .header-top__site-branding {
+        a {
+          img {
+            max-width: 100px;
+          }
+          h3 {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .header-bottom {
+      display: block;
+    }
+  }
+}

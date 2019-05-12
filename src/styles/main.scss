@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Cookie|Fira+Sans');
+
+@import "foundation";
+@import "variables";
+
+@import "layout";
+@import "header";
+@import "nav";
+@import "footer";
+
+h1, h2, h3, h4 {
+    font-family: "Fira Sans", sans-serif;
+}
+
+body {
+    font-family: "Fira Sans", sans-serif;
+    background-color: $background-color;
+}
+
+.cookie-font-span {
+    font-family: "Cookie", cursive;
+}

@@ -1,0 +1,28 @@
+#footer {
+  background-color: $primary-color;
+  padding: 20px 20px 10px 20px;
+
+  .layout-container {
+    .footer-top {
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .footer-bottom {
+      text-align: center;
+      p {
+        // text-transform: inherit
+        margin: 0;
+        font-size: 14px;
+        color: #cccccc;
+        font-family: sans-serif;
+        
+        svg {
+            font-size: 12px;
+        }
+      }
+    }
+  }
+}
