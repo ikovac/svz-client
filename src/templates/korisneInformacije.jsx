@@ -1,16 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Container from '../components/Container';
+import PageTitle from "../components/PageTitle";
+
 export default ({ data }) => {
   return (
-    <>
-      <h1>{data.nodeKorisneInformacije.title}</h1>
+    <Container>
+      <PageTitle>{data.nodeKorisneInformacije.title}</PageTitle>
       <div
         dangerouslySetInnerHTML={{
           __html: data.nodeKorisneInformacije.body.value,
         }}
       />
-    </>
+    </Container>
   );
 };
 
@@ -23,13 +26,6 @@ export const query = graphql`
       title
       body {
         value
-      }
-      relationships {
-        field_image {
-          uri {
-            url
-          }
-        }
       }
     }
   }

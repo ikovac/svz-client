@@ -10,6 +10,7 @@ module.exports = {
     menuLinks: [
       { name: "Početna", path: "/" },
       { name: "Kategorije", path: "/kategorije" },
+      { name: "Korisne informacije", path: "/korisne-informacije" },
       { name: "O nama", path: "/o-nama" },
     ],
   },
