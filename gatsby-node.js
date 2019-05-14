@@ -14,6 +14,8 @@ exports.createPages = ({ actions, graphql }) => {
     "src/templates/korisneInformacije.jsx"
   );
 
+  const basicPageTemplate = path.resolve("src/templates/basicPage.jsx");
+
   const edges = `
     edges {
       node {
@@ -25,9 +27,9 @@ exports.createPages = ({ actions, graphql }) => {
       }
     }
   `;
-  
+
   const korisneInformacijePages = graphql(`
-    query nodesQuery {
+    query nodesKorisneInformacijeQuery {
       allNodeKorisneInformacije(filter: { status: { eq: true } }) {
         ${edges}
       }
@@ -48,5 +50,27 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 
-  return Promise.all([korisneInformacijePages]);
+  const basicPagePages = graphql(`
+    query nodesBasicPageQuery {
+      allNodePage(filter: { status: { eq: true } }) {
+        ${edges}
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    result.data.allNodePage.edges.forEach(({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: basicPageTemplate,
+        context: {
+          alias: node.path.alias,
+        },
+      });
+    });
+  });
+
+  return Promise.all([korisneInformacijePages, basicPagePages]);
 };

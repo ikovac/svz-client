@@ -94,7 +94,7 @@ class Header extends Component {
                     </Link>
                   </div>
                   <div className="header-top__search-icon">
-                    <Link to="trazilica" title="tražilica">
+                    <Link to="/trazilica" title="tražilica">
                       <FaSearch />
                     </Link>
                   </div>
