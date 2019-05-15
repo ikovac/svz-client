@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Container from '../components/Container';
+import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 
 export default ({ data }) => {
@@ -18,10 +18,10 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query nodeKorisneInformacije($alias: String!) {
+  query nodeKorisneInformacije($nid: Int!) {
     nodeKorisneInformacije(
       status: { eq: true }
-      path: { alias: { eq: $alias } }
+      drupal_internal__nid: { eq: $nid }
     ) {
       title
       body {

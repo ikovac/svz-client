@@ -20,8 +20,8 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query nodeBasicPage($alias: String!) {
-    nodePage(status: { eq: true }, path: { alias: { eq: $alias } }) {
+  query nodeBasicPage($nid: Int!) {
+    nodePage(status: { eq: true }, drupal_internal__nid: { eq: $nid }) {
       title
       body {
         value

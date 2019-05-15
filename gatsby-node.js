@@ -44,7 +44,7 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.path.alias,
         component: korisneInformacijeTemplate,
         context: {
-          alias: node.path.alias,
+          nid: node.drupal_internal__nid,
         },
       });
     });
@@ -66,7 +66,7 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.path.alias,
         component: basicPageTemplate,
         context: {
-          alias: node.path.alias,
+          nid: node.drupal_internal__nid,
         },
       });
     });
