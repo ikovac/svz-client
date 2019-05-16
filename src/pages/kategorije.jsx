@@ -3,6 +3,9 @@ import React from "react";
 import Container from "../components/Container";
 import { graphql } from "gatsby";
 
+import Masonry from "react-masonry-css";
+// https://www.npmjs.com/package/react-masonry-css
+
 const KategorijePage = ({ data }) => {
   return (
     <Container>
