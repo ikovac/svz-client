@@ -20,7 +20,6 @@ const Kategorije = ({ kategorije }) => {
       {kategorije.map(({ node }) => (
         <Kategorija
           key={node.drupal_internal__nid}
-          isSubCategory={false}
           kategorija={node}
         />
       ))}

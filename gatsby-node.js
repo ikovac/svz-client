@@ -13,8 +13,8 @@ exports.createPages = ({ actions, graphql }) => {
   const korisneInformacijeTemplate = path.resolve(
     "src/templates/korisneInformacije.jsx"
   );
-
   const basicPageTemplate = path.resolve("src/templates/basicPage.jsx");
+  const podKategorijeTemplate = path.resolve("src/templates/podKategorija.jsx");
 
   const edges = `
     edges {
@@ -23,7 +23,6 @@ exports.createPages = ({ actions, graphql }) => {
         path {
           alias
         }
-        status
       }
     }
   `;
@@ -72,5 +71,31 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 
-  return Promise.all([korisneInformacijePages, basicPagePages]);
+  const kategorijePages = graphql(`
+    query nodesKategorijeQuery {
+      allNodeKategorije(filter: { status: { eq: true } }) {
+        ${edges}
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    result.data.allNodeKategorije.edges.forEach(({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: podKategorijeTemplate,
+        context: {
+          nid: node.drupal_internal__nid,
+        },
+      });
+    });
+  });
+
+  return Promise.all([
+    korisneInformacijePages,
+    basicPagePages,
+    kategorijePages,
+  ]);
 };

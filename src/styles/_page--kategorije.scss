@@ -11,8 +11,47 @@
 }
 
 // Style your items
-.kategorije__column > div {
+.kategorija__column-element {
   /* change div to reference your elements you put in <Masonry> */
-//   background: grey;
   margin-bottom: 30px;
+  background-color: white;
+  box-shadow: 1px 1px 6px 0px #ccc;
+  box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border: none;
+
+  .kategorija-element__title {
+    text-transform: uppercase;
+    margin-top: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 20px black;
+    z-index: 1;
+    letter-spacing: 1px;
+  }
+
+  .gatsby-image-wrapper picture img {
+    transition: all 500ms ease 0s !important;
+  }
+  &:hover .gatsby-image-wrapper picture img {
+    transform: scale(1.05);
+  }
+
+  .card-section {
+    text-align: center;
+    div {
+      a {
+        display: block;
+        padding: 10px;
+        color: $primary-color;
+        &:hover {
+          background: $background-color;
+        }
+      }
+    }
+  }
 }
