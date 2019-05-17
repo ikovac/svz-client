@@ -1,17 +1,15 @@
 import React from "react";
 
 import Container from "../components/Container";
+import PageTitle from "../components/PageTitle";
+import Kategorije from "../components/Kategorije";
 import { graphql } from "gatsby";
-
-import Masonry from "react-masonry-css";
-// https://www.npmjs.com/package/react-masonry-css
 
 const KategorijePage = ({ data }) => {
   return (
     <Container>
-      {data.allNodeKategorije.edges.map(({ node }) => (
-        <p key={node.drupal_internal__nid}>{node.title}</p>
-      ))}
+      <PageTitle>Kategorije</PageTitle>
+      <Kategorije kategorije={data.allNodeKategorije.edges} />
     </Container>
   );
 };
@@ -32,7 +30,7 @@ export const query = graphql`
             field_image {
               localFile {
                 childImageSharp {
-                  fluid {
+                  fluid(maxWidth: 450) {
                     ...GatsbyImageSharpFluid
                   }
                 }
