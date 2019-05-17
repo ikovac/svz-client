@@ -1,0 +1,26 @@
+.partneri-block {
+  margin-top: 30px;
+}
+
+.partneri-block__title {
+  margin-bottom: 10px;
+}
+.partner-block__partner-element-wrapper {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  //   margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.partner-element__column {
+  padding-right: 20px; /* gutter size */
+  background-clip: padding-box;
+
+  .partner-block__partner-element {
+    opacity: 0.8;
+    max-width: 300px;
+    &:hover {
+        opacity: 1;
+    }
+  }
+}

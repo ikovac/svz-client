@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PartnerElement from "./PartnerElement";
+import Masonry from "react-masonry-css";
 
 const PartneriBlock = () => (
   <StaticQuery
@@ -19,7 +20,7 @@ const PartneriBlock = () => (
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 250) {
-                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluid_tracedSVG
                       }
                     }
                   }
@@ -34,8 +35,12 @@ const PartneriBlock = () => (
       const { edges: partneri } = data.allNodePartneri;
       return (
         <div className="partneri-block">
-          <h3>Partneri</h3>
-          <div className="partner-block__partner-element-wrapper">
+          <h3 className="partneri-block__title">Partneri</h3>
+          <Masonry
+            className="partner-block__partner-element-wrapper"
+            columnClassName="partner-element__column"
+            breakpointCols={{ default: 4, 1100: 3, 700: 2, 500: 1 }}
+          >
             {partneri.map(({ node }) => (
               <PartnerElement
                 key={node.drupal_internal__nid}
@@ -46,7 +51,7 @@ const PartneriBlock = () => (
                 link={node.field_web_adresa_partnera.uri}
               />
             ))}
-          </div>
+          </Masonry>
         </div>
       );
     }}
