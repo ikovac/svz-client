@@ -14,30 +14,33 @@ const KorisneInformacijePage = ({ data }) => {
   return (
     <Container>
       <PageTitle>Korisne informacije</PageTitle>
-      <div className="posts-wrapper row">
+      <div className="posts-wrapper">
         {posts.map(({ node: post }) => (
-          <div
-            className="views-row columns medium-6"
-            key={post.drupal_internal__nid}
-          >
-            <article className="card">
-              <Link to={post.path.alias} title={post.title}>
-                <Image
-                  source={
-                    post.relationships.field_image.localFile.childImageSharp
-                      .fluid
-                  }
-                  alt={post.title}
-                />
-              </Link>
-              <div className="card-divider">
+          <div className="views-row" key={post.drupal_internal__nid}>
+            <article className="row">
+              <div className="columns medium-4 group-left">
                 <Link to={post.path.alias} title={post.title}>
-                  <h3>{post.title}</h3>
+                  <Image
+                    source={
+                      post.relationships.field_image.localFile.childImageSharp
+                        .fluid
+                    }
+                    alt={post.title}
+                  />
                 </Link>
-                <p>{returnMonthYearFormat(new Date(post.created))}</p>
               </div>
-              <div className="card-section">
-                {getTextSummary(post.body.value)}
+              <div className="columns medium-8 right-section">
+                <div className="right-section__group-header">
+                  <div className="group-header__title">
+                    <Link to={post.path.alias} title={post.title}>
+                      <h3>{post.title}</h3>
+                    </Link>
+                  </div>
+                </div>
+                <div className="right-section__group-body">
+                  <p className="group-body__date">{returnMonthYearFormat(new Date(post.created))}</p>
+                  {getTextSummary(post.body.value)}
+                </div>
               </div>
             </article>
           </div>
@@ -70,7 +73,7 @@ export const query = graphql`
             field_image {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 500) {
+                  fluid(maxWidth: 550) {
                     ...GatsbyImageSharpFluid
                   }
                 }
