@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import { graphql, Link } from "gatsby";
 import Image from "../components/Image";
+import returnMonthYearFormat from "../utils/dateUtils";
 
 import getTextSummary from "../utils/trimHtmlText";
 
@@ -13,24 +14,29 @@ const KorisneInformacijePage = ({ data }) => {
   return (
     <Container>
       <PageTitle>Korisne informacije</PageTitle>
-      <div className="posts-wrapper">
+      <div className="posts-wrapper row">
         {posts.map(({ node: post }) => (
-          <div className="views-row" key={post.drupal_internal__nid}>
-            <article className="row">
-              <div className="group-left columns medium-4">
-                <Link to={post.path.alias} title={post.title}>
-                  <Image
-                    source={
-                      post.relationships.field_image.localFile.childImageSharp
-                        .fluid
-                    }
-                  />
-                </Link>
-              </div>
-              <div className="group-right columns medium-8">
+          <div
+            className="views-row columns medium-6"
+            key={post.drupal_internal__nid}
+          >
+            <article className="card">
+              <Link to={post.path.alias} title={post.title}>
+                <Image
+                  source={
+                    post.relationships.field_image.localFile.childImageSharp
+                      .fluid
+                  }
+                  alt={post.title}
+                />
+              </Link>
+              <div className="card-divider">
                 <Link to={post.path.alias} title={post.title}>
                   <h3>{post.title}</h3>
                 </Link>
+                <p>{returnMonthYearFormat(new Date(post.created))}</p>
+              </div>
+              <div className="card-section">
                 {getTextSummary(post.body.value)}
               </div>
             </article>
@@ -45,7 +51,10 @@ export default KorisneInformacijePage;
 
 export const query = graphql`
   query KorisneInformacijePage {
-    allNodeKorisneInformacije(filter: { status: { eq: true } }) {
+    allNodeKorisneInformacije(
+      filter: { status: { eq: true } }
+      sort: { fields: created, order: DESC }
+    ) {
       edges {
         node {
           title
@@ -53,7 +62,7 @@ export const query = graphql`
           path {
             alias
           }
-
+          created
           body {
             value
           }
@@ -61,7 +70,7 @@ export const query = graphql`
             field_image {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400) {
+                  fluid(maxWidth: 500) {
                     ...GatsbyImageSharpFluid
                   }
                 }

@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Cookie|Fira+Sans");
 
-
-
 @import "foundation";
 @import "variables";
 
@@ -10,8 +8,8 @@ h2,
 h3,
 h4,
 h5,
-p,
-li,
+// p,
+// li,
 label,
 option,
 select,
@@ -34,6 +32,12 @@ textarea {
   color: $primary-color;
 }
 
+p,
+div,
+li {
+  color: $body-text-color;
+}
+
 @import "layout";
 @import "header";
 @import "nav";
@@ -41,6 +45,7 @@ textarea {
 
 @import "page--kategorije";
 @import "page--onama";
+@import "page--korisne-informacije";
 
 h1,
 h2,
@@ -55,7 +60,7 @@ body {
 }
 
 main {
-    min-height: 68vh;
+  min-height: 68vh;
 }
 
 .page-title {

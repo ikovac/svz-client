@@ -1,0 +1,61 @@
+.posts-wrapper {
+  .views-row {
+    article.card {
+      margin: auto;
+      margin-bottom: 20px;
+      max-width: 500px;
+      border: none;
+      box-shadow: $teaser-box-shadow;
+      position: relative;
+      overflow: hidden;
+
+      .gatsby-image-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-image: linear-gradient(#ff9d2f, #ff6126);
+        transform: skewY(-6deg);
+        transform-origin: top left;
+      }
+      .card-divider {
+        text-align: center;
+        background-color: white;
+        display: block;
+      }
+    }
+  }
+}
+
+.korisne-informacije__page-wrapper {
+  margin-top: 30px;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $teaser-box-shadow;
+  .gatsby-image-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-image: linear-gradient(#ff9d2f, #ff6126);
+    transform: skewY(-4deg);
+    transform-origin: top left;
+    max-height: 400px;
+  }
+  .korisne-informacije__title {
+      text-align: center;
+  }
+  .korisne-informacije__date {
+      text-align: center;
+  }
+  .korisne-informacije__body {
+    padding: 10px 20px;
+  }
+}

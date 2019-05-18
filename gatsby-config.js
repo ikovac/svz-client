@@ -12,6 +12,7 @@ module.exports = {
       { name: "Kategorije", path: "/kategorije" },
       { name: "Korisne informacije", path: "/korisne-informacije" },
       { name: "O nama", path: "/o-nama" },
+      { name: "Kontakt", path: "/kontakt" },
     ],
   },
   plugins: [
