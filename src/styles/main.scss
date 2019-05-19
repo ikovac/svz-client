@@ -42,7 +42,9 @@ li {
 @import "header";
 @import "nav";
 @import "footer";
+@import "timeline";
 
+@import "page--front";
 @import "page--kategorije";
 @import "page--onama";
 @import "page--korisne-informacije";
@@ -60,7 +62,7 @@ body {
 }
 
 main {
-  min-height: 68vh;
+  min-height: 50vh;
 }
 
 .page-title {

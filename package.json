@@ -26,7 +26,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
-    "react-masonry-css": "^1.0.12"
+    "react-masonry-css": "^1.0.12",
+    "react-vertical-timeline-component": "^2.3.1"
   },
   "devDependencies": {
     "prettier": "^1.17.0"
