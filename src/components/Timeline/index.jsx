@@ -3,7 +3,6 @@ import TimelineCard from "./TimelineCard";
 import { StaticQuery, graphql } from "gatsby";
 
 import { VerticalTimeline } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 
 const Timeline = () => (
   <StaticQuery
