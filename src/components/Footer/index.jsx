@@ -20,12 +20,12 @@ const Footer = () => {
               <FaInfoCircle /> Informacije
             </h3>
             <p>
-              <Link to="o-nama" title="o nama">
+              <Link to="/o-nama" title="o nama">
                 O nama
-              </Link>
+              </Link> 
             </p>
             <p>
-              <Link to="opci-uvjeti-koristenja" title="opći uvjeti korištenja">
+              <Link to="/opci-uvjeti-koristenja" title="opći uvjeti korištenja">
                 Opći uvjeti korištenja
               </Link>
             </p>
@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="footer-second">
             <h3>Za oglašivače</h3>
             <p>
-              <Link to="postanite-nas-clan" title="postanite naš član">
+              <Link to="/postanite-nas-clan" title="postanite naš član">
                 Postanite naš član
               </Link>
             </p>
