@@ -1,40 +1,3 @@
-/* .vertical-timeline--two-columns {
-  .vertical-timeline-element-content {
-    padding: 0 !important;
-    max-width: 400px;
-    box-shadow: $teaser-box-shadow;
-    border-radius: 3px;
-
-    h3,
-    span,
-    p {
-      font-family: "Fira Sans", sans-serif !important;
-      font-size: 16px;
-    }
-    &::after {
-      content: none;
-    }
-    &::before {
-      border: 13px solid transparent;
-      border-right: 13px solid $primary-color;
-      top: 10px;
-    }
-
-    .timeline-card__body {
-      .timeline-card__body-text {
-        padding: 10px;
-        p {
-          margin: 0;
-        }
-      }
-    }
-    .vertical-timeline-element-date {
-      display: none;
-    }
-  }
-}
- */
-
 $timeline-breakpoint: 850px;
 $timeline-breakpoint-down: 849px;
 
@@ -210,40 +173,6 @@ $timeline-breakpoint-down: 849px;
   background: 0 0;
   box-shadow: none;
 }
-/* .vertical-timeline-element-content:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
-
-/* .vertical-timeline-element-content h2 {
-  color: #303e49;
-}
-.vertical-timeline-element-content .vertical-timeline-element-date,
-.vertical-timeline-element-content p {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #333;
-}
-.vertical-timeline-element-content .vertical-timeline-element-date {
-  display: inline-block;
-}
-.vertical-timeline-element-content p {
-  margin: 1em 0 0;
-  line-height: 1.6;
-}
-.vertical-timeline-element-title {
-  margin: 0;
-}
-.vertical-timeline-element-subtitle {
-  margin: 0;
-}
-.vertical-timeline-element-content .vertical-timeline-element-date {
-  float: left;
-  padding: 0.8em 0;
-  opacity: 0.7;
-} */
 
 .vertical-timeline-element-content::before {
   content: "";
@@ -260,21 +189,6 @@ $timeline-breakpoint-down: 849px;
   display: none;
 }
 
-/* @media only screen and (min-width: 768px) {
-  .vertical-timeline-element-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
-  }
-  .vertical-timeline-element-content p {
-    font-size: 16px;
-    font-size: 1rem;
-  }
-  .vertical-timeline-element-content .vertical-timeline-element-date {
-    font-size: 14px;
-    font-size: 0.875rem;
-  }
-} */
-
 @media only screen and (min-width: $timeline-breakpoint) {
   .vertical-timeline--two-columns .vertical-timeline-element-content {
     margin-left: 0;
@@ -289,16 +203,8 @@ $timeline-breakpoint-down: 849px;
     border: 13px solid transparent;
     border-left: 13px solid $primary-color;
   }
-  /* .vertical-timeline--two-columns
-    .vertical-timeline-element-content
-    .vertical-timeline-element-date {
-    position: absolute;
-    width: 100%;
-    left: 124%;
-    top: 6px;
-    font-size: 16px;
-    font-size: 1rem;
-  } */
+
+
   .vertical-timeline--two-columns
     .vertical-timeline-element.vertical-timeline-element--right
     .vertical-timeline-element-content,
@@ -321,18 +227,6 @@ $timeline-breakpoint-down: 849px;
     border: 13px solid transparent;
     border-right: 13px solid $primary-color;
   }
-  /* .vertical-timeline--two-columns
-    .vertical-timeline-element.vertical-timeline-element--right
-    .vertical-timeline-element-content
-    .vertical-timeline-element-date,
-  .vertical-timeline--two-columns
-    .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
-    .vertical-timeline-element-content
-    .vertical-timeline-element-date {
-    left: auto;
-    right: 124%;
-    text-align: right;
-  } */
 }
 
 .vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
