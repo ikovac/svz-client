@@ -20,31 +20,6 @@
       top: 10px;
     }
 
-    .timeline-card__header {
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      background-color: $primary-color;
-      h3 {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: inherit;
-        margin: 0;
-        color: white;
-      }
-      .timeline-card__header-number {
-        display: inline;
-        float: left;
-        padding: 10px;
-        background: white;
-        margin-right: 20px;
-        color: $primary-color;
-        span {
-          font-size: 20px;
-        }
-      }
-    }
     .timeline-card__body {
       .timeline-card__body-text {
         padding: 10px;
@@ -60,12 +35,12 @@
 }
  */
 
- $timeline-breakpoint: 850px;
- $timeline-breakpoint-down: 849px;
+$timeline-breakpoint: 850px;
+$timeline-breakpoint-down: 849px;
 
 .vertical-timeline {
-  width: 95%;
-  max-width: 1170px;
+  width: 90%;
+  max-width: 1200px;
   margin: 2em auto;
   position: relative;
   padding: 2em 0;
@@ -491,5 +466,56 @@
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+
+.timeline-wrapper {
+  .vertical-timeline-element-content {
+    border-radius: 0px 0px 5px 5px;
+    // max-width: 400px;
+    .timeline-card__header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: $primary-color;
+      border-radius: 3px 3px 0px 0px;
+      h3 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: inherit;
+        margin: 0;
+        color: white;
+        font-size: 1.1875rem;
+      }
+      .timeline-card__header-number {
+        display: inline;
+        float: left;
+        padding: 5px 10px;
+        background: white;
+        margin-right: 20px;
+        color: $primary-color;
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+    &::after {
+      content: none;
+    }
+    .timeline-card__body {
+      .timeline-card__body-text {
+        padding: 20px 10px;
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .vertical-timeline-element-date {
+      display: none;
+    }
+    .gatsby-image-wrapper {
+      border-radius: 0px 0px 5px 5px;
+    }
   }
 }

@@ -24,7 +24,7 @@ const Timeline = () => (
                 field_image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 400) {
+                      fluid(maxWidth: 500) {
                         ...GatsbyImageSharpFluid
                       }
                     }
