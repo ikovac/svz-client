@@ -38,8 +38,12 @@ const KorisneInformacijePage = ({ data }) => {
                   </div>
                 </div>
                 <div className="right-section__group-body">
-                  <p className="group-body__date">{returnMonthYearFormat(new Date(post.created))}</p>
-                  {getTextSummary(post.body.value)}
+                  <p className="group-body__date">
+                    {returnMonthYearFormat(new Date(post.created))}
+                  </p>
+                  <div className="group-body__text">
+                    {getTextSummary(post.body.value)}
+                  </div>
                 </div>
               </div>
             </article>

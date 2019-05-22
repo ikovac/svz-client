@@ -38,6 +38,11 @@
             margin-bottom: 5px;
             color: $primary-color;
           }
+          .group-body__text {
+            p {
+              color: $body-text-color;
+            }
+          }
         }
       }
     }
@@ -86,5 +91,8 @@
   }
   .korisne-informacije__body {
     padding: 10px 20px;
+    p {
+      color: $body-text-color;
+    }
   }
 }

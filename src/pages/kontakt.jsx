@@ -2,6 +2,7 @@ import React from "react";
 
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
+import SimpleContactForm from "../components/ContactForm/SimpleContactForm";
 
 import { FaPhone, FaMobileAlt } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
@@ -23,6 +24,8 @@ const KontaktPage = () => {
           <FaMobileAlt /> +385 (0)98 180 2609
         </p>
       </div>
+
+      <SimpleContactForm />
     </Container>
   );
 };
