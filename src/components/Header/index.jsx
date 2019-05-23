@@ -67,7 +67,6 @@ class Header extends Component {
                   id="menu-toggle"
                   className={cn("hamburger hamburger--vortex", isActive)}
                   onClick={this.toggleMenu}
-                  role="button"
                   aria-label="Menu"
                 >
                   <span className="hamburger-box">
