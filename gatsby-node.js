@@ -16,6 +16,9 @@ exports.createPages = ({ actions, graphql }) => {
   const basicPageTemplate = path.resolve("src/templates/basicPage.jsx");
   const podKategorijeTemplate = path.resolve("src/templates/podKategorija.jsx");
 
+  // Kategorije
+  const restoraniSaleTemplate = path.resolve("src/templates/restoraniSale.jsx");
+
   const edges = `
     edges {
       node {
@@ -93,9 +96,32 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 
+  const restoraniSalePages = graphql(`
+    query nodesRestoraniSaleQuery {
+      allNodeRestoraniSale(filter: { status: { eq: true } }) {
+        ${edges}
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    result.data.allNodeRestoraniSale.edges.forEach(({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: restoraniSaleTemplate,
+        context: {
+          nid: node.drupal_internal__nid,
+        },
+      });
+    });
+  });
+
   return Promise.all([
     korisneInformacijePages,
     basicPagePages,
     kategorijePages,
+    restoraniSalePages,
   ]);
 };

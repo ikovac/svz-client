@@ -27,7 +27,9 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-masonry-css": "^1.0.12",
-    "react-vertical-timeline-component": "^2.3.1"
+    "react-slick": "^0.24.0",
+    "react-vertical-timeline-component": "^2.3.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "prettier": "^1.17.0"
