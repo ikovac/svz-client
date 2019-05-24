@@ -65,21 +65,23 @@ export default ({ data }) => {
           )}
         </div>
 
-        <div className="leaflet-wrapper">
-          <LeafletMap
-            lat={
-              nodeRestoraniSale.relationships.field_lokacija_na_mapi
-                .field_latitude
-            }
-            lng={
-              nodeRestoraniSale.relationships.field_lokacija_na_mapi
-                .field_longitude
-            }
-          >
-            <h4>{nodeRestoraniSale.title}</h4>
-            <p>{nodeRestoraniSale.field_adresa}</p>
-          </LeafletMap>
-        </div>
+        {nodeRestoraniSale.relationships.field_lokacija_na_mapi && (
+          <div className="leaflet-wrapper">
+            <LeafletMap
+              lat={
+                nodeRestoraniSale.relationships.field_lokacija_na_mapi
+                  .field_latitude
+              }
+              lng={
+                nodeRestoraniSale.relationships.field_lokacija_na_mapi
+                  .field_longitude
+              }
+            >
+              <h4>{nodeRestoraniSale.title}</h4>
+              <p>{nodeRestoraniSale.field_adresa}</p>
+            </LeafletMap>
+          </div>
+        )}
       </div>
     </div>
   );
