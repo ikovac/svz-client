@@ -1,50 +1,31 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
-import Slideshow from "../components/Slideshow";
-import Image from "../components/Image";
 
-import { FaMapMarkerAlt, FaUsers, FaMapSigns, FaParking } from "react-icons/fa";
+import SocialMediaLinks from "../components/SocialMediaLinks";
+import KontaktInfo from "../components/KontaktInfo";
+import MainInfo from "../components/MainInfo";
+import Slideshow from "../components/Slideshow";
 
 export default ({ data }) => {
   const { nodeRestoraniSale } = data;
   return (
-    <Container>
-      <div className="usluge-wrapper">
-        <PageTitle>{nodeRestoraniSale.title}</PageTitle>
-        {/* <div className="slideshow-wrapper">
-          <Slideshow>
-            {nodeRestoraniSale.relationships.field_content_main_info.relationships.field_galerija.map(
-              img => (
-                <Image
-                  key={img.localFile.childImageSharp.fluid.originalName}
-                  source={img.localFile.childImageSharp.fluid}
-                  alt={nodeRestoraniSale.title}
-                />
-              )
-            )}
-          </Slideshow>
-        </div> */}
+    <div className="usluge-wrapper">
+      <PageTitle>{nodeRestoraniSale.title}</PageTitle>
+
+      <div className="slideshow-wrapper">
+        <Slideshow
+          gallery={
+            nodeRestoraniSale.relationships.field_content_main_info
+              .relationships.field_galerija
+          }
+          alt={nodeRestoraniSale.title}
+          showThumbnails={true}
+        />
+      </div>
+      <div className="usluge__content-wrapper">
         <div className="main-info">
-          <p>
-            <FaMapMarkerAlt />
-            {
-              nodeRestoraniSale.relationships.field_content_main_info
-                .relationships.field_lokacija.name
-            }
-          </p>
-          <p>
-            <FaUsers /> Kapacitet do {nodeRestoraniSale.field_kapacitet} osoba
-          </p>
-          <p>
-            <FaMapSigns /> {nodeRestoraniSale.field_adresa}
-          </p>
-          {nodeRestoraniSale.field_parking && (
-            <p>
-              <FaParking /> Dostupan Parking
-            </p>
-          )}
+          <MainInfo content={nodeRestoraniSale} />
         </div>
 
         <div className="field-opis">
@@ -57,21 +38,24 @@ export default ({ data }) => {
         </div>
 
         <div className="kontakt-info">
-            <h4>Kontakt Info</h4>
-          <p>
-            {
-              nodeRestoraniSale.relationships.field_content_main_info
-                .field_email
-            }
-          </p>
-          {nodeRestoraniSale.relationships.field_content_main_info.field_kontakt.map(
-            kontakt => (
-              <p key={kontakt}>{kontakt}</p>
-            )
+          <h4>Kontakt Info</h4>
+
+          {nodeRestoraniSale.relationships.field_content_main_info && (
+            <KontaktInfo
+              mainInfo={nodeRestoraniSale.relationships.field_content_main_info}
+            />
+          )}
+
+          {nodeRestoraniSale.relationships.field_drustvene_mreze && (
+            <SocialMediaLinks
+              socialMedia={
+                nodeRestoraniSale.relationships.field_drustvene_mreze
+              }
+            />
           )}
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
@@ -128,9 +112,11 @@ export const query = graphql`
             field_galerija {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000) {
+                  original: fluid(maxWidth: 800, maxHeight: 500) {
                     ...GatsbyImageSharpFluid
-                    originalName
+                  }
+                  thumbnail: fluid(maxWidth: 250, maxHeight: 150) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

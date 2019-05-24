@@ -1,23 +1,44 @@
 import React from "react";
+import ImageGallery from "react-image-gallery";
+import Image from "../Image";
 
-import Slider from "react-slick";
+import "react-image-gallery/styles/scss/image-gallery.scss";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+const Slideshow = ({ gallery, alt, showThumbnails }) => {
+  const images = gallery.map(slika => ({
+    original: slika.localFile.childImageSharp.original,
+    thumbnail: slika.localFile.childImageSharp.thumbnail,
+  }));
 
-const Slideshow = ({ children }) => {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    // adaptiveHeight: true,
-    lazyLoad: "progress",
-    // fade: true,
-    // cssEase: "linear",
+  const customRenderItem = item => {
+    return (
+      <div className="image-gallery-image">
+        <Image source={item.original} alt={alt} />
+      </div>
+    );
   };
-  return <Slider {...settings}>{children}</Slider>;
+
+  const customRenderThumbnail = item => {
+    return (
+      <div className="image-gallery-thumbnail-inner">
+        <Image source={item.thumbnail} alt={alt} />
+      </div>
+    );
+  };
+
+  return (
+    <ImageGallery
+      items={images}
+      renderItem={customRenderItem}
+      renderThumbInner={customRenderThumbnail}
+      showThumbnails={showThumbnails}
+      showPlayButton={false}
+      showFullscreenButton={false}
+      showBullets={true}
+      showIndex={true}
+      lazyLoad={true}
+    />
+  );
 };
 
 export default Slideshow;

@@ -1,15 +1,28 @@
 .usluge-wrapper {
+  max-width: 1200px;
+  margin: auto;
+
+  .slideshow-wrapper {
+    max-width: 800px;
+    max-height: 650px;
+    margin: auto;
+  }
+  .usluge__content-wrapper {
     background-color: white;
-    h1 {
-        padding-top: 20px;
-    }
+    max-width: 750px;
+    margin: auto;
 
     .main-info {
-        padding: 20px;
-        text-align: center;
+      padding: 20px;
+      text-align: center;
     }
 
     .field-opis {
-        padding: 20px;
+      padding: 20px;
     }
+
+    .kontakt-info {
+      padding: 20px;
+    }
+  }
 }
