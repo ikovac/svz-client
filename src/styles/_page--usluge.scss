@@ -24,5 +24,11 @@
     .kontakt-info {
       padding: 20px;
     }
+
+    .leaflet-wrapper {
+      > div {
+        height: 400px;
+      }
+    }
   }
 }

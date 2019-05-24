@@ -7,6 +7,7 @@ import KontaktInfo from "../components/KontaktInfo";
 import MainInfo from "../components/MainInfo";
 import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
+import LeafletMap from "../components/LeafletMap";
 
 export default ({ data }) => {
   const { nodeRestoraniSale } = data;
@@ -62,6 +63,22 @@ export default ({ data }) => {
               }
             />
           )}
+        </div>
+
+        <div className="leaflet-wrapper">
+          <LeafletMap
+            lat={
+              nodeRestoraniSale.relationships.field_lokacija_na_mapi
+                .field_latitude
+            }
+            lng={
+              nodeRestoraniSale.relationships.field_lokacija_na_mapi
+                .field_longitude
+            }
+          >
+            <h4>{nodeRestoraniSale.title}</h4>
+            <p>{nodeRestoraniSale.field_adresa}</p>
+          </LeafletMap>
         </div>
       </div>
     </div>
