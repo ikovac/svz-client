@@ -6,6 +6,7 @@ import SocialMediaLinks from "../components/SocialMediaLinks";
 import KontaktInfo from "../components/KontaktInfo";
 import MainInfo from "../components/MainInfo";
 import Slideshow from "../components/Slideshow";
+import PaketiTabs from "../components/PaketiTabs";
 
 export default ({ data }) => {
   const { nodeRestoraniSale } = data;
@@ -29,7 +30,7 @@ export default ({ data }) => {
         </div>
 
         <div className="field-opis">
-          <h4>Opis</h4>
+          <h3>Opis</h3>
           <div
             dangerouslySetInnerHTML={{
               __html: nodeRestoraniSale.body.processed,
@@ -37,8 +38,16 @@ export default ({ data }) => {
           />
         </div>
 
+        <div className="field-paketi">
+          <h3>Preporučeni meniji</h3>
+          <PaketiTabs
+            items={nodeRestoraniSale.relationships.field_paketi}
+            label={"Meni"}
+          />
+        </div>
+
         <div className="kontakt-info">
-          <h4>Kontakt Info</h4>
+          <h3>Kontakt Info</h3>
 
           {nodeRestoraniSale.relationships.field_content_main_info && (
             <KontaktInfo
