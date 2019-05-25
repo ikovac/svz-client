@@ -10,12 +10,34 @@ import PaketiTabs from "../components/PaketiTabs";
 import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
 
+import { FaInfo, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+
 export default ({ data }) => {
   const { nodeRestoraniSale } = data;
+  const navItems = [
+    {
+      icon: <FaInfo />,
+      label: "Info",
+      linkId: "main-info",
+    },
+    {
+      icon: <FaPhone />,
+      label: "Kontakt",
+      linkId: "kontakt-info",
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      label: "Karta",
+      linkId: "leaflet-wrapper",
+    },
+  ];
   return (
     <div className="usluge-wrapper">
       <PageTitle>{nodeRestoraniSale.title}</PageTitle>
-      <UslugeNavBar />
+      <UslugeNavBar
+        articleID={nodeRestoraniSale.drupal_internal__nid}
+        items={navItems}
+      />
 
       <div className="slideshow-wrapper">
         <Slideshow
@@ -32,7 +54,7 @@ export default ({ data }) => {
           <MainInfo content={nodeRestoraniSale} />
         </div>
 
-        <div className="field-opis">
+        <div id="field-opis">
           <h3>Opis</h3>
           <div
             dangerouslySetInnerHTML={{
@@ -41,7 +63,7 @@ export default ({ data }) => {
           />
         </div>
 
-        <div className="field-paketi">
+        <div id="field-paketi">
           <h3>Preporučeni meniji</h3>
           <PaketiTabs
             items={nodeRestoraniSale.relationships.field_paketi}
@@ -49,7 +71,7 @@ export default ({ data }) => {
           />
         </div>
 
-        <div className="kontakt-info">
+        <div id="kontakt-info">
           <h3>Kontakt Info</h3>
 
           {nodeRestoraniSale.relationships.field_content_main_info && (
@@ -68,7 +90,7 @@ export default ({ data }) => {
         </div>
 
         {nodeRestoraniSale.relationships.field_lokacija_na_mapi && (
-          <div className="leaflet-wrapper">
+          <div id="leaflet-wrapper">
             <LeafletMap
               lat={
                 nodeRestoraniSale.relationships.field_lokacija_na_mapi
