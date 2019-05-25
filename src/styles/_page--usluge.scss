@@ -2,15 +2,17 @@
   max-width: 1200px;
   margin: auto;
 
-  .slideshow-wrapper {
-    max-width: 800px;
-    max-height: 650px;
-    margin: auto;
-  }
   .usluge__content-wrapper {
     background-color: white;
-    max-width: 750px;
+    max-width: 800px;
+    padding-top: 20px;
     margin: auto;
+
+    .slideshow-wrapper {
+      max-width: 800px;
+      max-height: 650px;
+      margin: auto;
+    }
 
     #main-info {
       padding: 20px;

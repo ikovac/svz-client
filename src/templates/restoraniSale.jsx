@@ -34,22 +34,22 @@ export default ({ data }) => {
   return (
     <div className="usluge-wrapper">
       <PageTitle>{nodeRestoraniSale.title}</PageTitle>
-      <UslugeNavBar
-        articleID={nodeRestoraniSale.drupal_internal__nid}
-        items={navItems}
-      />
 
-      <div className="slideshow-wrapper">
-        <Slideshow
-          gallery={
-            nodeRestoraniSale.relationships.field_content_main_info
-              .relationships.field_galerija
-          }
-          alt={nodeRestoraniSale.title}
-          showThumbnails={true}
-        />
-      </div>
       <div className="usluge__content-wrapper">
+        <UslugeNavBar
+          articleID={nodeRestoraniSale.drupal_internal__nid}
+          items={navItems}
+        />
+        <div className="slideshow-wrapper">
+          <Slideshow
+            gallery={
+              nodeRestoraniSale.relationships.field_content_main_info
+                .relationships.field_galerija
+            }
+            alt={nodeRestoraniSale.title}
+            showThumbnails={true}
+          />
+        </div>
         <div id="main-info">
           <MainInfo content={nodeRestoraniSale} />
         </div>
