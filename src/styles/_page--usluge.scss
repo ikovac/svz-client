@@ -12,20 +12,20 @@
     max-width: 750px;
     margin: auto;
 
-    .main-info {
+    #main-info {
       padding: 20px;
       text-align: center;
     }
 
-    .field-opis {
+    #field-opis {
       padding: 20px;
     }
 
-    .kontakt-info {
+    #kontakt-info {
       padding: 20px;
     }
 
-    .leaflet-wrapper {
+    #leaflet-wrapper {
       > div {
         height: 400px;
       }

@@ -8,12 +8,14 @@ import MainInfo from "../components/MainInfo";
 import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
 import LeafletMap from "../components/LeafletMap";
+import UslugeNavBar from "../components/UslugeNavBar";
 
 export default ({ data }) => {
   const { nodeRestoraniSale } = data;
   return (
     <div className="usluge-wrapper">
       <PageTitle>{nodeRestoraniSale.title}</PageTitle>
+      <UslugeNavBar />
 
       <div className="slideshow-wrapper">
         <Slideshow
@@ -26,7 +28,7 @@ export default ({ data }) => {
         />
       </div>
       <div className="usluge__content-wrapper">
-        <div className="main-info">
+        <div id="main-info">
           <MainInfo content={nodeRestoraniSale} />
         </div>
 
