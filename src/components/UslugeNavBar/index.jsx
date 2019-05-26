@@ -47,32 +47,30 @@ class UslugeNavBar extends Component {
     const { items } = this.props;
     return (
       <div className="usluge-nav-wrapper">
-        <div className="usluge-nav">
-          <div>
-            {items.map(item => (
-              <div key={item.label} className="usluge-nav-element">
-                <button
-                  onClick={() => this.handleNavBarElementClick(item.linkId)}
-                >
-                  <span className="usluge-nav-element__icon">{item.icon}</span>
-                  <span className="usluge-nav-element__label">
-                    {item.label}
-                  </span>
-                </button>
-              </div>
-            ))}
+        <div className="row usluge-nav">
+          {items.map(item => (
+            <button
+              key={item.label}
+              className="usluge-nav-element columns small-2"
+              onClick={() => this.handleNavBarElementClick(item.linkId)}
+            >
+              <span className="usluge-nav-element__icon">{item.icon}</span>
+              <span className="usluge-nav-element__label">{item.label}</span>
+            </button>
+          ))}
 
-            <div className="usluge-nav-element add-to-wishlist">
-              <button onClick={this.handleAddToWishlist} title="dodaj u odabranu listu">
-                <span className="usluge-nav-element__icon">
-                  <FaHeart />
-                  <span className="usluge-nav-element__icon-plus">
-                    <FaPlus />
-                  </span>
-                </span>
-              </button>
-            </div>
-          </div>
+          <button
+            className="usluge-nav-element add-to-wishlist columns small-2"
+            onClick={this.handleAddToWishlist}
+            title="dodaj u odabranu listu"
+          >
+            <span className="usluge-nav-element__icon">
+              <FaHeart />
+              <span className="usluge-nav-element__icon-plus">
+                <FaPlus />
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     );

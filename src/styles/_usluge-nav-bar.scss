@@ -1,48 +1,54 @@
 .usluge-nav-wrapper {
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 9999;
   text-align: center;
   .usluge-nav {
-    display: inline-block;
-    > div {
+    display: flex;
+    border-radius: 3px;
+    background-color: $primary-color;
+    box-shadow: 0px 0px 7px 0px #404040;
+    .usluge-nav-element {
       display: flex;
-      border-radius: 3px;
-      background-color: $primary-color;
-      box-shadow: 0px 0px 7px 0px #404040;
-      .usluge-nav-element {
-        display: inline-block;
-        padding: 10px;
-        border-right: 1px solid #457d6c;
-        cursor: pointer;
-        &:hover {
-          background-color: #457d6c;
-        }
-        button {
-          color: white;
-          outline: none;
-
-          .usluge-nav-element__icon {
-            margin-right: 10px;
-          }
-          .usluge-nav-element__label {
-            // display: none;
-          }
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border-right: 1px solid #457d6c;
+      cursor: pointer;
+      color: white;
+      outline: none;
+      &:hover {
+        background-color: #457d6c;
+      }
+      .usluge-nav-element__label {
+        display: none;
+      }
+    }
+    .usluge-nav-element.add-to-wishlist {
+      margin-right: 0px;
+      border-right: none;
+      .usluge-nav-element__icon {
+        position: relative;
+        .usluge-nav-element__icon-plus {
+          position: absolute;
+          top: 9px;
+          left: 11px;
+          font-size: 12px;
         }
       }
-      .usluge-nav-element.add-to-wishlist {
-        margin-right: 0px;
-        border-right: none;
-        button {
-          .usluge-nav-element__icon {
-            position: relative;
-            .usluge-nav-element__icon-plus {
-              position: absolute;
-              top: 9px;
-              left: 11px;
-              font-size: 12px;
-            }
-          }
+    }
+  }
+}
+
+@media all and (min-width: 800px) {
+  .usluge-nav-wrapper {
+    .usluge-nav {
+      .usluge-nav-element {
+        .usluge-nav-element__icon {
+          margin-right: 10px;
+        }
+        .usluge-nav-element__label {
+          display: inline;
         }
       }
     }

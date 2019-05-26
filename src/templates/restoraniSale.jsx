@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PageTitle from "../components/PageTitle";
+import SimpleContactForm from "../components/ContactForm/SimpleContactForm";
 
 import SocialMediaLinks from "../components/SocialMediaLinks";
 import KontaktInfo from "../components/KontaktInfo";
@@ -15,16 +16,12 @@ import {
   FaPhone,
   FaMapMarkerAlt,
   FaQuestionCircle,
+  FaTelegramPlane,
 } from "react-icons/fa";
 
 export default ({ data }) => {
   const { nodeRestoraniSale } = data;
   const navItems = [
-    {
-      icon: <FaInfoCircle />,
-      label: "Info",
-      linkId: "main-info",
-    },
     {
       icon: <FaInfoCircle />,
       label: "Info",
@@ -44,6 +41,11 @@ export default ({ data }) => {
       icon: <FaMapMarkerAlt />,
       label: "Karta",
       linkId: "leaflet-wrapper",
+    },
+    {
+      icon: <FaTelegramPlane />,
+      label: "Pošalji upit",
+      linkId: "contact-form",
     },
   ];
   return (
@@ -130,6 +132,11 @@ export default ({ data }) => {
             </LeafletMap>
           </div>
         )}
+
+        <div id="contact-form" className="usluge-section">
+          <h3>Kontaktiraj {nodeRestoraniSale.title}</h3>
+          <SimpleContactForm />
+        </div>
       </div>
     </div>
   );
