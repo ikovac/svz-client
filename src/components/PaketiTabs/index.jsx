@@ -1,26 +1,29 @@
 import React from "react";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.scss";
 
 const PaketiTabs = ({ label, items }) => {
   return (
-    <Tabs>
-      <TabList>
+    <Tabs
+      selectedTabClassName="is-active"
+      selectedTabPanelClassName="is-active"
+    >
+      <TabList className="tabs">
         {items.map((item, index) => (
-          <Tab key={index}>
+          <Tab key={index} className="tabs-title">
             {label} {index + 1}
           </Tab>
         ))}
       </TabList>
-
-      {items.map((item, index) => (
-        <TabPanel key={index}>
-          <div
-            dangerouslySetInnerHTML={{ __html: item.field_paket.processed }}
-          />
-        </TabPanel>
-      ))}
+      <div className="tabs-content">
+        {items.map((item, index) => (
+          <TabPanel key={index} className="tabs-panel">
+            <div
+              dangerouslySetInnerHTML={{ __html: item.field_paket.processed }}
+            />
+          </TabPanel>
+        ))}
+      </div>
     </Tabs>
   );
 };

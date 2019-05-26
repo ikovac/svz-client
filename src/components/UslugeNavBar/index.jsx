@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { document, window, exists } from "browser-monads";
 
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaPlus, FaCheck } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 class UslugeNavBar extends Component {

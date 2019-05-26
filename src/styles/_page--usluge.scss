@@ -1,3 +1,5 @@
+$section-color: #faeccf;
+
 .usluge-wrapper {
   max-width: 1200px;
   margin: auto;
@@ -7,27 +9,136 @@
     max-width: 800px;
     padding-top: 20px;
     margin: auto;
+    box-shadow: $teaser-box-shadow;
 
     .slideshow-wrapper {
-      max-width: 800px;
+      max-width: 840px;
       max-height: 650px;
       margin: auto;
+      padding: 20px;
+      // padding-top: 0;
+    }
+
+    .section-represent__icon {
+      position: absolute;
+      top: 0;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      border-radius: 100%;
+      font-size: 30px;
+    }
+
+    .usluge-section {
+      position: relative;
+      padding: 30px;
+
+      h3 {
+        margin-top: 10px;
+        text-align: center;
+        text-decoration: underline;
+        // color: $menu-color-active;
+      }
     }
 
     #main-info {
-      padding: 20px;
-      text-align: center;
+      margin-top: 20px;
+      padding-bottom: 10px;
+      background-color: $section-color;
+
+      .section-represent__icon {
+        background-color: $section-color;
+      }
+
+      > div {
+        padding: 0;
+        margin-bottom: 40px;
+        padding-left: 10%;
+        p {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          svg {
+            font-size: 50px;
+            margin-right: 20px;
+          }
+        }
+      }
     }
 
     #field-opis {
       padding: 20px;
+      background-color: white;
+      padding-bottom: 0;
+      .section-represent__icon {
+        background-color: white;
+      }
+    }
+
+    #field-paketi {
+      padding-top: 0;
     }
 
     #kontakt-info {
       padding: 20px;
+      background-color: $section-color;
+
+      .section-represent__icon {
+        background-color: $section-color;
+      }
+      .kontakt-info__field-email {
+        p {
+          display: flex;
+          align-items: center;
+          svg {
+            margin-right: 15px;
+          }
+        }
+      }
+
+      .kontakt-info__field-phone {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        ul {
+          margin-bottom: 0px;
+          margin-left: 0px;
+          margin-left: 15px;
+          li {
+            list-style: none;
+          }
+        }
+      }
+
+      .social-media-links {
+        display: inline-block;
+        p {
+          display: inline-block;
+          margin-right: 10px;
+          a {
+            background-color: $primary-color;
+            padding: 10px;
+            border-radius: 100%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            &:hover {
+              background-color: #457d6c;
+            }
+          }
+        }
+      }
     }
 
     #leaflet-wrapper {
+      padding: 0;
       > div {
         height: 400px;
       }

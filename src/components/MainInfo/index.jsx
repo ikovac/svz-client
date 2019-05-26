@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaUsers, FaMapSigns, FaParking } from "react-icons/fa";
 const MainInfo = ({ content }) => {
   return (
     <>
-      <div className="main-info__lokacija">
+      <div className="main-info__lokacija columns medium-6">
         <p>
           <FaMapMarkerAlt />
           {
@@ -16,7 +16,7 @@ const MainInfo = ({ content }) => {
       </div>
 
       {content.field_kapacitet && (
-        <div className="main-info__kapacitet">
+        <div className="main-info__kapacitet columns medium-6">
           <p>
             <FaUsers /> Kapacitet do {content.field_kapacitet} osoba
           </p>
@@ -24,7 +24,7 @@ const MainInfo = ({ content }) => {
       )}
 
       {content.field_adresa && (
-        <div className="main-info--adresa">
+        <div className="main-info--adresa columns medium-6">
           <p>
             <FaMapSigns /> {content.field_adresa}
           </p>
@@ -32,7 +32,7 @@ const MainInfo = ({ content }) => {
       )}
 
       {content.field_parking && (
-        <div className="main-info__parking">
+        <div className="main-info__parking columns medium-6">
           <p>
             <FaParking /> Dostupan Parking
           </p>
