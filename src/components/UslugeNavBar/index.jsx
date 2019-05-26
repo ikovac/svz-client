@@ -51,21 +51,26 @@ class UslugeNavBar extends Component {
           <div>
             {items.map(item => (
               <div key={item.label} className="usluge-nav-element">
-                <a onClick={() => this.handleNavBarElementClick(item.linkId)}>
+                <button
+                  onClick={() => this.handleNavBarElementClick(item.linkId)}
+                >
                   <span className="usluge-nav-element__icon">{item.icon}</span>
                   <span className="usluge-nav-element__label">
                     {item.label}
                   </span>
-                </a>
+                </button>
               </div>
             ))}
 
             <div className="usluge-nav-element add-to-wishlist">
-              <a onClick={this.handleAddToWishlist}>
+              <button onClick={this.handleAddToWishlist} title="dodaj u odabranu listu">
                 <span className="usluge-nav-element__icon">
                   <FaHeart />
+                  <span className="usluge-nav-element__icon-plus">
+                    <FaPlus />
+                  </span>
                 </span>
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -11,14 +11,16 @@
       background-color: $primary-color;
       box-shadow: 0px 0px 7px 0px #404040;
       .usluge-nav-element {
-        a {
-          display: inline-block;
-          padding: 10px;
+        display: inline-block;
+        padding: 10px;
+        border-right: 1px solid #457d6c;
+        cursor: pointer;
+        &:hover {
+          background-color: #457d6c;
+        }
+        button {
           color: white;
-          border-right: 1px solid #457d6c;
-          &:hover {
-              background-color: #457d6c;
-          }
+          outline: none;
 
           .usluge-nav-element__icon {
             margin-right: 10px;
@@ -29,10 +31,17 @@
         }
       }
       .usluge-nav-element.add-to-wishlist {
-        a {
+        margin-right: 0px;
+        border-right: none;
+        button {
           .usluge-nav-element__icon {
-            margin-right: 0px;
-            border-right: none;
+            position: relative;
+            .usluge-nav-element__icon-plus {
+              position: absolute;
+              top: 9px;
+              left: 11px;
+              font-size: 12px;
+            }
           }
         }
       }

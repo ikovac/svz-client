@@ -26,6 +26,11 @@ export default ({ data }) => {
       linkId: "main-info",
     },
     {
+      icon: <FaInfoCircle />,
+      label: "Info",
+      linkId: "main-info",
+    },
+    {
       icon: <FaQuestionCircle />,
       label: "Detalji",
       linkId: "field-opis",
