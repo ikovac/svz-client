@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+import reduxProviderWrap from "./redux-provider-wrap";
+
+export const wrapRootElement = reduxProviderWrap;

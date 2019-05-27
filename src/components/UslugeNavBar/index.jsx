@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { document, window, exists } from "browser-monads";
 
-import { FaHeart, FaPlus, FaCheck } from "react-icons/fa";
+import { addToWishlist } from "../../redux/actions/wishlistAction";
+import { addToWishlistCookie, getWishlistCookieItems } from "../../utils/wishlistCookieUtils";
+
+import { FaHeart, FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 class UslugeNavBar extends Component {
@@ -25,6 +29,8 @@ class UslugeNavBar extends Component {
 
   handleAddToWishlist = () => {
     const { articleID } = this.props;
+    addToWishlistCookie(articleID);
+    this.props.addToWishlist(articleID);
     console.log("ARTICLE ID: ", articleID);
     Swal.fire({
       type: "success",
@@ -77,4 +83,7 @@ class UslugeNavBar extends Component {
   }
 }
 
-export default UslugeNavBar;
+export default connect(
+  null,
+  {addToWishlist}
+)(UslugeNavBar);
