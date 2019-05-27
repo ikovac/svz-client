@@ -118,6 +118,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({ wishlistItems: state.wishlist.items });
+
 export default connect(
   mapStateToProps,
   null

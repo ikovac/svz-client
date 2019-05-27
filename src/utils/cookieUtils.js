@@ -3,7 +3,7 @@ import { document, exists } from "browser-monads";
 class cookie {
   static set(cname, cvalue, { exdays, path } = {exdays: 1, path: '/'}) {
     if (!exists(document)) {
-      return;
+      return null;
     }
     var d = new Date();
     d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
@@ -13,7 +13,7 @@ class cookie {
 
   static get(cname) {
     if (!exists(document)) {
-        return;
+        return null;
     }
     var name = cname + "=";
     var ca = document.cookie.split(';');
