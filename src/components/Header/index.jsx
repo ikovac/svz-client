@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
+import { connect } from "react-redux";
 import cn from "classnames";
 import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
@@ -43,8 +44,9 @@ class Header extends Component {
 
   render() {
     const { isOpen } = this.state;
+    const { wishlistItems } = this.props;
     const navClass = isOpen ? "open" : "closed";
-    const isActive = isOpen ? 'is-active' : null;
+    const isActive = isOpen ? "is-active" : null;
     return (
       <StaticQuery
         query={graphql`
@@ -90,7 +92,7 @@ class Header extends Component {
                     <Link to="/odabrana-lista" title="odabrana lista">
                       <FaHeart className="header-top__wishlist-icon" />
                       <span className="badge" id="items-count">
-                        0
+                        {wishlistItems.length}
                       </span>
                     </Link>
                   </div>
@@ -115,4 +117,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({ wishlistItems: state.wishlist.items });
+export default connect(
+  mapStateToProps,
+  null
+)(Header);

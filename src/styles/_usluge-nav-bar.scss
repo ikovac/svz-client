@@ -1,7 +1,7 @@
 .usluge-nav-wrapper {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 1001;
   text-align: center;
   .usluge-nav {
     display: flex;
@@ -33,6 +33,12 @@
           position: absolute;
           top: 9px;
           left: 11px;
+          font-size: 12px;
+        }
+        .usluge-nav-element__icon-check {
+          position: absolute;
+          top: 11px;
+          left: 12px;
           font-size: 12px;
         }
       }

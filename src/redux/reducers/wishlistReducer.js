@@ -2,11 +2,8 @@ import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../actions/actionTypes";
 import { getWishlistCookieItems } from "../../utils/wishlistCookieUtils";
 
 const initialState = {
-  items: [],
-};
-/* const initialState = {
   items: getWishlistCookieItems() ? getWishlistCookieItems() : [],
-}; */
+};
 
 export default function wishlistReducer(state = initialState, action) {
   switch (action.type) {
