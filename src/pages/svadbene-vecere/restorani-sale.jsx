@@ -7,6 +7,7 @@ import axios from "axios";
 import Container from "../../components/Container";
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
+import ArticleTeaser from "../../components/ArticleTeaser";
 
 class RestoraniSalePage extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class RestoraniSalePage extends Component {
   };
 
   render() {
+    const { articles } = this.state;
     return (
       <Container>
         <PageTitle>Restorani & Sale</PageTitle>
@@ -54,7 +56,10 @@ class RestoraniSalePage extends Component {
         />
 
         <div className="articles-section">
-          <p>test</p>
+          {articles &&
+            articles.map(({ node }) => (
+              <ArticleTeaser key={node.drupal_internal__nid} article={node} />
+            ))}
         </div>
       </Container>
     );
