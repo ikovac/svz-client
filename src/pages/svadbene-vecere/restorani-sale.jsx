@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link, graphql } from "gatsby";
 
+// import { exists, window } from "browser-monads";
+import axios from "axios";
+
 import Container from "../../components/Container";
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
@@ -13,18 +16,27 @@ class RestoraniSalePage extends Component {
     };
   }
 
-  onFilterSubmit = filters => {
+  onFilterSubmit = async filters => {
     const articles = this.props.data.allNodeRestoraniSale.edges;
     const { datum, lokacija, kapacitet } = filters;
 
-    if(datum) {
-      // Make API fetch...
+    let unavailable_nids;
+    if (datum) {
+      unavailable_nids = await axios.get(
+        `${process.env.DRUPAL_URI}/api/rezervacije?_format=json&datum=${datum}`
+      );
+      unavailable_nids = unavailable_nids.data.map(
+        rezervacija => rezervacija.field_artikl
+      );
     }
 
     const filteredArticles = articles.filter(
       ({ node }) =>
+        (unavailable_nids
+          ? !unavailable_nids.includes(node.drupal_internal__nid.toString())
+          : true) &&
         (kapacitet ? node.field_kapacitet >= kapacitet : true) &&
-        ((lokacija && lokacija.length)
+        (lokacija && lokacija.length
           ? node.relationships.field_content_main_info.relationships
               .field_lokacija.name === lokacija
           : true)
