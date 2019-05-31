@@ -16,9 +16,9 @@ const IndexPage = ({ data }) => (
       />
       <h2>Sve za Vjenčanje</h2>
       <h3>Isplanirajte Vaše vjenčanje u samo par koraka</h3>
-      <div className="front-page__form">
+      {/* <div className="front-page__form">
         <input type="date"/>
-      </div>
+      </div> */}
     </div>
     <Timeline />
   </div>
