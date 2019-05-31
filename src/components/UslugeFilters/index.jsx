@@ -21,9 +21,13 @@ class UslugeFilters extends Component {
     this.setState({ lokacija: name });
   }
 
+  handleFiltersSubmit = (e) => {
+    e.preventDefault();
+    this.props.onFilterSubmit(this.state);
+  }
+
   render() {
     const { filters } = this.props;
-    console.log("State: ", this.state);
 
     return (
       <StaticQuery
@@ -92,6 +96,8 @@ class UslugeFilters extends Component {
                   </select>
                 </div>
               )}
+
+              <input type="submit" className="button button-primary" onClick={this.handleFiltersSubmit}/>
             </form>
           </div>
         )}

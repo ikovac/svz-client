@@ -31,7 +31,7 @@ class LokacijaInput extends Component {
 
   render() {
     const { lokacijeFiltered, lokacija } = this.state;
-    console.log("FILTERED: ", lokacijeFiltered);
+
     return (
       <>
         <div className="filters__field--lokacija">
@@ -42,6 +42,7 @@ class LokacijaInput extends Component {
             id="filter--lokacija"
             value={lokacija}
             onChange={this.handleLokacijaInputChange}
+            autoComplete="off"
           />
         </div>
         <ul className="searched-lokacija-items">
