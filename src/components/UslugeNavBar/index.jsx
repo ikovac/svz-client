@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+
 import { document, window, exists } from "browser-monads";
 
-import { addToWishlist } from "../../redux/actions/wishlistAction";
-import { addToWishlistCookie } from "../../utils/wishlistCookieUtils";
-
-import { FaHeart, FaPlus, FaCheck } from "react-icons/fa";
-import Swal from "sweetalert2";
+import AddToWishlistBtn from "../AddToWishlistBtn";
 
 class UslugeNavBar extends Component {
   constructor(props) {
@@ -27,31 +23,8 @@ class UslugeNavBar extends Component {
     });
   };
 
-  handleAddToWishlist = () => {
-    const { articleID, addToWishlist } = this.props;
-
-    addToWishlistCookie(articleID);
-    addToWishlist(articleID);
-
-    Swal.fire({
-      type: "success",
-      title: "Dodano u odabranu listu",
-      showConfirmButton: false,
-      timer: 2000,
-    });
-
-    /* Swal.fire({
-      type: 'success',
-      toast: true,
-      position: 'top-end',
-      title: 'Artkl je uklonjen iz odabrane liste',
-      showConfirmButton: false,
-      timer: 2000
-    }); */
-  };
-
   render() {
-    const { items, articleID, wishlistItems } = this.props;
+    const { items, articleID } = this.props;
 
     return (
       <div className="usluge-nav-wrapper">
@@ -67,34 +40,11 @@ class UslugeNavBar extends Component {
             </button>
           ))}
 
-          <button
-            className="usluge-nav-element add-to-wishlist columns small-2"
-            onClick={this.handleAddToWishlist}
-            title="dodaj u odabranu listu"
-          >
-            <span className="usluge-nav-element__icon">
-              <FaHeart />
-              {!wishlistItems.includes(articleID) && (
-                <span className="usluge-nav-element__icon-plus">
-                  <FaPlus />
-                </span>
-              )}
-              {wishlistItems.includes(articleID) && (
-                <span className="usluge-nav-element__icon-check">
-                  <FaCheck />
-                </span>
-              )}
-            </span>
-          </button>
+          <AddToWishlistBtn articleID={articleID} />
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ wishlistItems: state.wishlist.items });
-
-export default connect(
-  mapStateToProps,
-  { addToWishlist }
-)(UslugeNavBar);
+export default UslugeNavBar;

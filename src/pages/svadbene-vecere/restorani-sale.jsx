@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 // import { exists, window } from "browser-monads";
 import axios from "axios";
 
-import Container from "../../components/Container";
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
@@ -48,7 +47,7 @@ class RestoraniSalePage extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <Container>
+      <div className="page-usluge-all">
         <PageTitle>Restorani & Sale</PageTitle>
         <UslugeFilters
           filters={["datum", "lokacija", "kapacitet"]}
@@ -61,7 +60,7 @@ class RestoraniSalePage extends Component {
               <ArticleTeaser key={node.drupal_internal__nid} article={node} />
             ))}
         </div>
-      </Container>
+      </div>
     );
   }
 }
@@ -100,8 +99,8 @@ export const query = graphql`
                 field_galerija {
                   localFile {
                     childImageSharp {
-                      fluid {
-                        src
+                      fluid(maxWidth: 550, maxHeight: 310) {
+                        ...GatsbyImageSharpFluid
                       }
                     }
                   }

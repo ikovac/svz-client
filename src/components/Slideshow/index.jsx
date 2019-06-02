@@ -5,10 +5,17 @@ import Image from "../Image";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 
 const Slideshow = ({ gallery, alt, showThumbnails }) => {
-  const images = gallery.map(slika => ({
-    original: slika.localFile.childImageSharp.original,
-    thumbnail: slika.localFile.childImageSharp.thumbnail,
-  }));
+  let images;
+  if (showThumbnails) {
+    images = gallery.map(slika => ({
+      original: slika.localFile.childImageSharp.original,
+      thumbnail: slika.localFile.childImageSharp.thumbnail,
+    }));
+  } else {
+    images = gallery.map(slika => ({
+      original: slika.localFile.childImageSharp.fluid,
+    }));
+  }
 
   const customRenderItem = item => {
     return (

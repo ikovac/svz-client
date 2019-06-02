@@ -1,0 +1,21 @@
+.usluge-nav-element.add-to-wishlist {
+  margin-right: 0px;
+  border-right: none;
+  cursor: pointer;
+  outline: none;
+  .usluge-nav-element__icon {
+    position: relative;
+    .usluge-nav-element__icon-plus {
+      position: absolute;
+      top: 9px;
+      left: 11px;
+      font-size: 12px;
+    }
+    .usluge-nav-element__icon-check {
+      position: absolute;
+      top: 11px;
+      left: 12px;
+      font-size: 12px;
+    }
+  }
+}
