@@ -47,20 +47,22 @@ class RestoraniSalePage extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <div className="page-usluge-all">
+      <>
         <PageTitle>Restorani & Sale</PageTitle>
-        <UslugeFilters
-          filters={["datum", "lokacija", "kapacitet"]}
-          onFilterSubmit={this.onFilterSubmit}
-        />
+        <div className="usluge-all-container">
+          <UslugeFilters
+            filters={["datum", "lokacija", "kapacitet"]}
+            onFilterSubmit={this.onFilterSubmit}
+          />
 
-        <div className="articles-section">
-          {articles &&
-            articles.map(({ node }) => (
-              <ArticleTeaser key={node.drupal_internal__nid} article={node} />
-            ))}
+          <div className="articles-section">
+            {articles &&
+              articles.map(({ node }) => (
+                <ArticleTeaser key={node.drupal_internal__nid} article={node} />
+              ))}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

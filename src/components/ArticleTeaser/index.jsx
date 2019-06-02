@@ -17,6 +17,7 @@ const ArticleTeaser = ({ article }) => {
           }
           alt={article.title}
           showThumbnails={false}
+          disableArrowKeys={true}
         />
       </div>
       <div className="columns medium-8 right-section">
@@ -35,7 +36,7 @@ const ArticleTeaser = ({ article }) => {
         <div className="right-section__group-body column row">
           <div className="columns medium-6 teaser-summary">
             <div className="group-body__text">
-              {getTextSummary(article.body.processed)}
+              {getTextSummary(article.body.processed, 200)}
             </div>
           </div>
           <div className="columns medium-6">

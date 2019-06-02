@@ -65,6 +65,7 @@ export default ({ data }) => {
             }
             alt={nodeRestoraniSale.title}
             showThumbnails={true}
+            disableArrowKeys={false}
           />
         </div>
         <div id="main-info" className="usluge-section row">

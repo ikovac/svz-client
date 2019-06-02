@@ -4,7 +4,7 @@ import Image from "../Image";
 
 import "react-image-gallery/styles/scss/image-gallery.scss";
 
-const Slideshow = ({ gallery, alt, showThumbnails }) => {
+const Slideshow = ({ gallery, alt, showThumbnails, disableArrowKeys }) => {
   let images;
   if (showThumbnails) {
     images = gallery.map(slika => ({
@@ -39,6 +39,7 @@ const Slideshow = ({ gallery, alt, showThumbnails }) => {
       renderItem={customRenderItem}
       renderThumbInner={customRenderThumbnail}
       showThumbnails={showThumbnails}
+      disableArrowKeys={disableArrowKeys}
       showPlayButton={false}
       showFullscreenButton={false}
       showBullets={true}
