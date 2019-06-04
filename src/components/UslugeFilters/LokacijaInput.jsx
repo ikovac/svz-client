@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import cn from "classnames";
 
 class LokacijaInput extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class LokacijaInput extends Component {
     this.setState({
       lokacijeFiltered: newFilteredValues,
       lokacija: enteredTerm,
+      showInputList: false,
     });
     this.props.handleInputChange(enteredTerm);
   };
@@ -29,8 +31,18 @@ class LokacijaInput extends Component {
     this.props.handleInputChange(name);
   };
 
+  handleOnInputFocus = e => {
+    this.setState({ showInputList: true });
+  };
+
+  handleOnInputFocusExit = e => {
+    this.setState({ showInputList: false });
+  };
+
   render() {
-    const { lokacijeFiltered, lokacija } = this.state;
+    const { lokacijeFiltered, lokacija, showInputList } = this.state;
+
+    let listClassname = showInputList ? "show" : "";
 
     return (
       <>
@@ -43,18 +55,20 @@ class LokacijaInput extends Component {
             value={lokacija}
             onChange={this.handleLokacijaInputChange}
             autoComplete="off"
+            onFocus={this.handleOnInputFocus}
+            onBlur={this.handleOnInputFocusExit}
           />
+          <ul className={cn("searched-lokacija-items", listClassname)}>
+            {lokacijeFiltered.map(({ node }) => (
+              <li
+                key={node.name}
+                onClick={() => this.handleLokacijaItemClick(node.name)}
+              >
+                {node.name}
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="searched-lokacija-items">
-          {lokacijeFiltered.map(({ node }) => (
-            <li
-              key={node.name}
-              onClick={() => this.handleLokacijaItemClick(node.name)}
-            >
-              {node.name}
-            </li>
-          ))}
-        </ul>
       </>
     );
   }

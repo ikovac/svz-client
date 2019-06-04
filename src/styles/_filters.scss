@@ -1,0 +1,19 @@
+.filters-container {
+  h4 {
+    font-size: 16px;
+  }
+
+  form {
+    .filters__field--lokacija {
+
+    }
+
+    .searched-lokacija-items.show {
+        display: block;
+    }
+
+    /* .searched-lokacija-items {
+        display: none;
+    } */
+  }
+}
