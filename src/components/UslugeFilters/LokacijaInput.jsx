@@ -12,13 +12,18 @@ class LokacijaInput extends Component {
 
   handleLokacijaInputChange = e => {
     const enteredTerm = e.target.value;
+    let showInputList = false;
+
+    if (enteredTerm && enteredTerm.length) {
+      showInputList = true;
+    }
     const newFilteredValues = this.props.lokacije.filter(({ node }) =>
       node.name.toUpperCase().includes(enteredTerm.toUpperCase())
     );
     this.setState({
       lokacijeFiltered: newFilteredValues,
       lokacija: enteredTerm,
-      showInputList: false,
+      showInputList: showInputList,
     });
     this.props.handleInputChange(enteredTerm);
   };
@@ -27,17 +32,30 @@ class LokacijaInput extends Component {
     this.setState({
       lokacija: name,
       lokacijeFiltered: [],
+      showInputList: false,
     });
     this.props.handleInputChange(name);
   };
 
   handleOnInputFocus = e => {
-    this.setState({ showInputList: true });
+    if (e.target.value && e.target.value.length) {
+      this.setState({ showInputList: true });
+    }
   };
 
-  handleOnInputFocusExit = e => {
-    this.setState({ showInputList: false });
+  handleDocumentClick = e => {
+    if(!this.lokacijaInputElement.contains(e.target)) {
+      this.setState({ showInputList: false });
+    }
   };
+
+  componentDidMount() {
+    document.addEventListener("click", this.handleDocumentClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleDocumentClick);
+  }
 
   render() {
     const { lokacijeFiltered, lokacija, showInputList } = this.state;
@@ -52,11 +70,11 @@ class LokacijaInput extends Component {
             type="text"
             name="lokacija"
             id="filter--lokacija"
+            ref={node => (this.lokacijaInputElement = node)}
             value={lokacija}
             onChange={this.handleLokacijaInputChange}
             autoComplete="off"
             onFocus={this.handleOnInputFocus}
-            onBlur={this.handleOnInputFocusExit}
           />
           <ul className={cn("searched-lokacija-items", listClassname)}>
             {lokacijeFiltered.map(({ node }) => (

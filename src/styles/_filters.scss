@@ -5,15 +5,31 @@
 
   form {
     .filters__field--lokacija {
+      position: relative;
 
-    }
-
-    .searched-lokacija-items.show {
+      /* #filter--lokacija {
+        position: relative;
+      } */
+      .searched-lokacija-items.show {
         display: block;
-    }
+      }
 
-    /* .searched-lokacija-items {
+      .searched-lokacija-items {
         display: none;
-    } */
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        list-style: none;
+        z-index: 3;
+        margin: 0;
+        li {
+          padding: 10px;
+          border-bottom: 1px solid #333;
+        }
+      }
+    }
   }
 }

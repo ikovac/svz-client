@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from "gatsby";
 
-// import { exists, window } from "browser-monads";
 import axios from "axios";
 
 import PageTitle from "../../components/PageTitle";
@@ -38,7 +37,7 @@ class RestoraniSalePage extends Component {
         (kapacitet ? node.field_kapacitet >= kapacitet : true) &&
         (lokacija && lokacija.length
           ? node.relationships.field_content_main_info.relationships
-              .field_lokacija.name === lokacija
+              .field_lokacija.name.toUpperCase() === lokacija.toUpperCase()
           : true)
     );
     this.setState({ articles: filteredArticles });
