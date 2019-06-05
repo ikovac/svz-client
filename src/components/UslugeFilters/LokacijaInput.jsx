@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import cn from "classnames";
 
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 class LokacijaInput extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +46,7 @@ class LokacijaInput extends Component {
   };
 
   handleDocumentClick = e => {
-    if(!this.lokacijaInputElement.contains(e.target)) {
+    if (!this.lokacijaInputElement.contains(e.target)) {
       this.setState({ showInputList: false });
     }
   };
@@ -66,16 +68,19 @@ class LokacijaInput extends Component {
       <>
         <div className="filters__field--lokacija">
           <label htmlFor="filter--lokacija">Lokacija</label>
-          <input
-            type="text"
-            name="lokacija"
-            id="filter--lokacija"
-            ref={node => (this.lokacijaInputElement = node)}
-            value={lokacija}
-            onChange={this.handleLokacijaInputChange}
-            autoComplete="off"
-            onFocus={this.handleOnInputFocus}
-          />
+          <span className="filter--lokacija_span">
+            <FaMapMarkerAlt />
+            <input
+              type="text"
+              name="lokacija"
+              id="filter--lokacija"
+              ref={node => (this.lokacijaInputElement = node)}
+              value={lokacija}
+              onChange={this.handleLokacijaInputChange}
+              autoComplete="off"
+              onFocus={this.handleOnInputFocus}
+            />
+          </span>
           <ul className={cn("searched-lokacija-items", listClassname)}>
             {lokacijeFiltered.map(({ node }) => (
               <li

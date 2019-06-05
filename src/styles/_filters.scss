@@ -7,9 +7,22 @@
     .filters__field--lokacija {
       position: relative;
 
-      /* #filter--lokacija {
+      .filter--lokacija_span {
         position: relative;
-      } */
+
+        svg {
+          position: absolute;
+          z-index: 1;
+          display: block;
+          width: 20px;
+          height: 20px;
+          transform: translateY(50%);
+          left: 10px;
+        }
+        input {
+          padding-left: 40px;
+        }
+      }
       .searched-lokacija-items.show {
         display: block;
       }
