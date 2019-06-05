@@ -67,7 +67,7 @@ class LokacijaInput extends Component {
     return (
       <>
         <div className="filters__field--lokacija">
-          <label htmlFor="filter--lokacija">Lokacija</label>
+          {/* <label htmlFor="filter--lokacija">Lokacija</label> */}
           <span className="filter--lokacija_span">
             <FaMapMarkerAlt />
             <input
@@ -79,6 +79,7 @@ class LokacijaInput extends Component {
               onChange={this.handleLokacijaInputChange}
               autoComplete="off"
               onFocus={this.handleOnInputFocus}
+              placeholder="Lokacija"
             />
           </span>
           <ul className={cn("searched-lokacija-items", listClassname)}>
@@ -87,6 +88,7 @@ class LokacijaInput extends Component {
                 key={node.name}
                 onClick={() => this.handleLokacijaItemClick(node.name)}
               >
+                <FaMapMarkerAlt />
                 {node.name}
               </li>
             ))}
