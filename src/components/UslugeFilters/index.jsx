@@ -79,7 +79,7 @@ class UslugeFilters extends Component {
         render={lokacijaTerms => (
           <div className="filters-container">
             <h4>Filtriraj rezultate</h4>
-            <form onKeyDown={this.handleKeyDown}>
+            <form onKeyDown={this.handleKeyDown} autoComplete="lalala">
               {filters.includes("datum") && (
                 <div className="filters__field--datum">
                   <FaRegCalendarAlt />

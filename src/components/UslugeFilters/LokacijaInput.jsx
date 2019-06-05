@@ -131,7 +131,7 @@ class LokacijaInput extends Component {
               ref={node => (this.lokacijaInputElement = node)}
               value={lokacija}
               onChange={this.handleLokacijaInputChange}
-              autoComplete="off"
+              autoComplete="lalala"
               onFocus={this.handleOnInputFocus}
               onKeyDown={this.handleKeyDown}
               placeholder="Lokacija"
