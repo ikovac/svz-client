@@ -50,7 +50,7 @@ class RestoraniSalePage extends Component {
         <PageTitle>Restorani & Sale</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters
-            filters={["datum", "lokacija", "kapacitet", "razglas"]}
+            filters={["datum", "lokacija", "kapacitet"]}
             onFilterSubmit={this.onFilterSubmit}
           />
 

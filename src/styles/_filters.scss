@@ -8,34 +8,12 @@ $filter-text-color: #333;
   }
 
   form {
+    .react-datepicker-popper {
+      z-index: 99999;
+    }
     .filters__field--lokacija {
       position: relative;
 
-      .filter--lokacija_span {
-        position: relative;
-        svg {
-          position: absolute;
-          z-index: 1;
-          display: block;
-          width: 20px;
-          height: 20px;
-          transform: translateY(50%);
-          left: 10px;
-          color: $filter-color;
-        }
-        input {
-          padding-left: 40px;
-          border: none;
-          border-radius: 3px;
-          color: $filter-text-color;
-
-          &:focus {
-            box-shadow: none;
-          }
-        }
-
-        
-      }
       .searched-lokacija-items.show {
         display: block;
         margin-top: 2px;
@@ -50,7 +28,7 @@ $filter-text-color: #333;
         width: 100%;
         background-color: white;
         list-style: none;
-        z-index: 3;
+        z-index: 99999;
         margin: 0;
         li {
           position: relative;
@@ -103,6 +81,36 @@ $filter-text-color: #333;
         outline: none;
         border-radius: 3px;
         color: $filter-text-color;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .filters__field--razglas {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      label {
+        margin-right: 20px;
+      }
+
+      select {
+        margin: 0;
+        width: 100px;
+        border: none !important;
+        outline: none;
+        border-radius: 3px;
+        color: $filter-text-color;
+
+        option {
+          color: $filter-text-color;
+          border: none;
+          outline: none;
+          padding: 10px;
+        }
 
         &:focus {
           box-shadow: none;
