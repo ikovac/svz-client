@@ -53,7 +53,7 @@ const ArticleTeaser = ({ article }) => {
               <div className="group-body__kapacitet paragraph-icon">
                 <p>
                   <FaUsers />
-                  {article.field_kapacitet}
+                  do {article.field_kapacitet} osoba
                 </p>
               </div>
             )}

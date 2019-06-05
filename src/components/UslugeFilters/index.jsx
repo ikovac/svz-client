@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LokacijaInput from "./LokacijaInput";
 import { StaticQuery, graphql } from "gatsby";
+import { FaUsers } from "react-icons/fa";
 
 class UslugeFilters extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ class UslugeFilters extends Component {
               )}
               {filters.includes("kapacitet") && (
                 <div className="filters__field--kapacitet">
-                  <label htmlFor="filter--kapacitet">Kapacitet</label>
+                  <FaUsers />
                   <input
                     type="number"
                     name="kapacitet"

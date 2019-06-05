@@ -122,10 +122,6 @@ class LokacijaInput extends Component {
     return (
       <>
         <div className="filters__field--lokacija">
-<<<<<<< HEAD
-=======
-          {/* <label htmlFor="filter--lokacija">Lokacija</label> */}
->>>>>>> 75401edc66e6e8a360b1d40b8e172d5d302af3d4
           <span className="filter--lokacija_span">
             <FaMapMarkerAlt />
             <input
@@ -137,10 +133,7 @@ class LokacijaInput extends Component {
               onChange={this.handleLokacijaInputChange}
               autoComplete="off"
               onFocus={this.handleOnInputFocus}
-<<<<<<< HEAD
               onKeyDown={this.handleKeyDown}
-=======
->>>>>>> 75401edc66e6e8a360b1d40b8e172d5d302af3d4
               placeholder="Lokacija"
             />
           </span>
