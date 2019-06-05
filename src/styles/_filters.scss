@@ -1,6 +1,9 @@
 $filter-color: #d2d2d2;
 $list-hover-color: #f3f3f3;
+<<<<<<< HEAD
 $filter-text-color: #333;
+=======
+>>>>>>> 75401edc66e6e8a360b1d40b8e172d5d302af3d4
 
 .filters-container {
   h4 {
@@ -27,7 +30,10 @@ $filter-text-color: #333;
           padding-left: 40px;
           border: none;
           border-radius: 3px;
+<<<<<<< HEAD
           color: $filter-text-color;
+=======
+>>>>>>> 75401edc66e6e8a360b1d40b8e172d5d302af3d4
 
           &:focus {
             box-shadow: none;
@@ -57,15 +63,23 @@ $filter-text-color: #333;
           padding: 10px;
           border-bottom: 1px solid $filter-color;
           padding-left: 40px;
+<<<<<<< HEAD
           opacity: 0.6;
           color: $filter-text-color;
           cursor: pointer;
+=======
+          opacity: 0.8;
+>>>>>>> 75401edc66e6e8a360b1d40b8e172d5d302af3d4
 
           &:last-child {
             border-bottom: none;
           }
 
+<<<<<<< HEAD
           &.is-active {
+=======
+          &:hover {
+>>>>>>> 75401edc66e6e8a360b1d40b8e172d5d302af3d4
             opacity: 1;
             background-color: $list-hover-color;
           }
