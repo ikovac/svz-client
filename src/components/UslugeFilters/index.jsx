@@ -54,6 +54,10 @@ class UslugeFilters extends Component {
     }
   };
 
+  componentDidMount() {
+    document.getElementById("filter--datum").setAttribute("readonly", "readonly");
+  }
+
   render() {
     const { filters } = this.props;
     const { displayDate } = this.state;

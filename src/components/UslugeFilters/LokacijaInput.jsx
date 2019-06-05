@@ -95,6 +95,12 @@ class LokacijaInput extends Component {
     this.setState({ activeInputListElement:  index});
   }
 
+  handleOnBlur = e => {
+    setTimeout(() => {
+      this.setState({ showInputList:  false});
+    }, 100);
+  }
+
   handleDocumentClick = e => {
     if (!this.lokacijaInputElement.contains(e.target)) {
       this.setState({ showInputList: false });
@@ -126,15 +132,15 @@ class LokacijaInput extends Component {
             <FaMapMarkerAlt />
             <input
               type="text"
-              name="lokacija"
               id="filter--lokacija"
               ref={node => (this.lokacijaInputElement = node)}
               value={lokacija}
               onChange={this.handleLokacijaInputChange}
-              autoComplete="lalala"
+              autoComplete="off"
               onFocus={this.handleOnInputFocus}
               onKeyDown={this.handleKeyDown}
               placeholder="Lokacija"
+              onBlur={this.handleOnBlur}
             />
           </span>
           <ul className={cn("searched-lokacija-items", listClassname)}>

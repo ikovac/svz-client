@@ -11,6 +11,12 @@ $filter-text-color: #333;
     .react-datepicker-popper {
       z-index: 99999;
     }
+
+    #filter--datum[readonly] {
+      cursor: pointer;
+      background-color: white;
+    }
+
     .filters__field--lokacija {
       position: relative;
 
