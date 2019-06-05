@@ -1,3 +1,7 @@
+$filter-color: #d2d2d2;
+$list-hover-color: #f3f3f3;
+$filter-text-color: #333;
+
 .filters-container {
   h4 {
     font-size: 16px;
@@ -18,19 +22,30 @@
           height: 20px;
           transform: translateY(50%);
           left: 10px;
+          color: $filter-color;
         }
         input {
           padding-left: 40px;
+          border: none;
+          border-radius: 3px;
+          color: $filter-text-color;
+
+          &:focus {
+            box-shadow: none;
+          }
         }
+
+        
       }
       .searched-lokacija-items.show {
         display: block;
+        margin-top: 2px;
       }
 
       .searched-lokacija-items {
         display: none;
         position: absolute;
-        top: 64px;
+        top: 39px;
         left: 0;
         right: 0;
         width: 100%;
@@ -39,8 +54,33 @@
         z-index: 3;
         margin: 0;
         li {
+          position: relative;
           padding: 10px;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid $filter-color;
+          padding-left: 40px;
+          opacity: 0.6;
+          color: $filter-text-color;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:hover {
+            opacity: 1;
+            background-color: $list-hover-color;
+          }
+
+          svg {
+            position: absolute;
+            color: $filter-color;
+            z-index: 1;
+            display: block;
+            width: 15px;
+            height: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+          }
         }
       }
     }
