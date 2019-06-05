@@ -13,7 +13,6 @@ $filter-text-color: #333;
 
       .filter--lokacija_span {
         position: relative;
-
         svg {
           position: absolute;
           z-index: 1;
@@ -60,12 +59,13 @@ $filter-text-color: #333;
           padding-left: 40px;
           opacity: 0.6;
           color: $filter-text-color;
+          cursor: pointer;
 
           &:last-child {
             border-bottom: none;
           }
 
-          &:hover {
+          &.is-active {
             opacity: 1;
             background-color: $list-hover-color;
           }

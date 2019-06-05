@@ -19,12 +19,25 @@ class UslugeFilters extends Component {
 
   handleLokacijaChange = name => {
     this.setState({ lokacija: name });
-  }
+  };
 
-  handleFiltersSubmit = (e) => {
+  handleFiltersSubmit = e => {
     e.preventDefault();
     this.props.onFilterSubmit(this.state);
-  }
+  };
+
+  handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  };
+
+  handleOnSubmitFocus = e => {
+    e.preventDefault();
+    if (e.keyCode === 13) {
+      this.props.onFilterSubmit(this.state);
+    }
+  };
 
   render() {
     const { filters } = this.props;
@@ -50,7 +63,10 @@ class UslugeFilters extends Component {
         render={lokacijaTerms => (
           <div className="filters-container">
             <h4>Filtriraj rezultate</h4>
-            <form>
+            <form
+              onSubmit={this.handleFiltersSubmit}
+              onKeyDown={this.handleKeyDown}
+            >
               {filters.includes("datum") && (
                 <div className="filters__field--datum">
                   <label htmlFor="filter--datum">Datum</label>
@@ -97,7 +113,12 @@ class UslugeFilters extends Component {
                 </div>
               )}
 
-              <input type="submit" className="button button-primary" onClick={this.handleFiltersSubmit}/>
+              <input
+                type="button"
+                className="button button-primary"
+                value="Primjeni"
+                onKeyDown={this.handleOnSubmitFocus}
+              />
             </form>
           </div>
         )}
