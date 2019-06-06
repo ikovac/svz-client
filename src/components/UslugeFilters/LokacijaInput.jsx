@@ -8,7 +8,7 @@ class LokacijaInput extends Component {
     super(props);
     this.state = {
       lokacijeFiltered: this.props.lokacije,
-      lokacija: "",
+      lokacija: this.props.lokacija ? this.props.lokacija : "",
       showInputList: false,
       activeInputListElement: 0,
     };
@@ -91,15 +91,15 @@ class LokacijaInput extends Component {
     }
   };
 
-  handleOnMouseEnter = (index) => {
-    this.setState({ activeInputListElement:  index});
-  }
+  handleOnMouseEnter = index => {
+    this.setState({ activeInputListElement: index });
+  };
 
   handleOnBlur = e => {
     setTimeout(() => {
-      this.setState({ showInputList:  false});
+      this.setState({ showInputList: false });
     }, 100);
-  }
+  };
 
   handleDocumentClick = e => {
     if (!this.lokacijaInputElement.contains(e.target)) {

@@ -2,73 +2,73 @@ $filter-color: #d2d2d2;
 $list-hover-color: #f3f3f3;
 $filter-text-color: #333;
 
+.react-datepicker-popper {
+  z-index: 99999;
+}
+
+#filter--datum[readonly] {
+  cursor: pointer;
+  background-color: white;
+}
+
+.filters__field--lokacija {
+  position: relative;
+
+  .searched-lokacija-items.show {
+    display: block;
+    margin-top: 2px;
+  }
+
+  .searched-lokacija-items {
+    display: none;
+    position: absolute;
+    top: 39px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
+    list-style: none;
+    z-index: 99999;
+    margin: 0;
+    li {
+      position: relative;
+      padding: 10px;
+      border-bottom: 1px solid $filter-color;
+      padding-left: 40px;
+      opacity: 0.6;
+      color: $filter-text-color;
+      cursor: pointer;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.is-active {
+        opacity: 1;
+        background-color: $list-hover-color;
+      }
+
+      svg {
+        position: absolute;
+        color: $filter-color;
+        z-index: 1;
+        display: block;
+        width: 15px;
+        height: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 15px;
+      }
+    }
+  }
+}
+
 .filters-container {
   h4 {
     font-size: 16px;
   }
 
   form {
-    .react-datepicker-popper {
-      z-index: 99999;
-    }
-
-    #filter--datum[readonly] {
-      cursor: pointer;
-      background-color: white;
-    }
-
-    .filters__field--lokacija {
-      position: relative;
-
-      .searched-lokacija-items.show {
-        display: block;
-        margin-top: 2px;
-      }
-
-      .searched-lokacija-items {
-        display: none;
-        position: absolute;
-        top: 39px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: white;
-        list-style: none;
-        z-index: 99999;
-        margin: 0;
-        li {
-          position: relative;
-          padding: 10px;
-          border-bottom: 1px solid $filter-color;
-          padding-left: 40px;
-          opacity: 0.6;
-          color: $filter-text-color;
-          cursor: pointer;
-
-          &:last-child {
-            border-bottom: none;
-          }
-
-          &.is-active {
-            opacity: 1;
-            background-color: $list-hover-color;
-          }
-
-          svg {
-            position: absolute;
-            color: $filter-color;
-            z-index: 1;
-            display: block;
-            width: 15px;
-            height: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 15px;
-          }
-        }
-      }
-    }
-
     > div {
       position: relative;
       svg {
@@ -117,6 +117,37 @@ $filter-text-color: #333;
           outline: none;
           padding: 10px;
         }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.front-page-filters {
+  z-index: 1;
+  position: relative;
+  form {
+    > div {
+      position: relative;
+      svg {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        width: 20px;
+        height: 20px;
+        transform: translateY(50%);
+        left: 10px;
+        color: $filter-color;
+      }
+      input {
+        padding-left: 40px;
+        border: none !important;
+        outline: none;
+        border-radius: 3px;
+        color: $filter-text-color;
 
         &:focus {
           box-shadow: none;

@@ -1,45 +1,60 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updateFilters } from "../../redux/actions/filtersActions";
+
 import LokacijaInput from "./LokacijaInput";
 import { StaticQuery, graphql } from "gatsby";
-import { FaUsers, FaRegCalendarAlt } from "react-icons/fa";
-import DatePicker from "react-datepicker";
 
-import "react-datepicker/dist/react-datepicker.css";
+import DatumSelect from "./DatumSelect";
+import KapacitetInput from "./KapacitetInput";
 
 class UslugeFilters extends Component {
   constructor(props) {
     super(props);
+    const { filtersStore } = this.props;
     this.state = {
-      datum: null,
-      lokacija: null,
-      kapacitet: null,
+      datum: filtersStore.datum,
+      lokacija: filtersStore.lokacija,
+      kapacitet: filtersStore.kapacitet,
       razglas: null,
-      displayDate: null,
+      displayDate: filtersStore.datum ? new Date(filtersStore.datum) : null,
     };
+    this.initialSubmit();
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    const {updateFilters} = this.props;
+    this.setState({ kapacitet: e.target.value });
+    updateFilters('kapacitet', e.target.value);    
   };
 
   handleDatumChange = date => {
+    const {updateFilters} = this.props;
     if (date) {
       let datum = `${date.getFullYear()}-${date.getMonth() +
         1}-${date.getDate()}`;
-      this.setState({ datum: datum, displayDate: date });
-    } else {
-      this.setState({ datum: null, displayDate: date });
+        this.setState({ datum: datum, displayDate: date });
+        updateFilters('datum', datum);
+      } else {
+        this.setState({ datum: null, displayDate: date });
+        updateFilters('datum', null);
     }
   };
 
   handleLokacijaChange = name => {
+    const {updateFilters} = this.props;
     this.setState({ lokacija: name });
+    updateFilters('lokacija', name);
   };
 
   handleFiltersSubmit = e => {
     e.preventDefault();
     this.props.onFilterSubmit(this.state);
   };
+
+  initialSubmit = () => {
+    this.props.onFilterSubmit(this.state);
+  }
 
   handleKeyDown = e => {
     if (e.keyCode === 13) {
@@ -55,12 +70,14 @@ class UslugeFilters extends Component {
   };
 
   componentDidMount() {
-    document.getElementById("filter--datum").setAttribute("readonly", "readonly");
+    document
+      .getElementById("filter--datum")
+      .setAttribute("readonly", "readonly");
   }
 
   render() {
     const { filters } = this.props;
-    const { displayDate } = this.state;
+    const { displayDate, lokacija, kapacitet } = this.state;
 
     return (
       <StaticQuery
@@ -85,44 +102,23 @@ class UslugeFilters extends Component {
             <h4>Filtriraj rezultate</h4>
             <form onKeyDown={this.handleKeyDown} autoComplete="lalala">
               {filters.includes("datum") && (
-                <div className="filters__field--datum">
-                  <FaRegCalendarAlt />
-                  <DatePicker
-                    id="filter--datum"
-                    dateFormat="dd/MM/yyyy"
-                    placeholderText="Odaberite datum"
-                    selected={displayDate}
-                    name="datum"
-                    minDate={new Date()}
-                    isClearable={true}
-                    onChange={this.handleDatumChange}
-                    popperPlacement="bottom"
-                    popperModifiers={{
-                      flip: {
-                        behavior: ["bottom"], // don't allow it to flip to be above
-                      },
-                    }}
-                  />
-                </div>
+                <DatumSelect
+                  displayDate={displayDate}
+                  handleDatumChange={this.handleDatumChange}
+                />
               )}
               {filters.includes("lokacija") && (
                 <LokacijaInput
                   handleInputChange={this.handleLokacijaChange}
                   lokacije={lokacijaTerms.allTaxonomyTermLokacija.edges}
+                  lokacija={lokacija}
                 />
               )}
               {filters.includes("kapacitet") && (
-                <div className="filters__field--kapacitet">
-                  <FaUsers />
-                  <input
-                    type="number"
-                    name="kapacitet"
-                    min="0"
-                    id="filter--kapacitet"
-                    placeholder="Broj osoba"
-                    onChange={this.handleInputChange}
-                  />
-                </div>
+                <KapacitetInput
+                  handleInputChange={this.handleInputChange}
+                  kapacitet={kapacitet}
+                />
               )}
               {filters.includes("razglas") && (
                 <div className="filters__field--razglas">
@@ -154,4 +150,11 @@ class UslugeFilters extends Component {
   }
 }
 
-export default UslugeFilters;
+const mapStateToProps = state => ({
+  filtersStore: state.filters,
+});
+
+export default connect(
+  mapStateToProps,
+  { updateFilters }
+)(UslugeFilters);

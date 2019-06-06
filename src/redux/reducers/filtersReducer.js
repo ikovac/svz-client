@@ -3,9 +3,7 @@ import { UPDATE_FILTERS } from "../actions/actionTypes";
 const initialState = {
   datum: null,
   lokacija: null,
-  kapacitet: null,
-  razglas: null,
-  displayDate: null,
+  kapacitet: "",
 };
 
 export default function filtersReducer(state = initialState, action) {
