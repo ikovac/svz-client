@@ -10,6 +10,7 @@ const TimelineCard = ({ step, title, text, imgSource }) => {
       // date="2011 - present"
       iconStyle={{ background: "rgb(255, 255, 255)", color: "#fff" }}
       // icon={<WorkIcon />}
+      visibilitySensorProps={ {partialVisibility: true, offset: { bottom: 0 } } }
     >
       <div className="timeline-card__header">
         <div className="timeline-card__header-number">

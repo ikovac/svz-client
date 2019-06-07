@@ -3,7 +3,7 @@ $list-hover-color: #f3f3f3;
 $filter-text-color: #333;
 
 .react-datepicker-popper {
-  z-index: 99999;
+  z-index: 99999 !important;
 }
 
 #filter--datum[readonly] {

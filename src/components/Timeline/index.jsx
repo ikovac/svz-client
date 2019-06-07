@@ -41,7 +41,7 @@ const Timeline = () => (
         <div className="timeline-wrapper">
           {/* <h1>Timeline Main Title</h1>
           <p>short text description</p> */}
-          <VerticalTimeline>
+          <VerticalTimeline animate={ false }>
             {data.allNodeKoraci.edges.map(({ node }) => {
               const {
                 drupal_internal__nid,

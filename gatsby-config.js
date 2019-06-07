@@ -9,10 +9,10 @@ module.exports = {
     author: `@vetus-itinera`,
     menuLinks: [
       { name: "Početna", path: "/" },
-      { name: "Kategorije", path: "/kategorije" },
-      { name: "Korisne informacije", path: "/korisne-informacije" },
-      { name: "O nama", path: "/o-nama" },
-      { name: "Kontakt", path: "/kontakt" },
+      { name: "Kategorije", path: "/kategorije/" },
+      { name: "Korisne informacije", path: "/korisne-informacije/" },
+      { name: "O nama", path: "/o-nama/" },
+      { name: "Kontakt", path: "/kontakt/" },
     ],
   },
   plugins: [
@@ -30,11 +30,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `sve-za-vjencanje`,
+        short_name: `szv`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#006955`,
+        theme_color: `#006955`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
