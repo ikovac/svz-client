@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { addToWishlist } from "../../redux/actions/wishlistAction";
+import { makeWishlistUnvalid } from "../../redux/actions/wishlistStoreActions";
 import { addToWishlistCookie } from "../../utils/wishlistCookieUtils";
 
 import { FaHeart, FaPlus, FaCheck } from "react-icons/fa";
@@ -14,10 +15,11 @@ class AddToWishlist extends Component {
   }
 
   handleAddToWishlist = () => {
-    const { articleID, addToWishlist } = this.props;
+    const { articleID, addToWishlist, makeWishlistUnvalid } = this.props;
 
     addToWishlistCookie(articleID);
     addToWishlist(articleID);
+    makeWishlistUnvalid();
 
     Swal.fire({
       type: "success",
@@ -66,5 +68,5 @@ const mapStateToProps = state => ({ wishlistItems: state.wishlist.items });
 
 export default connect(
   mapStateToProps,
-  { addToWishlist }
+  { addToWishlist, makeWishlistUnvalid }
 )(AddToWishlist);
