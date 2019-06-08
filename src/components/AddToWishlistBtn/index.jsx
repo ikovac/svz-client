@@ -27,15 +27,6 @@ class AddToWishlist extends Component {
       showConfirmButton: false,
       timer: 2000,
     });
-
-    /* Swal.fire({
-      type: 'success',
-      toast: true,
-      position: 'top-end',
-      title: 'Artkl je uklonjen iz odabrane liste',
-      showConfirmButton: false,
-      timer: 2000
-    }); */
   };
 
   render() {

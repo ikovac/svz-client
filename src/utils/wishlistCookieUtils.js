@@ -22,12 +22,12 @@ export function removeFromWishlistCookie(article_id) {
   if (
     !currentWishlist ||
     !currentWishlist.length ||
-    !currentWishlist.includes(article_id)
+    !currentWishlist.includes(Number(article_id))
   ) {
     return;
   }
 
-  const newWishlist = currentWishlist.filter(item => item !== article_id);
+  const newWishlist = currentWishlist.filter(item => item !== Number(article_id));
   cookie.set("odabrana_lista", JSON.stringify(newWishlist), {
     exdays: 5,
     path: "/",
