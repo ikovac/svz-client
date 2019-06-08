@@ -36,8 +36,11 @@ class RestoraniSalePage extends Component {
           : true) &&
         (kapacitet ? node.field_kapacitet >= kapacitet : true) &&
         (lokacija && lokacija.length
-          ? node.relationships.field_content_main_info.relationships
-              .field_lokacija.name.toUpperCase() === lokacija.toUpperCase()
+          ? node.relationships.field_content_main_info.relationships.field_lokacija.name.toUpperCase() ===
+              lokacija.toUpperCase() ||
+            node.relationships.field_content_main_info.relationships.field_lokacija.relationships.field_okolna_mjesta.find(
+              el => el.name.toUpperCase() === lokacija.toUpperCase()
+            )
           : true)
     );
     this.setState({ articles: filteredArticles });
