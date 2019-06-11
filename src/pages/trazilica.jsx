@@ -34,6 +34,10 @@ class Tražilica extends Component {
     }
   };
 
+  componentDidMount() {
+    document.getElementById("search-input").focus();
+  }
+
   render() {
     const { results, loading } = this.state;
     return (
@@ -45,6 +49,7 @@ class Tražilica extends Component {
             debounceTimeout={300}
             onChange={this.onSearchInputChange}
             placeholder="Upišite pojam za pretraživanje"
+            id="search-input"
           />
           {!loading && results && (
             <div className="search-results">
