@@ -7,17 +7,22 @@ import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
 
+import shuffle from "../../utils/shuffleArray";
+
 class RestoraniSalePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: this.props.data.allNodeRestoraniSale.edges,
+      articles: shuffle(this.props.data.allNodeRestoraniSale.edges),
+      loading: false,
     };
   }
 
   onFilterSubmit = async filters => {
     const articles = this.props.data.allNodeRestoraniSale.edges;
     const { datum, lokacija, kapacitet } = filters;
+
+    this.setState({ loading: true });
 
     let unavailable_nids;
     if (datum) {
@@ -43,11 +48,11 @@ class RestoraniSalePage extends Component {
             )
           : true)
     );
-    this.setState({ articles: filteredArticles });
+    this.setState({ articles: shuffle(filteredArticles), loading: false });
   };
 
   render() {
-    const { articles } = this.state;
+    const { loading, articles } = this.state;
     return (
       <>
         <PageTitle>Restorani & Sale</PageTitle>
@@ -58,10 +63,12 @@ class RestoraniSalePage extends Component {
           />
 
           <div className="articles-section">
-            {articles &&
+            {!loading &&
+              articles &&
               articles.map(({ node }) => (
                 <ArticleTeaser key={node.drupal_internal__nid} article={node} />
               ))}
+            {loading && <div className="loader" />}
           </div>
         </div>
       </>

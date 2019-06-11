@@ -1,0 +1,21 @@
+.search-page-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  input {
+    max-width: 600px;
+  }
+
+  .search-results {
+    width: 100%;
+    max-width: 600px;
+
+    ul {
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
