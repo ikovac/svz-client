@@ -23,9 +23,11 @@ const KontaktPage = () => {
         <p>
           <FaMobileAlt /> +385 (0)98 180 2609
         </p>
+        <div className="contact-form callout">
+          <h3>Kontaktirajte nas</h3>
+          <SimpleContactForm />
+        </div>
       </div>
-
-      <SimpleContactForm />
     </Container>
   );
 };

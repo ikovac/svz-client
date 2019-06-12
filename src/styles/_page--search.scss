@@ -22,6 +22,17 @@
       color: #333333;
     }
 
+    .result-text {
+      margin: 0;
+      padding: 5px 10px;
+      border-bottom: 1px solid #dddd;
+      font-size: 14px;
+
+      strong {
+        padding: 5px;
+      }
+    }
+
     ul {
       margin: 0;
       list-style: none;

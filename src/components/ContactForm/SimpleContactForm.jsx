@@ -37,7 +37,7 @@ class SimpleContactForm extends Component {
               />
             </label>
           </div>
-          <div className="">
+          <div className="input-submit">
             <input type="submit" className="button button--primary" value="Pošalji upit" />
           </div>
         </div>

@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Sve za Vjenčanje`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Isplanirajte vaše vjenčanje jednostavno, u samo par koraka. Portal Sve za Vjenčanja sadrži oglašivače iz cijele Hrvatske`,
     author: `@vetus-itinera`,
     menuLinks: [
       { name: "Početna", path: "/" },
@@ -30,12 +30,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `sve-za-vjencanje`,
-        short_name: `szv`,
+        name: `Sve za Vjenčanje`,
+        short_name: `SZV`,
         start_url: `/`,
-        background_color: `#006955`,
+        background_color: `#faeccf`,
         theme_color: `#006955`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },

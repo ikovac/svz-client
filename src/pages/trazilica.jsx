@@ -55,6 +55,7 @@ class Tražilica extends Component {
           {!loading && results && (
             <div className="search-results">
               {!results.length && <p className="no-result-text">Nema rezultat za upisani pojam</p>}
+              { results.length ? <p className="result-text">Rezultata: <strong>{results.length}</strong></p> : null}
               <ul>
                 {results.map(result => (
                   <li key={result.nid}>

@@ -1,0 +1,20 @@
+.kontakt-page {
+  .contact-form {
+    margin: auto;
+    margin-top: 30px;
+    max-width: 600px;
+    h3 {
+      text-align: center;
+    }
+
+    form {
+      .input-submit {
+        display: flex;
+        justify-content: flex-end;
+        input {
+            margin: 0;
+        }
+      }
+    }
+  }
+}

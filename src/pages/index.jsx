@@ -9,7 +9,7 @@ import FrontPageFilters from "../components/FrontPageFilters";
 
 const IndexPage = ({ data }) => (
   <div className="front-page-wrapper">
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Početna" keywords={[`vjenčanje`, `organizacija`, `vjenčanja`, `sve`, `za`]} />
     <div className="front-page__image-section">
       <Image
         source={data.placeholderImage.childImageSharp.fluid}
