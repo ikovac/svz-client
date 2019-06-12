@@ -4,6 +4,7 @@ $filter-text-color: #333;
 
 .react-datepicker-popper {
   z-index: 99999 !important;
+  margin-top: 0px !important;
 }
 
 #filter--datum[readonly] {

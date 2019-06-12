@@ -15,8 +15,8 @@ const IndexPage = ({ data }) => (
         source={data.placeholderImage.childImageSharp.fluid}
         alt={"Sve za vjenčanje"}
       />
-      <h2>Sve za Vjenčanje</h2>
-      <h3>Isplanirajte Vaše vjenčanje u samo par koraka</h3>
+      <h2>Organizirajte Vaše vjenčanje</h2>
+      <h4>- Sudbonosno da u samo par koraka -</h4>
       <FrontPageFilters />
     </div>
     <Timeline />

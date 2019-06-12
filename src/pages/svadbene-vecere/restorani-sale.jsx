@@ -26,12 +26,17 @@ class RestoraniSalePage extends Component {
 
     let unavailable_nids;
     if (datum) {
-      unavailable_nids = await axios.get(
-        `${process.env.DRUPAL_URI}/api/rezervacije?_format=json&datum=${datum}`
-      );
-      unavailable_nids = unavailable_nids.data.map(
-        rezervacija => rezervacija.field_artikl
-      );
+      try {
+        unavailable_nids = await axios.get(
+          `${process.env.DRUPAL_URI}/api/rezervacije?_format=json&datum=${datum}`
+        );
+        unavailable_nids = unavailable_nids.data.map(
+          rezervacija => rezervacija.field_artikl
+        );
+      } catch(err) {
+        console.log(err);
+        unavailable_nids = null;
+      }
     }
 
     const filteredArticles = articles.filter(

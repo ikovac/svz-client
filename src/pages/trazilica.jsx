@@ -50,15 +50,16 @@ class Tražilica extends Component {
             onChange={this.onSearchInputChange}
             placeholder="Upišite pojam za pretraživanje"
             id="search-input"
+            autoComplete="off"
           />
           {!loading && results && (
             <div className="search-results">
+              {!results.length && <p className="no-result-text">Nema rezultat za upisani pojam</p>}
               <ul>
                 {results.map(result => (
                   <li key={result.nid}>
                     <Link to={result.view_node}>{result.title}</Link>
-                    <p>{result.type.replace("amp;", "")}</p>
-                    <p>{result.body.replace(/<[^>]*>/g, "")}</p>
+                      <p className="label">{result.type.replace("amp;", "")}</p>
                   </li>
                 ))}
               </ul>

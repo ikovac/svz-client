@@ -1,10 +1,7 @@
 .front-page-wrapper {
   .front-page__image-section {
     position: relative;
-    /* height: 40vh;
-      max-height: 400px; */
     padding: 20px;
-    // top: -3px;
 
     .gatsby-image-wrapper {
       position: absolute !important;
@@ -25,18 +22,63 @@
       z-index: 1;
       text-align: center;
       color: white;
+      font-weight: bold;
     }
-    h3 {
+    h4 {
       position: relative;
       z-index: 1;
       text-align: center;
       color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
-    .front-page__form {
-      position: relative;
-      z-index: 1;
-      max-width: 300px;
-      text-align: center;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .front-page-wrapper {
+    .front-page__image-section {
+      h2 {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+.front-page-filters {
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      border-radius: 0 !important;
+    }
+
+    input.button {
+      max-width: 253px;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .front-page-filters {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    form {
+      flex-direction: row;
+      align-items: none;
+
+      input.button {
+        max-width: unset;
+        width: unset;
+      }
+      > div {
+        margin-right: 3px;
+      }
     }
   }
 }

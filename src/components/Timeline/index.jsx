@@ -3,6 +3,8 @@ import TimelineCard from "./TimelineCard";
 import { StaticQuery, graphql } from "gatsby";
 
 import { VerticalTimeline } from "react-vertical-timeline-component";
+import PageTitle from "../PageTitle";
+import Container from "../Container";
 
 const Timeline = () => (
   <StaticQuery
@@ -39,9 +41,14 @@ const Timeline = () => (
     render={data => {
       return (
         <div className="timeline-wrapper">
-          {/* <h1>Timeline Main Title</h1>
-          <p>short text description</p> */}
-          <VerticalTimeline animate={ false }>
+          <Container>
+            <PageTitle>Dobrodošli na svezavjencanje.hr</PageTitle>
+            <p className="timeline__description">
+              U samo par koraka, potpuno besplatno, organizirajte Vaš dan iz
+              snova.
+            </p>
+          </Container>
+          <VerticalTimeline animate={false}>
             {data.allNodeKoraci.edges.map(({ node }) => {
               const {
                 drupal_internal__nid,

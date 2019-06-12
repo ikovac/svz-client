@@ -364,6 +364,16 @@ $timeline-breakpoint-down: 849px;
 }
 
 .timeline-wrapper {
+  h1 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .timeline__description {
+    text-align: center;
+    font-size: 20px;
+  }
+  
   .vertical-timeline-element-content {
     border-radius: 0px 0px 5px 5px;
     max-width: 500px;
