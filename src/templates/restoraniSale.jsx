@@ -136,7 +136,12 @@ export default ({ data }) => {
 
         <div id="contact-form" className="usluge-section">
           <h3>Kontaktiraj {nodeRestoraniSale.title}</h3>
-          <SimpleContactForm />
+          <SimpleContactForm
+            to={
+              nodeRestoraniSale.relationships.field_content_main_info
+                .field_email
+            }
+          />
         </div>
       </div>
     </div>

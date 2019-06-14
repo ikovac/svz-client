@@ -106,13 +106,13 @@ class OdabranaLista extends Component {
           {err && <h4>{err}</h4>}
           {loading && <div className="loader" />}
           {empty && <p>Odabrana lista je prazna.</p>}
-          {!loading && !empty && (
+          {!loading && !empty && !err && (
             <Wishlist
               wishlistItems={wishlistItems}
               onRemoveFromWishlist={this.onRemoveFromWishlist}
             />
           )}
-          {!loading && !empty && <SimpleContactForm />}
+          {!loading && !empty && !err && <SimpleContactForm />}
         </div>
       </Container>
     );

@@ -25,7 +25,7 @@ const KontaktPage = () => {
         </p>
         <div className="contact-form callout">
           <h3>Kontaktirajte nas</h3>
-          <SimpleContactForm />
+          <SimpleContactForm to={process.env.SITE_EMAIL} />
         </div>
       </div>
     </Container>
