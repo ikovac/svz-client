@@ -6,7 +6,6 @@ import { removeFromWishlist } from "../redux/actions/wishlistAction";
 
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
-import SimpleContactForm from "../components/ContactForm/SimpleContactForm";
 
 import {
   getWishlistCookieItems,
@@ -16,6 +15,7 @@ import axios from "axios";
 import Wishlist from "../components/Wishlist";
 
 import Swal from "sweetalert2";
+import MultipleContactForm from "../components/ContactForm/MultipleContactForm";
 
 class OdabranaLista extends Component {
   constructor(props) {
@@ -112,7 +112,7 @@ class OdabranaLista extends Component {
               onRemoveFromWishlist={this.onRemoveFromWishlist}
             />
           )}
-          {!loading && !empty && !err && <SimpleContactForm />}
+          {!loading && !empty && !err && <MultipleContactForm checkboxes={wishlistItems} />}
         </div>
       </Container>
     );

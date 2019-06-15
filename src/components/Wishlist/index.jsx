@@ -6,7 +6,7 @@ import { FaTimes } from "react-icons/fa";
 const Wishlist = ({ wishlistItems, onRemoveFromWishlist }) => {
   return (
     <div className="odabrana-lista">
-      <table className="unstriped stack hover">
+      <table className="unstriped stack">
         <thead>
           <tr>
             <th>Naziv</th>

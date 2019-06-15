@@ -24,9 +24,14 @@ const ArticleTeaser = ({ article }) => {
         <div className="right-section__group-header">
           <div>
             <div className="group-header__title">
-              <Link to={article.path.alias} title={article.title}>
+              <a
+                href={article.path.alias}
+                title={article.title}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <h3>{article.title}</h3>
-              </Link>
+              </a>
             </div>
             <div className="group-header__add-to-wishlist">
               <AddToWishlistBtn articleID={article.drupal_internal__nid} />
@@ -67,13 +72,15 @@ const ArticleTeaser = ({ article }) => {
             )}
 
             <div className="saznaj-vise">
-              <Link
-                to={article.path.alias}
+              <a
+                href={article.path.alias}
                 title="saznaj više"
                 className="saznaj-vise-btn"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Saznaj više
-              </Link>
+              </a>
             </div>
           </div>
         </div>
