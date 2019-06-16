@@ -7,13 +7,11 @@ import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
 
-import shuffle from "../../utils/shuffleArray";
-
 class RestoraniSalePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: shuffle(this.props.data.allNodeRestoraniSale.edges),
+      articles: this.props.data.allNodeRestoraniSale.edges,
       loading: false,
     };
   }
@@ -53,7 +51,7 @@ class RestoraniSalePage extends Component {
             )
           : true)
     );
-    this.setState({ articles: shuffle(filteredArticles), loading: false });
+    this.setState({ articles: filteredArticles, loading: false });
   };
 
   render() {
