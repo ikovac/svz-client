@@ -3,7 +3,11 @@ import { Link } from "gatsby";
 
 import { FaTimes } from "react-icons/fa";
 
-const Wishlist = ({ wishlistItems, onRemoveFromWishlist }) => {
+const Wishlist = ({
+  wishlistItems,
+  onRemoveFromWishlist,
+  onSpremiOdabranoClick,
+}) => {
   return (
     <div className="odabrana-lista">
       <table className="unstriped stack">
@@ -41,7 +45,12 @@ const Wishlist = ({ wishlistItems, onRemoveFromWishlist }) => {
             <td />
             <td />
             <td>
-              <button className="button button-primary">Spremi odabrano</button>
+              <button
+                className="button button-primary"
+                onClick={onSpremiOdabranoClick}
+              >
+                Spremi odabrano
+              </button>
             </td>
           </tr>
         </tbody>

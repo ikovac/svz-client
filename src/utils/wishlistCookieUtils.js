@@ -27,7 +27,9 @@ export function removeFromWishlistCookie(article_id) {
     return;
   }
 
-  const newWishlist = currentWishlist.filter(item => item !== Number(article_id));
+  const newWishlist = currentWishlist.filter(
+    item => item !== Number(article_id)
+  );
   cookie.set("odabrana_lista", JSON.stringify(newWishlist), {
     exdays: 5,
     path: "/",
@@ -41,4 +43,15 @@ export function getWishlistCookieItems() {
 
   const items = cookie.get("odabrana_lista");
   return JSON.parse(items);
+}
+
+export function deleteWishlistCookie() {
+  if (!cookie.check("odabrana_lista")) {
+    return null;
+  }
+
+  cookie.set("odabrana_lista", "", {
+    exdays: -1,
+    path: "/",
+  });
 }

@@ -24,10 +24,7 @@ const ArticleTeaser = ({ article }) => {
         <div className="right-section__group-header">
           <div>
             <div className="group-header__title">
-              <Link
-                to={article.path.alias}
-                title={article.title}
-              >
+              <Link to={article.path.alias} title={article.title}>
                 <h3>{article.title}</h3>
               </Link>
             </div>

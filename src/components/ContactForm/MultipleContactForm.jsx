@@ -33,9 +33,78 @@ class MultipleContactForm extends Component {
 
   onFormSubmit = async e => {
     e.preventDefault();
-    console.log(this.state);
+    this.setState({ disabled: true });
 
-    // check if any checkbox is checked.
+    const { checkboxItems, ime, email, poruka } = this.state;
+
+    let toArr = [];
+    for (let [key, value] of checkboxItems.entries()) {
+      if (value) {
+        toArr.push(key);
+      }
+    }
+
+    if (!toArr.length) {
+      this.setState({
+        disabled: false,
+      });
+      Swal.fire({
+        title: "Morate odabrati barem jednog oglašivača",
+        type: "error",
+        confirmButtonColor: "#f37474",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    let formData = {
+      webform_id: "multiple_contact_form",
+      from_email: email,
+      poruka: poruka,
+      ime: ime,
+      to_email: toArr.join(', '),
+    };
+
+    try {
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Basic " +
+            btoa(
+              `${process.env.DRUPAL_USERNAME}:${process.env.DRUPAL_PASSWORD}`
+            ),
+          "x-csrf-token": await getSessionToken(),
+        },
+      };
+      
+      await axios.post(
+        `${process.env.DRUPAL_URI}/webform_rest/submit`,
+        formData,
+        config
+      );
+
+      Swal.fire({
+        title: "Vaš upit je poslan",
+        text: "Hvala Vam na korištenju portala svezavjencanje.hr",
+        type: "success",
+        confirmButtonColor: "#006950",
+        confirmButtonText: "OK",
+      }).then(() => {
+        this.formRef.reset();
+      });
+    } catch (err) {
+      console.log(err);
+      Swal.fire({
+        title: "Došlo je do pogreške",
+        text:
+          "Molimo Vas pokušajte kasnije ili se obratite na info@svezavjencanje.hr",
+        type: "error",
+        confirmButtonColor: "#f37474",
+        confirmButtonText: "OK",
+      });
+    }
+    this.setState({ disabled: false });
   };
 
   componentDidUpdate(prevProps) {

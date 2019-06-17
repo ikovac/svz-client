@@ -11,6 +11,8 @@ import {
   getWishlistCookieItems,
   removeFromWishlistCookie,
 } from "../utils/wishlistCookieUtils";
+
+import getSessionToken from "../utils/restToken";
 import axios from "axios";
 import Wishlist from "../components/Wishlist";
 
@@ -65,6 +67,76 @@ class OdabranaLista extends Component {
     }
   };
 
+  onSpremiOdabranoClick = e => {
+    const { wishlistItems } = this.state;
+    if (!wishlistItems.length) {
+    }
+    const nidsArr = wishlistItems.map(item => item.nid);
+    const nids = nidsArr.join(",");
+    Swal.fire({
+      title: "Spremite Vašu odabranu listu",
+      input: "email",
+      inputAttributes: {
+        required: "true",
+        placeholder: "Email adresa",
+      },
+      showCancelButton: true,
+      confirmButtonText: "Spremi",
+      showLoaderOnConfirm: true,
+      preConfirm: async email => {
+        let poruka = `Poštovani,
+        Hvala Vam na korištenju portala svezavjencanje.hr.
+        
+        Odabranu listu možete pronaći na linku:
+        ${process.env.GATSBY_SITE_URI}/spremljena-odabrana-lista?nids=${nids}`;
+
+        let formData = {
+          webform_id: "send_wishlist",
+          to_email: email,
+          poruka,
+        };
+
+        try {
+          let config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization:
+                "Basic " +
+                btoa(
+                  `${process.env.DRUPAL_USERNAME}:${
+                    process.env.DRUPAL_PASSWORD
+                  }`
+                ),
+              "x-csrf-token": await getSessionToken(),
+            },
+          };
+
+          let result = await axios.post(
+            `${process.env.DRUPAL_URI}/webform_rest/submit`,
+            formData,
+            config
+          );
+          console.log("RESULT: ", result);
+          return result;
+        } catch (err) {
+          console.log(err);
+
+          Swal.showValidationMessage(`Request failed: ${err}`);
+        }
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+    }).then(result => {
+      console.log("RESULT 2: ", result);
+      /* Swal.fire({
+            title: "Spremljeno!",
+            text: "Odabrana lista je poslana na Vašu email adresu.",
+            type: "success",
+            confirmButtonColor: "#006950",
+            confirmButtonText: "OK",
+          }); */
+    });
+  };
+
   componentDidMount() {
     this.loadWishlist();
   }
@@ -110,9 +182,19 @@ class OdabranaLista extends Component {
             <Wishlist
               wishlistItems={wishlistItems}
               onRemoveFromWishlist={this.onRemoveFromWishlist}
+              onSpremiOdabranoClick={this.onSpremiOdabranoClick}
             />
           )}
-          {!loading && !empty && !err && <MultipleContactForm checkboxes={wishlistItems} />}
+          {!loading && !empty && !err && (
+            <div className="callout">
+              <h3>Pošaljite mail svim odabranima</h3>
+              <p>
+                Sa samo jednim mailom možete kontaktirati sve odabrane
+                oglašivače. Također možete i odznačiti pojedinog oglašivača
+              </p>
+              <MultipleContactForm checkboxes={wishlistItems} />
+            </div>
+          )}
         </div>
       </Container>
     );
