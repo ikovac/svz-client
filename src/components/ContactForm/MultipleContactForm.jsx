@@ -62,7 +62,7 @@ class MultipleContactForm extends Component {
       from_email: email,
       poruka: poruka,
       ime: ime,
-      to_email: toArr.join(', '),
+      to_email: toArr.join(", "),
     };
 
     try {
@@ -77,7 +77,7 @@ class MultipleContactForm extends Component {
           "x-csrf-token": await getSessionToken(),
         },
       };
-      
+
       await axios.post(
         `${process.env.DRUPAL_URI}/webform_rest/submit`,
         formData,

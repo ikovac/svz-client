@@ -116,24 +116,33 @@ class OdabranaLista extends Component {
             formData,
             config
           );
-          console.log("RESULT: ", result);
           return result;
         } catch (err) {
           console.log(err);
 
-          Swal.showValidationMessage(`Request failed: ${err}`);
+          return err;
         }
       },
       allowOutsideClick: () => !Swal.isLoading(),
     }).then(result => {
-      console.log("RESULT 2: ", result);
-      /* Swal.fire({
-            title: "Spremljeno!",
-            text: "Odabrana lista je poslana na Vašu email adresu.",
-            type: "success",
-            confirmButtonColor: "#006950",
-            confirmButtonText: "OK",
-          }); */
+      if (result && result.value && result.value.status === 200) {
+        Swal.fire({
+          title: "Spremljeno!",
+          text: "Odabrana lista je poslana na Vašu email adresu.",
+          type: "success",
+          confirmButtonColor: "#006950",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "Došlo je do pogreške",
+          text:
+            "Molimo Vas pokušajte kasnije ili se obratite na info@svezavjencanje.hr",
+          type: "error",
+          confirmButtonColor: "#f37474",
+          confirmButtonText: "OK",
+        });
+      }
     });
   };
 

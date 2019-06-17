@@ -41,12 +41,16 @@ const Wishlist = ({
             </tr>
           ))}
           <tr>
-            <td />
+            <td>
+              <a href="/odabrana-lista" className="button secondary">
+                Osvježi
+              </a>
+            </td>
             <td />
             <td />
             <td>
               <button
-                className="button button-primary"
+                className="button"
                 onClick={onSpremiOdabranoClick}
               >
                 Spremi odabrano
