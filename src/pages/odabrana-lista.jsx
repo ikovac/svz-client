@@ -133,6 +133,8 @@ class OdabranaLista extends Component {
           confirmButtonColor: "#006950",
           confirmButtonText: "OK",
         });
+      } else if (result && result.dismiss) {
+        return;
       } else {
         Swal.fire({
           title: "Došlo je do pogreške",
@@ -207,11 +209,11 @@ class OdabranaLista extends Component {
             />
           )}
           {!loading && !empty && !err && (
-            <div className="callout">
-              <h3>Pošaljite mail svim odabranima</h3>
+            <div className="callout multiple-contact-form">
+              <h3>Pošalji upit</h3>
               <p>
-                Sa samo jednim mailom možete kontaktirati sve odabrane
-                oglašivače. Također možete i odznačiti pojedinog oglašivača
+                Sa samo jednim upitom možete kontaktirati sve označene
+                oglašivače.
               </p>
               <MultipleContactForm checkboxes={wishlistItems} />
             </div>

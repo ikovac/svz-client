@@ -1,12 +1,12 @@
 .checkboxes {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .checkbox-wrapper {
   background-color: #fff;
   display: block;
-  margin: 10px 0;
   position: relative;
   max-width: 550px;
 
@@ -33,7 +33,7 @@
       height: 10px;
       border-radius: 50%;
       content: "";
-      background-color: $primary-color;
+      // background-color: $primary-color;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -64,7 +64,8 @@
   }
 
   input:checked ~ label {
-    color: #fff;
+    // color: #fff;
+    color: #3c454c;
 
     &:before {
       transform: translate(-50%, -50%) scale3d(56, 56, 1);
@@ -143,6 +144,7 @@
             align-items: center;
             font-size: large;
             outline: none;
+            color: #333;
           }
         }
       }
@@ -180,7 +182,7 @@
       thead {
         border: none;
         background: #f1f1f1;
-        color: $primary-color;
+        color: #333;
       }
 
       tbody {
@@ -223,5 +225,20 @@
       margin-right: 10px;
       justify-content: flex-end;
     }
+  }
+}
+
+.multiple-contact-form {
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}
+
+.input-submit {
+  input {
+    margin-bottom: 0;
   }
 }

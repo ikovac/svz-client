@@ -15,6 +15,7 @@ class MultipleContactForm extends Component {
       ime: null,
       email: null,
       poruka: null,
+      mob: null,
       disabled: false,
     };
   }
@@ -35,7 +36,7 @@ class MultipleContactForm extends Component {
     e.preventDefault();
     this.setState({ disabled: true });
 
-    const { checkboxItems, ime, email, poruka } = this.state;
+    const { checkboxItems, ime, email, poruka, mob } = this.state;
 
     let toArr = [];
     for (let [key, value] of checkboxItems.entries()) {
@@ -62,6 +63,7 @@ class MultipleContactForm extends Component {
       from_email: email,
       poruka: poruka,
       ime: ime,
+      kontakt: mob,
       to_email: toArr.join(", "),
     };
 
@@ -128,6 +130,7 @@ class MultipleContactForm extends Component {
     return (
       <form onSubmit={this.onFormSubmit} ref={el => (this.formRef = el)}>
         <div className="">
+          <label>Prima *</label>
           <div className="checkboxes">
             {checkboxes.map(item => (
               <div className="checkbox-wrapper" key={item.nid}>
@@ -143,7 +146,7 @@ class MultipleContactForm extends Component {
           </div>
           <div className="">
             <label>
-              Ime
+              Ime *
               <input
                 type="text"
                 name="ime"
@@ -155,7 +158,7 @@ class MultipleContactForm extends Component {
           </div>
           <div className="">
             <label>
-              Email
+              Email *
               <input
                 type="email"
                 name="email"
@@ -166,7 +169,17 @@ class MultipleContactForm extends Component {
           </div>
           <div className="">
             <label>
-              Poruka
+              Kontakt broj
+              <input
+                type="text"
+                name="mob"
+                onChange={this.handleInputChange}
+              />
+            </label>
+          </div>
+          <div className="">
+            <label>
+              Poruka *
               <textarea
                 name="poruka"
                 cols="30"
