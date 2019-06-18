@@ -184,6 +184,18 @@ class OdabranaLista extends Component {
         <PageTitle>Odabrana lista</PageTitle>
 
         <div className="wishlist-page-wrapper">
+          <p className="body-text">
+            <strong>Čestitamo!</strong> Došli ste do zadnjeg koraka.
+            <br />
+            Ovdje možete pregledati Vašu odabranu listu te ukoliko je sve
+            ispravno stisnite gumb za spremanje.
+            <br />
+            Odabrana lista će potom biti poslana na Vašu email adresu te će te
+            imati{" "}
+            <em>
+              <strong>sve što želite na jednom mjestu!</strong>
+            </em>
+          </p>
           {err && <h4>{err}</h4>}
           {loading && <div className="loader" />}
           {empty && <p>Odabrana lista je prazna.</p>}

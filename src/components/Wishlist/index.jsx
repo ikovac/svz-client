@@ -13,17 +13,29 @@ const Wishlist = ({
       <table className="unstriped stack">
         <thead>
           <tr>
+            <th className="wishlist-item-no" />
+            <th className="wishlist-remove-btn" />
             <th>Naziv</th>
             <th>Email</th>
             <th>Kontakt</th>
-            <th />
           </tr>
         </thead>
         <tbody>
-          {wishlistItems.map(item => (
+          {wishlistItems.map((item, index) => (
             <tr key={item.nid}>
+              <td className="wishlist-item-no">#{index + 1}</td>
+              <td className="wishlist-remove-btn">
+                <button
+                  onClick={() => onRemoveFromWishlist(item.nid)}
+                  title="Ukloni"
+                >
+                  <FaTimes />
+                </button>
+              </td>
               <td>
-                <Link to={item.path}>{item.title}</Link>
+                <Link to={item.path}>
+                  <h4>{item.title}</h4>
+                </Link>
               </td>
               <td>{item.email}</td>
               <td>
@@ -33,32 +45,19 @@ const Wishlist = ({
                   ))}
                 </ul>
               </td>
-              <td>
-                <button onClick={() => onRemoveFromWishlist(item.nid)}>
-                  <FaTimes />
-                </button>
-              </td>
             </tr>
           ))}
-          <tr>
-            <td>
-              <a href="/odabrana-lista" className="button secondary">
-                Osvježi
-              </a>
-            </td>
-            <td />
-            <td />
-            <td>
-              <button
-                className="button"
-                onClick={onSpremiOdabranoClick}
-              >
-                Spremi odabrano
-              </button>
-            </td>
-          </tr>
         </tbody>
       </table>
+      <div className="table-btns">
+        <a href="/odabrana-lista" className="button secondary">
+          Osvježi
+        </a>
+
+        <button className="button" onClick={onSpremiOdabranoClick}>
+          Spremi odabrano
+        </button>
+      </div>
     </div>
   );
 };

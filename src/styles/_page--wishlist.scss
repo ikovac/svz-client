@@ -90,3 +90,138 @@
     visibility: hidden;
   }
 }
+
+.odabrana-lista {
+  margin-bottom: 40px;
+  table {
+    margin-bottom: 0;
+    tbody {
+      background-color: transparent;
+      tr {
+        padding: 20px;
+        box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
+        background-color: #ffffffe0;
+        margin: auto;
+        margin-bottom: 20px;
+        max-width: 400px;
+        td {
+          padding: 0;
+          color: $body-text-color;
+          margin-bottom: 10px;
+          a {
+            h4 {
+              font-weight: bold;
+            }
+          }
+
+          ul {
+            // list-style: none;
+            margin-bottom: 0;
+            li {
+              color: $body-text-color;
+            }
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .wishlist-item-no {
+          font-size: x-large;
+          margin-bottom: 20px;
+          display: inline-block;
+        }
+        .wishlist-remove-btn {
+          display: inline-block;
+          float: right;
+
+          button {
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .table-btns {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+
+    a {
+      margin-right: 20px;
+    }
+  }
+}
+
+.wishlist-page-wrapper {
+  .body-text {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 63.99875em) {
+  .odabrana-lista {
+    table {
+      box-shadow: 0 0 2px #cfcad0;
+      .wishlist-item-no {
+        display: none !important;
+      }
+      thead {
+        border: none;
+        background: #f1f1f1;
+        color: $primary-color;
+      }
+
+      tbody {
+        tr {
+          padding: 0px;
+          box-shadow: none;
+          background-color: #ffffffe0;
+          margin: auto;
+          margin-bottom: 0px;
+          max-width: unset;
+          td {
+            padding: 10px;
+            margin-bottom: 0;
+            a {
+              h4 {
+                font-weight: normal;
+                font-size: 16px;
+                margin-bottom: 0;
+              }
+            }
+          }
+          .wishlist-remove-btn {
+            display: block;
+            float: none;
+
+            button {
+              cursor: pointer;
+              padding: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: large;
+            }
+          }
+        }
+      }
+    }
+
+    .table-btns {
+      margin-right: 10px;
+      justify-content: flex-end;
+    }
+  }
+}
