@@ -65,11 +65,22 @@ $filter-text-color: #333;
 }
 
 .filters-container {
+  padding: 0 20px;
+
+  .filter-btn {
+    width: 100%;
+    outline: none;
+  }
+
   h4 {
     font-size: 16px;
   }
 
   form {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+
     > div {
       position: relative;
       svg {
@@ -127,6 +138,96 @@ $filter-text-color: #333;
   }
 }
 
+@keyframes slideToTop {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 849px) {
+  .filters-container {
+    form {
+      padding-top: 30px;
+      align-items: center;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+      z-index: 20;
+  
+      animation-name: slideToTop;
+      animation-duration: 0.4s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+  
+      .form-filters-controls {
+        width: 100%;
+        max-width: 253px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          outline: none;
+          cursor: pointer;
+          svg {
+            color: white;
+            position: relative;
+            position: relative;
+            transform: unset;
+            display: unset;
+            width: unset;
+            height: unset;
+            left: unset;
+            font-size: 25px;
+          }
+        }
+      }
+  
+      input.button {
+        max-width: 253px;
+        width: 100%;
+      }
+    }
+  
+    form.close {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .filters-container {
+    margin-bottom: 30px;
+    .filter-btn {
+      display: none;
+    }
+    form,
+    form.close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+
+      .form-filters-controls {
+        display: none;
+      }
+
+      > div {
+        margin-right: 10px;
+      }
+
+      input {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 .front-page-filters {
   z-index: 1;
   position: relative;
@@ -153,25 +254,6 @@ $filter-text-color: #333;
         &:focus {
           box-shadow: none;
         }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 40em) {
-  .filters-container {
-    margin-bottom: 30px;
-    form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      >div {
-        margin-right: 10px;
-      }
-
-      input {
-        margin-bottom: 0;
       }
     }
   }
