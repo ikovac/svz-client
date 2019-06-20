@@ -1,0 +1,12 @@
+#swal2-content {
+    color: #333;
+}
+
+.swal2-actions {
+    button {
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}

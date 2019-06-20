@@ -81,7 +81,10 @@ class OdabranaLista extends Component {
         placeholder: "Email adresa",
       },
       showCancelButton: true,
+      cancelButtonText: "Odustani",
+
       confirmButtonText: "Spremi",
+      confirmButtonColor: "#006950",
       showLoaderOnConfirm: true,
       preConfirm: async email => {
         let poruka = `Poštovani,

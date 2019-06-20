@@ -71,6 +71,7 @@ class RestoraniSalePage extends Component {
               articles.map(({ node }) => (
                 <ArticleTeaser key={node.drupal_internal__nid} article={node} />
               ))}
+            {!loading && articles && !articles.length && <p>Nema rezultata pretrage.</p>}
             {loading && <div className="loader" />}
           </div>
         </div>
