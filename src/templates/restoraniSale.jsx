@@ -88,10 +88,10 @@ export default ({ data }) => {
         </div>
 
         <div id="field-paketi" className="usluge-section">
-          <h3>Preporučeni meniji</h3>
           <PaketiTabs
             items={nodeRestoraniSale.relationships.field_paketi}
             label={"Meni"}
+            title="Preporučeni meniji"
           />
         </div>
 

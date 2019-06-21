@@ -2,7 +2,7 @@ import React from "react";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-const PaketiTabs = ({ label, items }) => {
+const PaketiTabs = ({ label, items, title="Paketi" }) => {
   if (!items.length) {
     return null;
   }
@@ -11,7 +11,7 @@ const PaketiTabs = ({ label, items }) => {
   }
   return (
     <>
-      <h3>Paketi</h3>
+      <h3>{title}</h3>
       <Tabs
         selectedTabClassName="is-active"
         selectedTabPanelClassName="is-active"
