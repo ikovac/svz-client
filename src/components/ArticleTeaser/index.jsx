@@ -5,6 +5,7 @@ import Slideshow from "../Slideshow";
 import AddToWishlistBtn from "../AddToWishlistBtn";
 
 import { FaMapMarkerAlt, FaUsers, FaParking } from "react-icons/fa";
+import { MdSpeaker } from "react-icons/md";
 
 const ArticleTeaser = ({ article }) => {
   return (
@@ -62,6 +63,21 @@ const ArticleTeaser = ({ article }) => {
                 <p>
                   <FaParking />
                   Dostupan parking
+                </p>
+              </div>
+            )}
+            {article.field_broj_clanova && (
+              <div className="group-body__clanovi paragraph-icon">
+                <p>
+                  <FaUsers />
+                  Do {article.field_broj_clanova} članova
+                </p>
+              </div>
+            )}
+            {article.field_razglas && (
+              <div className="group-body__clanovi paragraph-icon">
+                <p>
+                  <MdSpeaker /> Cijena uključuje razglas
                 </p>
               </div>
             )}

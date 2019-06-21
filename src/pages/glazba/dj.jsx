@@ -7,18 +7,18 @@ import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
 
-class RestoraniSalePage extends Component {
+class DJPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: this.props.data.allNodeRestoraniSale.edges,
+      articles: this.props.data.allNodeGlazba.edges,
       loading: false,
     };
   }
 
   onFilterSubmit = async filters => {
-    const articles = this.props.data.allNodeRestoraniSale.edges;
-    const { datum, lokacija, kapacitet } = filters;
+    const articles = this.props.data.allNodeGlazba.edges;
+    const { datum, lokacija, razglas } = filters;
 
     this.setState({ loading: true });
 
@@ -44,7 +44,7 @@ class RestoraniSalePage extends Component {
         (unavailable_nids
           ? !unavailable_nids.includes(node.drupal_internal__nid.toString())
           : true) &&
-        (kapacitet ? node.field_kapacitet >= kapacitet : true) &&
+        (razglas !== null ? node.field_razglas === Boolean(razglas) : true) &&
         (lokacija && lokacija.length
           ? node.relationships.field_content_main_info.relationships.field_lokacija.name.toUpperCase() ===
               lokacija.toUpperCase() ||
@@ -60,10 +60,10 @@ class RestoraniSalePage extends Component {
     const { loading, articles } = this.state;
     return (
       <>
-        <PageTitle>Restorani & Sale</PageTitle>
+        <PageTitle>DJ</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters
-            filters={["datum", "lokacija", "kapacitet"]}
+            filters={["datum", "lokacija", "razglas"]}
             onFilterSubmit={this.onFilterSubmit}
           />
 
@@ -84,27 +84,29 @@ class RestoraniSalePage extends Component {
   }
 }
 
-export default RestoraniSalePage;
+export default DJPage;
 
 export const query = graphql`
-  query allRestoraniSale {
-    allNodeRestoraniSale(filter: { status: { eq: true } }) {
+  {
+    allNodeGlazba(
+      filter: {
+        relationships: { field_vrsta_glazbe: { name: { eq: "dj" } } }
+        status: { eq: true }
+      }
+    ) {
       edges {
         node {
           title
-          drupal_internal__nid
-          field_parking
-          path {
-            alias
-          }
+          field_razglas
+          field_broj_clanova
           body {
             processed
           }
-          field_kapacitet
+          path {
+            alias
+          }
+          drupal_internal__nid
           relationships {
-            field_posebna_ponuda {
-              field_posebna_ponuda
-            }
             field_content_main_info {
               relationships {
                 field_lokacija {

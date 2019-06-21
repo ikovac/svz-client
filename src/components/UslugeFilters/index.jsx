@@ -25,11 +25,25 @@ class UslugeFilters extends Component {
     this.initialSubmit();
   }
 
-  handleInputChange = e => {
+  handleInputChangeKapacitet = e => {
     const { updateFilters } = this.props;
     this.setState({ kapacitet: e.target.value });
     updateFilters("kapacitet", e.target.value);
   };
+
+  handleInputChangeRazglas = e => {
+    switch(e.target.value) {
+      case "da": 
+        this.setState({ razglas: true });
+        break;
+      case "ne":
+        this.setState({ razglas: false });
+        break;
+      default:
+        this.setState({ razglas: null });
+        break;
+    }
+  }
 
   handleDatumChange = date => {
     const { updateFilters } = this.props;
@@ -157,7 +171,7 @@ class UslugeFilters extends Component {
               )}
               {filters.includes("kapacitet") && (
                 <KapacitetInput
-                  handleInputChange={this.handleInputChange}
+                  handleInputChange={this.handleInputChangeKapacitet}
                   kapacitet={kapacitet}
                 />
               )}
@@ -167,7 +181,7 @@ class UslugeFilters extends Component {
                   <select
                     name="razglas"
                     id="filter--razglas"
-                    onChange={this.handleInputChange}
+                    onChange={this.handleInputChangeRazglas}
                   >
                     <option value="null">- Svi -</option>
                     <option value="da">Da</option>

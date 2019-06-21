@@ -108,12 +108,15 @@ $filter-text-color: #333;
 
     .filters__field--razglas {
       display: flex;
-      align-items: center;
-      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0;
+      margin-right: 10px;
+      margin-bottom: 25px;
 
-      label {
+      /* label {
         margin-right: 20px;
-      }
+      } */
 
       select {
         margin: 0;
@@ -159,12 +162,12 @@ $filter-text-color: #333;
       height: 100%;
       background-color: rgba($color: #000000, $alpha: 0.8);
       z-index: 20;
-  
+
       animation-name: slideToTop;
       animation-duration: 0.4s;
       animation-timing-function: ease-out;
       animation-fill-mode: forwards;
-  
+
       .form-filters-controls {
         width: 100%;
         max-width: 253px;
@@ -187,13 +190,26 @@ $filter-text-color: #333;
           }
         }
       }
-  
+
       input.button {
         max-width: 253px;
         width: 100%;
       }
+
+      .filters__field--razglas {
+        width: 100%;
+        max-width: 253px;
+        margin-right: 0;
+        label {
+          color: white;
+        }
+
+        #filter--razglas {
+          width: 100%;
+        }
+      }
     }
-  
+
     form.close {
       display: none;
     }
