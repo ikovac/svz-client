@@ -48,6 +48,11 @@
     .right-section__group-body {
       .teaser-summary {
         border-bottom: 1px solid $border-color;
+        .group-body__text {
+          p {
+            margin: 0;
+          }
+        }
       }
       > div {
         padding: 10px;

@@ -4,7 +4,7 @@ import getTextSummary from "../../utils/trimHtmlText";
 import Slideshow from "../Slideshow";
 import AddToWishlistBtn from "../AddToWishlistBtn";
 
-import { FaMapMarkerAlt, FaUsers, FaParking } from "react-icons/fa";
+import { FaMapMarkerAlt, FaUsers, FaParking, FaCameraRetro, FaVideo } from "react-icons/fa";
 import { MdSpeaker } from "react-icons/md";
 
 const ArticleTeaser = ({ article }) => {
@@ -78,6 +78,22 @@ const ArticleTeaser = ({ article }) => {
               <div className="group-body__clanovi paragraph-icon">
                 <p>
                   <MdSpeaker /> Cijena uključuje razglas
+                </p>
+              </div>
+            )}
+
+            {article.field_foto_usluge && (
+              <div className="group-body__foto paragraph-icon">
+                <p>
+                  <FaCameraRetro /> Foto usluge
+                </p>
+              </div>
+            )}
+
+            {article.field_video_usluge && (
+              <div className="group-body__video paragraph-icon">
+                <p>
+                  <FaVideo /> Video usluge
                 </p>
               </div>
             )}

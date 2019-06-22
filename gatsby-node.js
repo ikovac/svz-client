@@ -19,6 +19,7 @@ exports.createPages = ({ actions, graphql }) => {
   // Kategorije
   const restoraniSaleTemplate = path.resolve("src/templates/restoraniSale.jsx");
   const glazbaTemplate = path.resolve("src/templates/glazba.jsx");
+  const fotoVideoTemplate = path.resolve("src/templates/fotoVideo.jsx");
 
   const edges = `
     edges {
@@ -140,6 +141,28 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
   });
+  
+  const fotoVideoPages = graphql(`
+    {
+      allNodeFotoVideo(filter: { status: { eq: true } }) {
+        ${edges}
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    result.data.allNodeFotoVideo.edges.forEach(({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: fotoVideoTemplate,
+        context: {
+          nid: node.drupal_internal__nid,
+        },
+      });
+    });
+  });
 
   return Promise.all([
     korisneInformacijePages,
@@ -147,5 +170,6 @@ exports.createPages = ({ actions, graphql }) => {
     kategorijePages,
     restoraniSalePages,
     glazbaPages,
+    fotoVideoPages,
   ]);
 };

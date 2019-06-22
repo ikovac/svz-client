@@ -34,7 +34,7 @@ module.exports = {
         short_name: `SZV`,
         start_url: `/`,
         background_color: `#faeccf`,
-        theme_color: `#006955`,
+        theme_color: `#faeccf`,
         display: `standalone`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },

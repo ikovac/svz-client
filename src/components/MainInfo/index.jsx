@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaMapMarkerAlt, FaUsers, FaMapSigns, FaParking } from "react-icons/fa";
+import { FaMapMarkerAlt, FaUsers, FaMapSigns, FaParking, FaCameraRetro, FaVideo } from "react-icons/fa";
 import { MdSpeaker } from "react-icons/md";
 
 const MainInfo = ({ content }) => {
@@ -52,6 +52,22 @@ const MainInfo = ({ content }) => {
         <div className="main-info__clanovi columns medium-6 end">
           <p>
             <MdSpeaker /> Cijena uključuje razglas
+          </p>
+        </div>
+      )}
+
+      {content.field_foto_usluge && (
+        <div className="main-info__foto columns medium-6 end">
+          <p>
+            <FaCameraRetro /> Foto usluge
+          </p>
+        </div>
+      )}
+
+      {content.field_video_usluge && (
+        <div className="main-info__video columns medium-6 end">
+          <p>
+            <FaVideo /> Video usluge
           </p>
         </div>
       )}
