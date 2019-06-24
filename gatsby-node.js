@@ -20,6 +20,7 @@ exports.createPages = ({ actions, graphql }) => {
   const restoraniSaleTemplate = path.resolve("src/templates/restoraniSale.jsx");
   const glazbaTemplate = path.resolve("src/templates/glazba.jsx");
   const fotoVideoTemplate = path.resolve("src/templates/fotoVideo.jsx");
+  const cvijeceDekoracijeTemplate = path.resolve("src/templates/cvijeceDekoracije.jsx");
 
   const edges = `
     edges {
@@ -164,6 +165,29 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 
+
+  const cvijeceDekoracijePages = graphql(`
+    {
+      allNodeCvijeceIDekoracije(filter: { status: { eq: true } }) {
+        ${edges}
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    result.data.allNodeCvijeceIDekoracije.edges.forEach(({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: cvijeceDekoracijeTemplate,
+        context: {
+          nid: node.drupal_internal__nid,
+        },
+      });
+    });
+  });
+
   return Promise.all([
     korisneInformacijePages,
     basicPagePages,
@@ -171,5 +195,6 @@ exports.createPages = ({ actions, graphql }) => {
     restoraniSalePages,
     glazbaPages,
     fotoVideoPages,
+    cvijeceDekoracijePages
   ]);
 };
