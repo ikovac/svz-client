@@ -20,7 +20,7 @@ import {
 } from "react-icons/fa";
 
 export default ({ data }) => {
-  const { nodeRestoraniSale: nodeContentType } = data;
+  const { nodeCatering: nodeContentType } = data;
   const navItems = [
     {
       icon: <FaInfoCircle />,
@@ -111,9 +111,7 @@ export default ({ data }) => {
 
           {nodeContentType.relationships.field_drustvene_mreze && (
             <SocialMediaLinks
-              socialMedia={
-                nodeContentType.relationships.field_drustvene_mreze
-              }
+              socialMedia={nodeContentType.relationships.field_drustvene_mreze}
             />
           )}
         </div>
@@ -140,8 +138,7 @@ export default ({ data }) => {
           <h3>Kontaktiraj {nodeContentType.title}</h3>
           <SimpleContactForm
             to={
-              nodeContentType.relationships.field_content_main_info
-                .field_email
+              nodeContentType.relationships.field_content_main_info.field_email
             }
           />
         </div>
@@ -151,18 +148,14 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query restoraniSale($nid: Int!) {
-    nodeRestoraniSale(
-      status: { eq: true }
-      drupal_internal__nid: { eq: $nid }
-    ) {
+  query catering($nid: Int!) {
+    nodeCatering(status: { eq: true }, drupal_internal__nid: { eq: $nid }) {
       title
       drupal_internal__nid
-      field_parking
       body {
         processed
       }
-      field_kapacitet
+      field_tekstualni_kapacitet
       field_adresa
       field_radno_vrijeme
       relationships {

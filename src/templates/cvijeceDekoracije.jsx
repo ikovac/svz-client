@@ -8,11 +8,13 @@ import KontaktInfo from "../components/KontaktInfo";
 import MainInfo from "../components/MainInfo";
 import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
+import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
 
 import {
   FaInfoCircle,
   FaPhone,
+  FaMapMarkerAlt,
   FaQuestionCircle,
   FaTelegramPlane,
 } from "react-icons/fa";
@@ -34,6 +36,11 @@ export default ({ data }) => {
       icon: <FaPhone />,
       label: "Kontakt",
       linkId: "kontakt-info",
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      label: "Karta",
+      linkId: "leaflet-wrapper",
     },
     {
       icon: <FaTelegramPlane />,
@@ -84,7 +91,8 @@ export default ({ data }) => {
           <div id="field-paketi" className="usluge-section">
             <PaketiTabs
               items={nodeContentType.relationships.field_paketi}
-              label={"Paket"}
+              label={"Meni"}
+              title="Preporučeni meniji"
             />
           </div>
         )}
@@ -108,6 +116,24 @@ export default ({ data }) => {
           )}
         </div>
 
+        {nodeContentType.relationships.field_lokacija_na_mapi && (
+          <div id="leaflet-wrapper" className="usluge-section">
+            <LeafletMap
+              lat={
+                nodeContentType.relationships.field_lokacija_na_mapi
+                  .field_latitude
+              }
+              lng={
+                nodeContentType.relationships.field_lokacija_na_mapi
+                  .field_longitude
+              }
+            >
+              <h4>{nodeContentType.title}</h4>
+              <p>{nodeContentType.field_adresa}</p>
+            </LeafletMap>
+          </div>
+        )}
+
         <div id="contact-form" className="usluge-section">
           <h3>Kontaktiraj {nodeContentType.title}</h3>
           <SimpleContactForm
@@ -123,19 +149,48 @@ export default ({ data }) => {
 
 export const query = graphql`
   query cvijeceDekoracije($nid: Int!) {
-    nodeCvijeceIDekoracije(status: { eq: true }, drupal_internal__nid: { eq: $nid }) {
+    nodeCvijeceIDekoracije(
+      status: { eq: true }
+      drupal_internal__nid: { eq: $nid }
+    ) {
       title
+      drupal_internal__nid
       body {
         processed
       }
-      path {
-        alias
-      }
-      drupal_internal__nid
+      field_adresa
+      field_radno_vrijeme
       relationships {
+        field_lokacija_na_mapi {
+          field_latitude
+          field_longitude
+        }
+        field_paketi {
+          field_paket {
+            processed
+          }
+        }
+        field_drustvene_mreze {
+          field_web {
+            uri
+          }
+          field_facebook {
+            uri
+          }
+          field_instagram {
+            uri
+          }
+          field_youtube {
+            uri
+          }
+        }
+        field_posebna_ponuda {
+          field_posebna_ponuda
+          field_posebna_ponuda_opis
+        }
         field_content_main_info {
-          field_email
           field_kontakt
+          field_email
           relationships {
             field_lokacija {
               name
@@ -153,24 +208,6 @@ export const query = graphql`
               }
             }
           }
-        }
-        field_drustvene_mreze {
-          field_facebook {
-            uri
-          }
-          field_instagram {
-            uri
-          }
-          field_web {
-            uri
-          }
-          field_youtube {
-            uri
-          }
-        }
-        field_posebna_ponuda {
-          field_posebna_ponuda
-          field_posebna_ponuda_opis
         }
       }
     }

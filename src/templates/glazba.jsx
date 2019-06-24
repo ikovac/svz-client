@@ -18,7 +18,7 @@ import {
 } from "react-icons/fa";
 
 export default ({ data }) => {
-  const { nodeGlazba } = data;
+  const { nodeGlazba: nodeContentType } = data;
   const navItems = [
     {
       icon: <FaInfoCircle />,
@@ -43,20 +43,20 @@ export default ({ data }) => {
   ];
   return (
     <div className="usluge-wrapper">
-      <PageTitle>{nodeGlazba.title}</PageTitle>
+      <PageTitle>{nodeContentType.title}</PageTitle>
 
       <div className="usluge__content-wrapper">
         <UslugeNavBar
-          articleID={nodeGlazba.drupal_internal__nid}
+          articleID={nodeContentType.drupal_internal__nid}
           items={navItems}
         />
         <div className="slideshow-wrapper">
           <Slideshow
             gallery={
-              nodeGlazba.relationships.field_content_main_info.relationships
+              nodeContentType.relationships.field_content_main_info.relationships
                 .field_galerija
             }
-            alt={nodeGlazba.title}
+            alt={nodeContentType.title}
             showThumbnails={true}
             disableArrowKeys={false}
           />
@@ -65,7 +65,7 @@ export default ({ data }) => {
           <span className="section-represent__icon">
             <FaInfoCircle />
           </span>
-          <MainInfo content={nodeGlazba} />
+          <MainInfo content={nodeContentType} />
         </div>
 
         <div id="field-opis" className="usluge-section">
@@ -75,16 +75,17 @@ export default ({ data }) => {
           <h3>Opis</h3>
           <div
             dangerouslySetInnerHTML={{
-              __html: nodeGlazba.body.processed,
+              __html: nodeContentType.body.processed,
             }}
           />
         </div>
 
-        {nodeGlazba.relationships.field_paketi && (
+        {nodeContentType.relationships.field_paketi && (
           <div id="field-paketi" className="usluge-section">
             <PaketiTabs
-              items={nodeGlazba.relationships.field_paketi}
-              label={"Paket"}
+              items={nodeContentType.relationships.field_paketi}
+              label={"Meni"}
+              title="Preporučeni meniji"
             />
           </div>
         )}
@@ -95,23 +96,23 @@ export default ({ data }) => {
           </span>
           <h3>Kontakt Info</h3>
 
-          {nodeGlazba.relationships.field_content_main_info && (
+          {nodeContentType.relationships.field_content_main_info && (
             <KontaktInfo
-              mainInfo={nodeGlazba.relationships.field_content_main_info}
+              mainInfo={nodeContentType.relationships.field_content_main_info}
             />
           )}
 
-          {nodeGlazba.relationships.field_drustvene_mreze && (
+          {nodeContentType.relationships.field_drustvene_mreze && (
             <SocialMediaLinks
-              socialMedia={nodeGlazba.relationships.field_drustvene_mreze}
+              socialMedia={nodeContentType.relationships.field_drustvene_mreze}
             />
           )}
         </div>
 
         <div id="contact-form" className="usluge-section">
-          <h3>Kontaktiraj {nodeGlazba.title}</h3>
+          <h3>Kontaktiraj {nodeContentType.title}</h3>
           <SimpleContactForm
-            to={nodeGlazba.relationships.field_content_main_info.field_email}
+            to={nodeContentType.relationships.field_content_main_info.field_email}
           />
         </div>
       </div>

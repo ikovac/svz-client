@@ -24,6 +24,14 @@ const MainInfo = ({ content }) => {
         </div>
       )}
 
+      {content.field_tekstualni_kapacitet && (
+        <div className="main-info__kapacitet columns medium-6 end">
+          <p>
+            <FaUsers /> Kapacitet: {content.field_tekstualni_kapacitet}
+          </p>
+        </div>
+      )}
+
       {content.field_adresa && (
         <div className="main-info--adresa columns medium-6 end">
           <p>

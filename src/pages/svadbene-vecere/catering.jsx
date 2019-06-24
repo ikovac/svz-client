@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { graphql } from "gatsby";
 
+import axios from "axios";
+
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
@@ -9,25 +11,46 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: this.props.data.allNodeCvijeceIDekoracije.edges,
+      articles: this.props.data.allNodeCatering.edges,
       loading: false,
     };
   }
 
   onFilterSubmit = async filters => {
-    const articles = this.props.data.allNodeCvijeceIDekoracije.edges;
-    const { lokacija } = filters;
+    const articles = this.props.data.allNodeCatering.edges;
+    const { datum, lokacija } = filters;
 
     this.setState({ loading: true });
 
-    const filteredArticles = articles.filter(({ node }) =>
-      lokacija && lokacija.length
-        ? node.relationships.field_content_main_info.relationships.field_lokacija.name.toUpperCase() ===
-            lokacija.toUpperCase() ||
-          node.relationships.field_content_main_info.relationships.field_lokacija.relationships.field_okolna_mjesta.find(
-            el => el.name.toUpperCase() === lokacija.toUpperCase()
-          )
-        : true
+    let unavailable_nids;
+    if (datum) {
+      try {
+        unavailable_nids = await axios.get(
+          `${
+            process.env.DRUPAL_URI
+          }/api/rezervacije?_format=json&datum=${datum}`
+        );
+        unavailable_nids = unavailable_nids.data.map(
+          rezervacija => rezervacija.field_artikl
+        );
+      } catch (err) {
+        console.log(err);
+        unavailable_nids = null;
+      }
+    }
+
+    const filteredArticles = articles.filter(
+      ({ node }) =>
+        (unavailable_nids
+          ? !unavailable_nids.includes(node.drupal_internal__nid.toString())
+          : true) &&
+        (lokacija && lokacija.length
+          ? node.relationships.field_content_main_info.relationships.field_lokacija.name.toUpperCase() ===
+              lokacija.toUpperCase() ||
+            node.relationships.field_content_main_info.relationships.field_lokacija.relationships.field_okolna_mjesta.find(
+              el => el.name.toUpperCase() === lokacija.toUpperCase()
+            )
+          : true)
     );
     this.setState({ articles: filteredArticles, loading: false });
   };
@@ -36,10 +59,10 @@ export default class extends Component {
     const { loading, articles } = this.state;
     return (
       <>
-        <PageTitle>Dekoracije i dodaci</PageTitle>
+        <PageTitle>Catering</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters
-            filters={["lokacija"]}
+            filters={["datum", "lokacija"]}
             onFilterSubmit={this.onFilterSubmit}
           />
 
@@ -61,15 +84,8 @@ export default class extends Component {
 }
 
 export const query = graphql`
-  {
-    allNodeCvijeceIDekoracije(
-      filter: {
-        relationships: {
-          field_vrsta_usluge: { elemMatch: { name: { in: "Dekoracije" } } }
-        }
-        status: { eq: true }
-      }
-    ) {
+   {
+    allNodeCatering(filter: { status: { eq: true } }) {
       edges {
         node {
           title
@@ -80,39 +96,12 @@ export const query = graphql`
           body {
             processed
           }
-          field_adresa
-          field_radno_vrijeme
+          field_tekstualni_kapacitet
           relationships {
-            field_lokacija_na_mapi {
-              field_latitude
-              field_longitude
-            }
-            field_paketi {
-              field_paket {
-                processed
-              }
-            }
-            field_drustvene_mreze {
-              field_web {
-                uri
-              }
-              field_facebook {
-                uri
-              }
-              field_instagram {
-                uri
-              }
-              field_youtube {
-                uri
-              }
-            }
             field_posebna_ponuda {
               field_posebna_ponuda
-              field_posebna_ponuda_opis
             }
             field_content_main_info {
-              field_kontakt
-              field_email
               relationships {
                 field_lokacija {
                   name

@@ -32,8 +32,8 @@ class UslugeFilters extends Component {
   };
 
   handleInputChangeRazglas = e => {
-    switch(e.target.value) {
-      case "da": 
+    switch (e.target.value) {
+      case "da":
         this.setState({ razglas: true });
         break;
       case "ne":
@@ -43,7 +43,7 @@ class UslugeFilters extends Component {
         this.setState({ razglas: null });
         break;
     }
-  }
+  };
 
   handleDatumChange = date => {
     const { updateFilters } = this.props;
@@ -90,9 +90,9 @@ class UslugeFilters extends Component {
 
   onFilterToggle = e => {
     e.preventDefault();
-    const {showFilters} = this.state;
+    const { showFilters } = this.state;
 
-    if(showFilters) {
+    if (showFilters) {
       this.onFilterClose();
     } else {
       this.onFilterOpen();
@@ -102,17 +102,19 @@ class UslugeFilters extends Component {
   onFilterOpen = () => {
     this.setState({ showFilters: true });
     document.getElementsByTagName("body")[0].style.position = "fixed";
-  }
+  };
 
   onFilterClose = () => {
     this.setState({ showFilters: false });
     document.getElementsByTagName("body")[0].style.position = "unset";
-  }
+  };
 
   componentDidMount() {
-    document
-      .getElementById("filter--datum")
-      .setAttribute("readonly", "readonly");
+    if (this.props.filters.includes("datum")) {
+      document
+        .getElementById("filter--datum")
+        .setAttribute("readonly", "readonly");
+    }
   }
 
   render() {
@@ -139,10 +141,7 @@ class UslugeFilters extends Component {
         `}
         render={lokacijaTerms => (
           <div className="filters-container">
-            <button
-              className="button filter-btn"
-              onClick={this.onFilterToggle}
-            >
+            <button className="button filter-btn" onClick={this.onFilterToggle}>
               Filteri
             </button>
             {/* <h4>Filtriraj rezultate</h4> */}

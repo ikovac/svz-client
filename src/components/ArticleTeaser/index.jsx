@@ -58,6 +58,14 @@ const ArticleTeaser = ({ article }) => {
                 </p>
               </div>
             )}
+            {article.field_tekstualni_kapacitet && (
+              <div className="group-body__kapacitet paragraph-icon">
+                <p>
+                  <FaUsers />
+                  Kapacitet: {article.field_tekstualni_kapacitet}
+                </p>
+              </div>
+            )}
             {article.field_parking && (
               <div className="group-body__parking paragraph-icon">
                 <p>
