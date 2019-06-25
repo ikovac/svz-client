@@ -92,3 +92,12 @@ main {
 .cookie-font-span {
   font-family: "Cookie", cursive;
 }
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+button:focus {outline:none !important;}
+button::-moz-focus-inner {border:0 !important;}
+
+
+
+
