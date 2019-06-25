@@ -7,6 +7,8 @@ import Timeline from "../components/Timeline";
 import Image from "../components/Image";
 import FrontPageFilters from "../components/FrontPageFilters";
 
+console.log("process var: ", process.env.GATSBY_DRUPAL_URI);
+
 const IndexPage = ({ data }) => (
   <div className="front-page-wrapper">
     <SEO title="Početna" keywords={[`vjenčanje`, `organizacija`, `vjenčanja`, `sve`, `za`]} />
