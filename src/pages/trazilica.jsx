@@ -24,7 +24,7 @@ class Tražilica extends Component {
     this.setState({ loading: true });
     try {
       results = await axios.get(
-        `${process.env.DRUPAL_URI}/api/search?_format=json&search=${
+        `${process.env.GATSBY_DRUPAL_URI}/api/search?_format=json&search=${
           e.target.value
         }`
       );

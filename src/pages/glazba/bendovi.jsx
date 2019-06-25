@@ -27,7 +27,7 @@ class bendoviPage extends Component {
       try {
         unavailable_nids = await axios.get(
           `${
-            process.env.DRUPAL_URI
+            process.env.GATSBY_DRUPAL_URI
           }/api/rezervacije?_format=json&datum=${datum}`
         );
         unavailable_nids = unavailable_nids.data.map(

@@ -74,14 +74,14 @@ class MultipleContactForm extends Component {
           Authorization:
             "Basic " +
             btoa(
-              `${process.env.DRUPAL_USERNAME}:${process.env.DRUPAL_PASSWORD}`
+              `${process.env.GATSBY_DRUPAL_USERNAME}:${process.env.GATSBY_DRUPAL_PASSWORD}`
             ),
           "x-csrf-token": await getSessionToken(),
         },
       };
 
       await axios.post(
-        `${process.env.DRUPAL_URI}/webform_rest/submit`,
+        `${process.env.GATSBY_DRUPAL_URI}/webform_rest/submit`,
         formData,
         config
       );

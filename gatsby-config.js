@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `${process.env.DRUPAL_URI}`,
+        baseUrl: `${process.env.GATSBY_DRUPAL_URI}`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
