@@ -28,8 +28,6 @@ class OdabranaLista extends Component {
       wishlistItems: [],
       err: null,
     };
-
-    console.log("GATSBY LINK: ", process.env.GATSBY_SITE_URI);
   }
 
   loadWishlist = async () => {
