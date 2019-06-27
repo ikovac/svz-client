@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { connect } from "react-redux";
 import cn from "classnames";
-import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+// import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
 import { FaHeart, FaSearch } from "react-icons/fa";
 

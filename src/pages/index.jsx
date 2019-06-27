@@ -3,13 +3,18 @@ import { graphql } from "gatsby";
 import SEO from "../components/seo";
 
 import "../styles/main.scss";
+import "../styles/hamburgers/hamburgers.scss";
+
 import Timeline from "../components/Timeline";
 import Image from "../components/Image";
 import FrontPageFilters from "../components/FrontPageFilters";
 
 const IndexPage = ({ data }) => (
   <div className="front-page-wrapper">
-    <SEO title="Početna" keywords={[`vjenčanje`, `organizacija`, `vjenčanja`, `sve`, `za`]} />
+    <SEO
+      title="Početna"
+      keywords={[`vjenčanje`, `organizacija`, `vjenčanja`, `sve`, `za`]}
+    />
     <div className="front-page__image-section">
       <Image
         source={data.placeholderImage.childImageSharp.fluid}
