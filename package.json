@@ -37,6 +37,7 @@
     "react-masonry-css": "^1.0.12",
     "react-redux": "^7.0.3",
     "react-tabs": "^3.0.0",
+    "react-transition-group": "^4.1.1",
     "react-vertical-timeline-component": "^2.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",

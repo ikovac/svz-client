@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
+import Transition from "../Transition";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <Transition location={location}>{children}</Transition>
       <Footer />
     </>
   );
