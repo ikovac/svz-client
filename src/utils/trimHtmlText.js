@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function getTextSummary(body, size = 300) {
+/* export default function getTextSummary(body, size = 300) {
 
   // this is a teaser computation that works every time!
 
@@ -142,9 +142,11 @@ export default function getTextSummary(body, size = 300) {
   }
 
   return $result;
-}
-/* export default function getTextSummary(html, length = 300) {
+} */
+
+
+export default function getTextSummary(html, length = 300) {
   let text = html.replace(/<[^>]*>/g, "");
   text = text.replace(/&nbsp;/g, " ");
   return <p>{text.substring(0, length).trim() + "..."}</p>;
-} */
+}
