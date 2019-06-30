@@ -10,6 +10,7 @@ import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
 import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 import {
   FaInfoCircle,
@@ -48,8 +49,19 @@ export default ({ data }) => {
       linkId: "contact-form",
     },
   ];
+  const breadcrumbItems = [
+    {
+      label: "Svadbene večere",
+      link: "/svadbene-vecere",
+    },
+    {
+      label: "Catering",
+      link: "/svadbene-vecere/catering",
+    },
+  ];
   return (
     <div className="usluge-wrapper">
+      <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 
       <div className="usluge__content-wrapper">

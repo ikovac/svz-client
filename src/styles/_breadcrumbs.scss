@@ -1,0 +1,40 @@
+.breadcrumbs {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px;
+
+  .breadcrumb-element {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+
+    &:hover {
+      text-decoration: none;
+      color: $primary-color;
+    }
+
+    &::after {
+      content: "/";
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  .breadcrumb-element.home {
+    display: flex;
+    align-items: center;
+  }
+  .breadcrumb-element.active {
+    &:hover {
+      color: #333;
+    }
+  }
+}

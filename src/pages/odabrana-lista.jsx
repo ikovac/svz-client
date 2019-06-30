@@ -18,6 +18,7 @@ import Wishlist from "../components/Wishlist";
 
 import Swal from "sweetalert2";
 import MultipleContactForm from "../components/ContactForm/MultipleContactForm";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 class OdabranaLista extends Component {
   constructor(props) {
@@ -185,44 +186,47 @@ class OdabranaLista extends Component {
   render() {
     const { loading, empty, wishlistItems, err } = this.state;
     return (
-      <Container>
-        <PageTitle>Odabrana lista</PageTitle>
+      <>
+        <Breadcrumbs current="Odabrana lista" />
+        <Container>
+          <PageTitle>Odabrana lista</PageTitle>
 
-        <div className="wishlist-page-wrapper">
-          <p className="body-text">
-            <strong>Čestitamo!</strong> Došli ste do zadnjeg koraka.
-            <br />
-            Ovdje možete pregledati Vašu odabranu listu te ukoliko je sve
-            ispravno stisnite gumb za spremanje.
-            <br />
-            Odabrana lista će potom biti poslana na Vašu email adresu te će te
-            imati{" "}
-            <em>
-              <strong>sve što želite na jednom mjestu!</strong>
-            </em>
-          </p>
-          {err && <h4>{err}</h4>}
-          {loading && <div className="loader" />}
-          {empty && <p>Odabrana lista je prazna.</p>}
-          {!loading && !empty && !err && (
-            <Wishlist
-              wishlistItems={wishlistItems}
-              onRemoveFromWishlist={this.onRemoveFromWishlist}
-              onSpremiOdabranoClick={this.onSpremiOdabranoClick}
-            />
-          )}
-          {!loading && !empty && !err && (
-            <div className="callout multiple-contact-form">
-              <h3>Pošalji upit</h3>
-              <p>
-                Sa samo jednim upitom možete kontaktirati sve označene
-                oglašivače.
-              </p>
-              <MultipleContactForm checkboxes={wishlistItems} />
-            </div>
-          )}
-        </div>
-      </Container>
+          <div className="wishlist-page-wrapper">
+            <p className="body-text">
+              <strong>Čestitamo!</strong> Došli ste do zadnjeg koraka.
+              <br />
+              Ovdje možete pregledati Vašu odabranu listu te ukoliko je sve
+              ispravno stisnite gumb za spremanje.
+              <br />
+              Odabrana lista će potom biti poslana na Vašu email adresu te će te
+              imati{" "}
+              <em>
+                <strong>sve što želite na jednom mjestu!</strong>
+              </em>
+            </p>
+            {err && <h4>{err}</h4>}
+            {loading && <div className="loader" />}
+            {empty && <p>Odabrana lista je prazna.</p>}
+            {!loading && !empty && !err && (
+              <Wishlist
+                wishlistItems={wishlistItems}
+                onRemoveFromWishlist={this.onRemoveFromWishlist}
+                onSpremiOdabranoClick={this.onSpremiOdabranoClick}
+              />
+            )}
+            {!loading && !empty && !err && (
+              <div className="callout multiple-contact-form">
+                <h3>Pošalji upit</h3>
+                <p>
+                  Sa samo jednim upitom možete kontaktirati sve označene
+                  oglašivače.
+                </p>
+                <MultipleContactForm checkboxes={wishlistItems} />
+              </div>
+            )}
+          </div>
+        </Container>
+      </>
     );
   }
 }

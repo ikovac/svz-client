@@ -16,6 +16,7 @@ import {
   FaQuestionCircle,
   FaTelegramPlane,
 } from "react-icons/fa";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default ({ data }) => {
   const { nodeFotoVideo: nodeContentType } = data;
@@ -41,8 +42,15 @@ export default ({ data }) => {
       linkId: "contact-form",
     },
   ];
+  const breadcrumbItems = [
+    {
+      label: "Foto & Video",
+      link: "/foto-video/foto-video",
+    },
+  ];
   return (
     <div className="usluge-wrapper">
+      <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 
       <div className="usluge__content-wrapper">

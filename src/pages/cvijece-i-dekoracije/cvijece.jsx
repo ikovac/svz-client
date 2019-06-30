@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export default class extends Component {
   constructor(props) {
@@ -34,8 +35,15 @@ export default class extends Component {
 
   render() {
     const { loading, articles } = this.state;
+    const breadcrumbItems = [
+      {
+        label: "Cvijeće i dekoracije",
+        link: "/cvijece-i-dekoracije",
+      },
+    ];
     return (
       <>
+        <Breadcrumbs items={breadcrumbItems} current="Cvijeće" />
         <PageTitle>Cvijeće</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters

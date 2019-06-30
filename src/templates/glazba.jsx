@@ -16,6 +16,7 @@ import {
   FaQuestionCircle,
   FaTelegramPlane,
 } from "react-icons/fa";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default ({ data }) => {
   const { nodeGlazba: nodeContentType } = data;
@@ -41,8 +42,24 @@ export default ({ data }) => {
       linkId: "contact-form",
     },
   ];
+  const breadcrumbItems = [
+    {
+      label: "Glazba",
+      link: "/glazba",
+    },
+    nodeContentType.relationships.field_vrsta_glazbe.name === "dj"
+      ? {
+          label: "DJ",
+          link: "/glazba/dj",
+        }
+      : {
+          label: "Bendovi",
+          link: "/glazba/bendovi",
+        },
+  ];
   return (
     <div className="usluge-wrapper">
+      <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 
       <div className="usluge__content-wrapper">
@@ -53,8 +70,8 @@ export default ({ data }) => {
         <div className="slideshow-wrapper">
           <Slideshow
             gallery={
-              nodeContentType.relationships.field_content_main_info.relationships
-                .field_galerija
+              nodeContentType.relationships.field_content_main_info
+                .relationships.field_galerija
             }
             alt={nodeContentType.title}
             showThumbnails={true}
@@ -112,7 +129,9 @@ export default ({ data }) => {
         <div id="contact-form" className="usluge-section">
           <h3>Kontaktiraj {nodeContentType.title}</h3>
           <SimpleContactForm
-            to={nodeContentType.relationships.field_content_main_info.field_email}
+            to={
+              nodeContentType.relationships.field_content_main_info.field_email
+            }
           />
         </div>
       </div>

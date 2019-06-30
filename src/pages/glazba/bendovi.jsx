@@ -6,6 +6,7 @@ import axios from "axios";
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 class bendoviPage extends Component {
   constructor(props) {
@@ -58,8 +59,15 @@ class bendoviPage extends Component {
 
   render() {
     const { loading, articles } = this.state;
+    const breadcrumbItems = [
+      {
+        label: "Glazba",
+        link: "/glazba",
+      },
+    ];
     return (
       <>
+        <Breadcrumbs items={breadcrumbItems} current="Bendovi" />
         <PageTitle>Bendovi</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters

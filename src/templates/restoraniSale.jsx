@@ -10,6 +10,7 @@ import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
 import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 import {
   FaInfoCircle,
@@ -48,8 +49,19 @@ export default ({ data }) => {
       linkId: "contact-form",
     },
   ];
+  const breadcrumbItems = [
+    {
+      label: "Svadbene večere",
+      link: "/svadbene-vecere",
+    },
+    {
+      label: "Restorani & Sale",
+      link: "/svadbene-vecere/restorani-sale",
+    },
+  ];
   return (
     <div className="usluge-wrapper">
+      <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 
       <div className="usluge__content-wrapper">
@@ -111,9 +123,7 @@ export default ({ data }) => {
 
           {nodeContentType.relationships.field_drustvene_mreze && (
             <SocialMediaLinks
-              socialMedia={
-                nodeContentType.relationships.field_drustvene_mreze
-              }
+              socialMedia={nodeContentType.relationships.field_drustvene_mreze}
             />
           )}
         </div>
@@ -140,8 +150,7 @@ export default ({ data }) => {
           <h3>Kontaktiraj {nodeContentType.title}</h3>
           <SimpleContactForm
             to={
-              nodeContentType.relationships.field_content_main_info
-                .field_email
+              nodeContentType.relationships.field_content_main_info.field_email
             }
           />
         </div>

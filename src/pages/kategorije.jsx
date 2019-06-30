@@ -4,13 +4,17 @@ import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import Kategorije from "../components/Kategorije";
 import { graphql } from "gatsby";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const KategorijePage = ({ data }) => {
   return (
-    <Container>
-      <PageTitle>Kategorije</PageTitle>
-      <Kategorije kategorije={data.allNodeKategorije.edges} />
-    </Container>
+    <>
+      <Breadcrumbs current="Kategorije" />
+      <Container>
+        <PageTitle>Kategorije</PageTitle>
+        <Kategorije kategorije={data.allNodeKategorije.edges} />
+      </Container>
+    </>
   );
 };
 

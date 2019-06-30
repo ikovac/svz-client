@@ -6,29 +6,33 @@ import SimpleContactForm from "../components/ContactForm/SimpleContactForm";
 
 import { FaPhone, FaMobileAlt } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const KontaktPage = () => {
   return (
-    <Container>
-      <PageTitle>Kontakt</PageTitle>
-      <div className="kontakt-page">
-        <p>Sve za vjenčanje</p>
-        <p>Put Supavla 1, 21000 Split</p>
-        <p>
-          <MdMail /> info@svezavjencanje.hr
-        </p>
-        <p>
-          <FaPhone /> +385 (0)21 420 899
-        </p>
-        <p>
-          <FaMobileAlt /> +385 (0)98 180 2609
-        </p>
-        <div className="contact-form callout">
-          <h3>Kontaktirajte nas</h3>
-          <SimpleContactForm to={process.env.GATSBY_SITE_EMAIL} />
+    <>
+      <Breadcrumbs current="Kontakt" />
+      <Container>
+        <PageTitle>Kontakt</PageTitle>
+        <div className="kontakt-page">
+          <p>Sve za vjenčanje</p>
+          <p>Put Supavla 1, 21000 Split</p>
+          <p>
+            <MdMail /> info@svezavjencanje.hr
+          </p>
+          <p>
+            <FaPhone /> +385 (0)21 420 899
+          </p>
+          <p>
+            <FaMobileAlt /> +385 (0)98 180 2609
+          </p>
+          <div className="contact-form callout">
+            <h3>Kontaktirajte nas</h3>
+            <SimpleContactForm to={process.env.GATSBY_SITE_EMAIL} />
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 };
 

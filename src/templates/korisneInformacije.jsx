@@ -4,28 +4,45 @@ import { graphql } from "gatsby";
 import Container from "../components/Container";
 import Image from "../components/Image";
 import returnMonthYearFormat from "../utils/dateUtils";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default ({ data }) => {
   const date = new Date(data.nodeKorisneInformacije.created);
+  const breadcrumbItems = [
+    {
+      label: "Korisne Informacije",
+      link: "/korisne-informacije",
+    },
+  ];
   return (
-    <Container>
-      <div className="korisne-informacije__page-wrapper">
-        <Image
-          source={
-            data.nodeKorisneInformacije.relationships.field_image.localFile
-              .childImageSharp.fluid
-          }
-        />
-        <h4 className="korisne-informacije__title">{data.nodeKorisneInformacije.title}</h4>
-        <p className="korisne-informacije__date">{returnMonthYearFormat(date)}</p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.nodeKorisneInformacije.body.value,
-          }}
-          className="korisne-informacije__body"
-        />
-      </div>
-    </Container>
+    <>
+      <Breadcrumbs
+        items={breadcrumbItems}
+        current={data.nodeKorisneInformacije.title}
+      />
+      <Container>
+        <div className="korisne-informacije__page-wrapper">
+          <Image
+            source={
+              data.nodeKorisneInformacije.relationships.field_image.localFile
+                .childImageSharp.fluid
+            }
+          />
+          <h4 className="korisne-informacije__title">
+            {data.nodeKorisneInformacije.title}
+          </h4>
+          <p className="korisne-informacije__date">
+            {returnMonthYearFormat(date)}
+          </p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.nodeKorisneInformacije.body.value,
+            }}
+            className="korisne-informacije__body"
+          />
+        </div>
+      </Container>
+    </>
   );
 };
 

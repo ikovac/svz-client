@@ -6,6 +6,7 @@ import axios from "axios";
 import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export default class extends Component {
   constructor(props) {
@@ -57,8 +58,15 @@ export default class extends Component {
 
   render() {
     const { loading, articles } = this.state;
+    const breadcrumbItems = [
+      {
+        label: "Foto & Video",
+        link: "/foto-video",
+      },
+    ];
     return (
       <>
+        <Breadcrumbs items={breadcrumbItems} current="Foto & Video" />
         <PageTitle>Foto & Video</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters
