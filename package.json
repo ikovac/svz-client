@@ -41,7 +41,6 @@
     "react-vertical-timeline-component": "^2.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "stringz": "^2.0.0",
     "sweetalert2-react": "^0.8.1"
   },
   "devDependencies": {

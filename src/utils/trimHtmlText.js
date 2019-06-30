@@ -1,5 +1,3 @@
-import { limit, substring, length } from "stringz";
-
 export default function getTextSummary(text, size = 300) {
   let textLength = text.length;
 
@@ -10,17 +8,17 @@ export default function getTextSummary(text, size = 300) {
     return text;
   }
 
-  if (length(text) <= size) {
+  if (textLength <= size) {
     return text;
   }
 
-  let summary = limit(text, size);
+  let summary = text.slice(0, size);
   let endSentence = ['.', '!', '?', '...', '>'];
   if(!endSentence.includes(summary[summary.length - 1])) {
     summary += '...';
   }
 
-  let max_rpos = length(summary);
+  let max_rpos = summary.length;
   let min_rpos = max_rpos;
 
   let reversed = reverseString(summary);
@@ -76,7 +74,7 @@ export default function getTextSummary(text, size = 300) {
     }
   }
   if (min_rpos !== max_rpos) {
-    summary = min_rpos === 0 ? summary : reverseString(substring(reversed, min_rpos));
+    summary = min_rpos === 0 ? summary : reverseString(reversed.substring(min_rpos));
   }
 
   return summary;
