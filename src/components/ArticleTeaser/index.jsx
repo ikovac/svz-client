@@ -4,7 +4,13 @@ import getTextSummary from "../../utils/trimHtmlText";
 import Slideshow from "../Slideshow";
 import AddToWishlistBtn from "../AddToWishlistBtn";
 
-import { FaMapMarkerAlt, FaUsers, FaParking, FaCameraRetro, FaVideo } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaUsers,
+  FaParking,
+  FaCameraRetro,
+  FaVideo,
+} from "react-icons/fa";
 import { MdSpeaker } from "react-icons/md";
 
 const ArticleTeaser = ({ article }) => {
@@ -36,9 +42,12 @@ const ArticleTeaser = ({ article }) => {
         </div>
         <div className="right-section__group-body column row">
           <div className="columns medium-6 teaser-summary">
-            <div className="group-body__text">
-              {getTextSummary(article.body.processed, 200)}
-            </div>
+            <div
+              className="group-body__text"
+              dangerouslySetInnerHTML={{
+                __html: getTextSummary(article.body.processed, 200),
+              }}
+            />
           </div>
           <div className="columns medium-6">
             <div className="group-body__lokacija paragraph-icon">
