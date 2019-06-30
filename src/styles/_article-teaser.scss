@@ -49,6 +49,7 @@
       .teaser-summary {
         border-bottom: 1px solid $border-color;
         .group-body__text {
+          overflow: hidden;
           p {
             margin: 0;
           }
