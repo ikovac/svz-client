@@ -43,8 +43,8 @@ export default class extends Component {
     ];
     return (
       <>
-        <Breadcrumbs items={breadcrumbItems} current="Cvijeće" />
-        <PageTitle>Cvijeće</PageTitle>
+        <Breadcrumbs items={breadcrumbItems} current="Cvijeće i dekoracije" />
+        <PageTitle>Cvijeće i dekoracije</PageTitle>
         <div className="usluge-all-container">
           <UslugeFilters
             filters={["lokacija"]}
@@ -70,14 +70,7 @@ export default class extends Component {
 
 export const query = graphql`
   {
-    allNodeCvijeceIDekoracije(
-      filter: {
-        relationships: {
-          field_vrsta_usluge: { elemMatch: { name: { in: "Cvijeće" } } }
-        }
-        status: { eq: true }
-      }
-    ) {
+    allNodeCvijeceIDekoracije(filter: { status: { eq: true } }) {
       edges {
         node {
           title

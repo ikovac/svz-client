@@ -39,6 +39,9 @@
             color: $primary-color;
           }
           .group-body__text {
+            br {
+              display: none;
+            }
             p {
               color: $body-text-color;
               margin: 0;

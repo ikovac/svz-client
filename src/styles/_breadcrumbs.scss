@@ -3,38 +3,38 @@
   max-width: 1200px;
   margin: auto;
   margin-top: 15px;
+  padding: 5px 20px;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 20px;
+
+  span {
+    font-size: 14px;
+  }
+
+  .breadcrumb-delimiter {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #333;
+  }
 
   .breadcrumb-element {
-    font-size: 14px;
     color: #333;
-    margin: 0;
+    a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
 
-    &:hover {
-      text-decoration: none;
-      color: $primary-color;
-    }
-
-    &::after {
-      content: "/";
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-    &:last-child::after {
-      content: none;
+      &:hover {
+        color: $menu-color-active;
+      }
     }
   }
 
   .breadcrumb-element.home {
     display: flex;
     align-items: center;
-  }
-  .breadcrumb-element.active {
-    &:hover {
-      color: #333;
+    a {
+      display: flex;
+      align-items: center;
     }
   }
 }

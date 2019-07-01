@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { FaHome } from "react-icons/fa";
 import { Link } from "gatsby";
@@ -6,22 +6,25 @@ import { Link } from "gatsby";
 const Breadcrumbs = ({ items = [], current = null }) => {
   return (
     <div className="breadcrumbs">
-      <Link to="/" title="Početna" className="breadcrumb-element home">
-        <FaHome />
-      </Link>
+      <span className="breadcrumb-element home">
+        <Link to="/" title="Početna">
+          <FaHome />
+        </Link>
+      </span>
+      <span className="breadcrumb-delimiter">/</span>
 
       {items.map(item => (
-        <Link
-          className="breadcrumb-element"
-          to={item.link}
-          title={item.label}
-          key={item.label}
-        >
-          {item.label}
-        </Link>
+        <Fragment  key={item.label}>
+          <span className="breadcrumb-element">
+            <Link to={item.link} title={item.label}>
+              {item.label}
+            </Link>
+          </span>
+          <span className="breadcrumb-delimiter">/</span>
+        </Fragment>
       ))}
 
-      {current && <p className="breadcrumb-element active">{current}</p>}
+      {current && <span className="breadcrumb-element">{current}</span>}
     </div>
   );
 };

@@ -76,7 +76,7 @@ export default function getTextSummary(text, size = 300) {
   if (min_rpos !== max_rpos) {
     summary = min_rpos === 0 ? summary : reverseString(reversed.substring(min_rpos));
   }
-
+  
   return summary;
 }
 
