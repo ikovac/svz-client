@@ -71,23 +71,25 @@ $section-color: #faeccf;
     #field-posebna-ponuda {
       display: flex;
       align-items: center;
-      padding: 20px;
-      background-color: $menu-color-active;
       margin-top: 5px;
-      // flex-wrap: wrap;
+      flex-wrap: wrap;
 
       .field-pp__icon {
+        padding: 10px;
+        display: flex;
+        align-items: center;
         svg {
-          font-size: 30px;
-          color: white;
-          margin-right: 20px;
+          font-size: 20px;
+          color: red;
         }
       }
 
       .field_pp__opis {
         p {
           margin: 0;
-          color: #171718;
+          color: red;
+          font-weight: bold;
+          font-size: 20px;
         }
       }
     }
@@ -95,7 +97,6 @@ $section-color: #faeccf;
     #field-opis {
       padding: 20px;
       background-color: white;
-      padding-bottom: 0;
       .section-represent__icon {
         background-color: white;
       }

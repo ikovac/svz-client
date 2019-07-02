@@ -98,6 +98,10 @@
   margin-bottom: 40px;
   table {
     margin-bottom: 0;
+    thead {
+      background-color: $primary-color !important;
+      color: white !important;
+    }
     tbody {
       background-color: transparent;
       tr {

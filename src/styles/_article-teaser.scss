@@ -1,5 +1,21 @@
 .article-teaser {
   margin-bottom: 30px;
+  position: relative;
+
+  .article-teaser__pp-icon {
+    position: absolute;
+    z-index: 1;
+    left: 4px;
+    top: 9px;
+    color: white;
+    font-size: 20px;
+    border-radius: 100%;
+    background-color: red;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .columns {
     padding: 0;
     float: unset !important;
@@ -106,6 +122,11 @@
     background-color: white;
     max-width: unset;
     box-shadow: $teaser-box-shadow;
+
+    .article-teaser__pp-icon {
+      right: 12px;
+      left: unset;
+    }
 
     .left-section {
       padding: 5px;

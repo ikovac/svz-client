@@ -11,11 +11,17 @@ import {
   FaCameraRetro,
   FaVideo,
 } from "react-icons/fa";
+import { GiCampfire } from "react-icons/gi";
 import { MdSpeaker } from "react-icons/md";
 
 const ArticleTeaser = ({ article }) => {
   return (
     <article className="article-teaser row">
+      {article.relationships.field_posebna_ponuda && (
+        <div className="article-teaser__pp-icon" title="Posebna ponuda">
+          <GiCampfire />
+        </div>
+      )}
       <div className="columns medium-4 left-section">
         <Slideshow
           gallery={
