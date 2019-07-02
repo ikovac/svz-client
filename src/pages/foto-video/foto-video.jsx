@@ -107,6 +107,9 @@ export const query = graphql`
           field_video_usluge
           drupal_internal__nid
           relationships {
+            field_posebna_ponuda {
+              field_posebna_ponuda
+            }
             field_content_main_info {
               relationships {
                 field_lokacija {

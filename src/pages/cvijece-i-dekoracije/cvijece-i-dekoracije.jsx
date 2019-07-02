@@ -109,7 +109,6 @@ export const query = graphql`
             }
             field_posebna_ponuda {
               field_posebna_ponuda
-              field_posebna_ponuda_opis
             }
             field_content_main_info {
               field_kontakt
