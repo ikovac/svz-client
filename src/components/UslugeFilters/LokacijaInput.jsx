@@ -141,6 +141,7 @@ class LokacijaInput extends Component {
               onKeyDown={this.handleKeyDown}
               placeholder="Lokacija"
               onBlur={this.handleOnBlur}
+              aria-label="Lokacija"
             />
           </span>
           <ul className={cn("searched-lokacija-items", listClassname)}>

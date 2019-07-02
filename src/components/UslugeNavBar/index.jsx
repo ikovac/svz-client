@@ -34,6 +34,7 @@ class UslugeNavBar extends Component {
               key={item.label}
               className="usluge-nav-element columns small-2"
               onClick={() => this.handleNavBarElementClick(item.linkId)}
+              aria-label={item.label}
             >
               <span className="usluge-nav-element__icon">{item.icon}</span>
               <span className="usluge-nav-element__label">{item.label}</span>

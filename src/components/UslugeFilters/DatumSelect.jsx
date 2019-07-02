@@ -21,6 +21,7 @@ const DatumSelect = ({displayDate, handleDatumChange}) => (
             behavior: ["bottom"], // don't allow it to flip to be above
           },
         }}
+        aria-label="Odaberite datum"
       />
     </div>
 );

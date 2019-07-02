@@ -200,7 +200,7 @@ class MultipleContactForm extends Component {
               className="button button--primary"
               value="Pošalji upit"
               disabled={disabled}
-              aria-labelledby="Pošalji upit"
+              aria-label="Pošalji upit"
             />
           </div>
         </div>

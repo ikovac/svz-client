@@ -88,6 +88,7 @@ class SimpleContactForm extends Component {
                 required
                 minLength="2"
                 onChange={this.handleInputChange}
+                aria-label="Ime"
               />
             </label>
           </div>
@@ -99,6 +100,7 @@ class SimpleContactForm extends Component {
                 name="email"
                 required
                 onChange={this.handleInputChange}
+                aria-label="Email"
               />
             </label>
           </div>
@@ -112,6 +114,7 @@ class SimpleContactForm extends Component {
                 required
                 minLength="10"
                 onChange={this.handleInputChange}
+                aria-label="Poruka"
               />
             </label>
           </div>
@@ -121,6 +124,7 @@ class SimpleContactForm extends Component {
               className="button button--primary"
               value="Pošalji upit"
               disabled={disabled}
+              aria-label="Pošalji upit"
             />
           </div>
         </div>

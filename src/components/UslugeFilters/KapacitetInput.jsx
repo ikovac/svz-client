@@ -12,6 +12,7 @@ const KapacitetInput = ({ kapacitet, handleInputChange }) => (
       id="filter--kapacitet"
       placeholder="Broj osoba"
       onChange={handleInputChange}
+      aria-label="Kapacitet"
     />
   </div>
 );

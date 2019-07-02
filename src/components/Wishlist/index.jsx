@@ -55,7 +55,7 @@ const Wishlist = ({
           Osvježi
         </a>
 
-        <button className="button" onClick={onSpremiOdabranoClick} aria-labelledby="Spremi odabrano">
+        <button className="button" onClick={onSpremiOdabranoClick} aria-label="Spremi odabranu listu">
           Spremi odabrano
         </button>
       </div>

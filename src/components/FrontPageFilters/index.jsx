@@ -122,6 +122,7 @@ class FrontPageFilters extends Component {
                 value="Pretraži"
                 onKeyDown={this.handleOnSubmitFocus}
                 onClick={this.handleSubmit}
+                aria-label="Pretraži"
               />
             </form>
           </div>

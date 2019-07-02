@@ -195,6 +195,7 @@ class UslugeFilters extends Component {
                 value="Primjeni"
                 onKeyDown={this.handleOnSubmitFocus}
                 onClick={this.handleFiltersSubmit}
+                aria-label="Primjeni"
               />
             </form>
           </div>

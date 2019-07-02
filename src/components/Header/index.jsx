@@ -89,7 +89,7 @@ class Header extends Component {
                 </div>
                 <div className="header-top__icons-block">
                   <div className="header-top__wishlist-block">
-                    <Link to="/odabrana-lista" title="odabrana lista">
+                    <Link to="/odabrana-lista" title="odabrana lista" aria-label="Odabrana lista">
                       <FaHeart className="header-top__wishlist-icon" />
                       <span className="badge" id="items-count">
                         {wishlistItems.length}
@@ -97,7 +97,7 @@ class Header extends Component {
                     </Link>
                   </div>
                   <div className="header-top__search-icon">
-                    <Link to="/trazilica" title="tražilica">
+                    <Link to="/trazilica" title="tražilica" aria-label="Tražilica">
                       <FaSearch />
                     </Link>
                   </div>

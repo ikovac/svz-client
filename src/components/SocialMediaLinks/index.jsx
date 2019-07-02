@@ -12,6 +12,7 @@ const SocialMediaLinks = ({ socialMedia }) => {
             target="_blank"
             title="facebook"
             rel="noreferrer noopener"
+            aria-label="Facebook"
           >
             <FaFacebookF />
           </a>
@@ -24,6 +25,7 @@ const SocialMediaLinks = ({ socialMedia }) => {
             target="_blank"
             title="instagram"
             rel="noreferrer noopener"
+            aria-label="Instagram"
           >
             <FaInstagram />
           </a>
@@ -36,6 +38,7 @@ const SocialMediaLinks = ({ socialMedia }) => {
             target="_blank"
             title="web"
             rel="noreferrer noopener"
+            aria-label="Web"
           >
             <FaGlobe />
           </a>
@@ -48,6 +51,7 @@ const SocialMediaLinks = ({ socialMedia }) => {
             target="_blank"
             title="youtube"
             rel="noreferrer noopener"
+            aria-label="YouTube"
           >
             <FaYoutube />
           </a>
