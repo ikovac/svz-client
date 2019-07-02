@@ -51,18 +51,18 @@ class FrontPageFilters extends Component {
   };
 
   preSubmit = () => {
-    const {datum, lokacija, kapacitet} = this.state;
-    const {updateFilters} = this.props;
-    if(!datum) {
-      updateFilters('datum', null);
+    const { datum, lokacija, kapacitet } = this.state;
+    const { updateFilters } = this.props;
+    if (!datum) {
+      updateFilters("datum", null);
     }
-    if(!lokacija) {
-      updateFilters('lokacija', null);
+    if (!lokacija) {
+      updateFilters("lokacija", null);
     }
-    if(!kapacitet) {
-      updateFilters('kapacitet', "");
+    if (!kapacitet) {
+      updateFilters("kapacitet", "");
     }
-  }
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -79,9 +79,10 @@ class FrontPageFilters extends Component {
   };
 
   componentDidMount() {
-    document
-      .getElementById("filter--datum")
-      .setAttribute("readonly", "readonly");
+    const element = document.getElementById("filter--datum");
+
+    element.setAttribute("readonly", "readonly");
+    element.setAttribute("aria-label", "Odaberite datum");
   }
 
   render() {

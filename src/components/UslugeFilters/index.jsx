@@ -111,9 +111,10 @@ class UslugeFilters extends Component {
 
   componentDidMount() {
     if (this.props.filters.includes("datum")) {
-      document
-        .getElementById("filter--datum")
-        .setAttribute("readonly", "readonly");
+      const element = document.getElementById("filter--datum");
+
+      element.setAttribute("readonly", "readonly");
+      element.setAttribute("aria-label", "Odaberite datum");
     }
   }
 
