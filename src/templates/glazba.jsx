@@ -96,6 +96,12 @@ export default ({ data }) => {
           <span className="section-represent__icon">
             <FaQuestionCircle />
           </span>
+          
+          {nodeContentType.relationships.field_posebna_ponuda && (
+            <PosebnaPonuda
+              field_pp={nodeContentType.relationships.field_posebna_ponuda}
+            />
+          )}
           <h3>Opis</h3>
           <div
             dangerouslySetInnerHTML={{
