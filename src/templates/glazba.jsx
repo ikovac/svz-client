@@ -10,6 +10,9 @@ import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
 import UslugeNavBar from "../components/UslugeNavBar";
 
+import SEO from "../components/seo";
+import escapeHtml from "../utils/escapeHtml";
+
 import {
   FaInfoCircle,
   FaPhone,
@@ -59,6 +62,10 @@ export default ({ data }) => {
   ];
   return (
     <div className="usluge-wrapper">
+      <SEO
+        title={nodeContentType.title}
+        description={escapeHtml(nodeContentType.body.processed)}
+      />
       <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 

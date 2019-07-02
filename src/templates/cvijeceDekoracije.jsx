@@ -12,6 +12,9 @@ import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
 import Breadcrumbs from "../components/Breadcrumbs";
 
+import SEO from "../components/seo";
+import escapeHtml from "../utils/escapeHtml";
+
 import {
   FaInfoCircle,
   FaPhone,
@@ -57,6 +60,10 @@ export default ({ data }) => {
   ];
   return (
     <div className="usluge-wrapper">
+      <SEO
+        title={nodeContentType.title}
+        description={escapeHtml(nodeContentType.body.processed)}
+      />
       <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 

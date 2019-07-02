@@ -5,16 +5,22 @@ import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import PartneriBlock from "../components/Blocks/Partneri";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
+import escapeHtml from "../utils/escapeHtml";
 
 export default ({ data }) => {
   return (
     <>
+      <SEO
+        title={data.nodePage.title}
+        description={escapeHtml(data.nodePage.body.processed)}
+      />
       <Breadcrumbs current={data.nodePage.title} />
       <Container>
         <PageTitle>{data.nodePage.title}</PageTitle>
         <div
           dangerouslySetInnerHTML={{
-            __html: data.nodePage.body.value,
+            __html: data.nodePage.body.processed,
           }}
         />
         {data.nodePage.path.alias === "/o-nama" ? <PartneriBlock /> : ""}
@@ -28,7 +34,7 @@ export const query = graphql`
     nodePage(status: { eq: true }, drupal_internal__nid: { eq: $nid }) {
       title
       body {
-        value
+        processed
       }
       path {
         alias

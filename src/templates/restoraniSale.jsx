@@ -11,6 +11,11 @@ import PaketiTabs from "../components/PaketiTabs";
 import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
 import Breadcrumbs from "../components/Breadcrumbs";
+import PosebnaPonuda from "../components/Blocks/PosebnaPonuda";
+
+import SEO from "../components/seo";
+
+import escapeHtml from "../utils/escapeHtml";
 
 import {
   FaInfoCircle,
@@ -61,6 +66,10 @@ export default ({ data }) => {
   ];
   return (
     <div className="usluge-wrapper">
+      <SEO
+        title={nodeContentType.title}
+        description={escapeHtml(nodeContentType.body.processed)}
+      />
       <Breadcrumbs items={breadcrumbItems} current={nodeContentType.title} />
       <PageTitle>{nodeContentType.title}</PageTitle>
 
@@ -91,6 +100,12 @@ export default ({ data }) => {
           <span className="section-represent__icon">
             <FaQuestionCircle />
           </span>
+
+          {nodeContentType.relationships.field_posebna_ponuda && (
+            <PosebnaPonuda
+              field_pp={nodeContentType.relationships.field_posebna_ponuda}
+            />
+          )}
           <h3>Opis</h3>
           <div
             dangerouslySetInnerHTML={{

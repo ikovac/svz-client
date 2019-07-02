@@ -6,6 +6,10 @@ import Image from "../components/Image";
 import returnMonthYearFormat from "../utils/dateUtils";
 import Breadcrumbs from "../components/Breadcrumbs";
 
+import SEO from "../components/seo";
+
+import escapeHtml from "../utils/escapeHtml";
+
 export default ({ data }) => {
   const date = new Date(data.nodeKorisneInformacije.created);
   const breadcrumbItems = [
@@ -16,6 +20,10 @@ export default ({ data }) => {
   ];
   return (
     <>
+      <SEO
+        title={data.nodeKorisneInformacije.title}
+        description={escapeHtml(data.nodeKorisneInformacije.body.processed)}
+      />
       <Breadcrumbs
         items={breadcrumbItems}
         current={data.nodeKorisneInformacije.title}
@@ -36,7 +44,7 @@ export default ({ data }) => {
           </p>
           <div
             dangerouslySetInnerHTML={{
-              __html: data.nodeKorisneInformacije.body.value,
+              __html: data.nodeKorisneInformacije.body.processed,
             }}
             className="korisne-informacije__body"
           />
@@ -54,7 +62,7 @@ export const query = graphql`
     ) {
       title
       body {
-        value
+        processed
       }
       created
       relationships {
