@@ -42,11 +42,11 @@ class LokacijaInput extends Component {
     this.props.handleInputChange(name);
   };
 
-  handleOnInputFocus = e => {
+  /* handleOnInputFocus = e => {
     if (e.target.value && e.target.value.length) {
       this.setState({ showInputList: true });
     }
-  };
+  }; */
 
   handleKeyDown = e => {
     const { lokacijeFiltered, activeInputListElement } = this.state;
@@ -137,7 +137,7 @@ class LokacijaInput extends Component {
               value={lokacija}
               onChange={this.handleLokacijaInputChange}
               autoComplete="off"
-              onFocus={this.handleOnInputFocus}
+              // onFocus={this.handleOnInputFocus}
               onKeyDown={this.handleKeyDown}
               placeholder="Lokacija"
               onBlur={this.handleOnBlur}
