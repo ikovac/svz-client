@@ -36,6 +36,7 @@ class AddToWishlist extends Component {
         className="usluge-nav-element add-to-wishlist columns small-2"
         onClick={this.handleAddToWishlist}
         title="dodaj u odabranu listu"
+        aria-label="Dodaj u odabranu listu"
       >
         <span className="usluge-nav-element__icon">
           <FaHeart />

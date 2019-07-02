@@ -28,6 +28,7 @@ const Wishlist = ({
                 <button
                   onClick={() => onRemoveFromWishlist(item.nid)}
                   title="Ukloni"
+                  aria-label="Ukloni"
                 >
                   <FaTimes />
                 </button>
@@ -54,7 +55,7 @@ const Wishlist = ({
           Osvježi
         </a>
 
-        <button className="button" onClick={onSpremiOdabranoClick}>
+        <button className="button" onClick={onSpremiOdabranoClick} aria-labelledby="Spremi odabrano">
           Spremi odabrano
         </button>
       </div>

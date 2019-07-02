@@ -153,6 +153,7 @@ class MultipleContactForm extends Component {
                 required
                 minLength="2"
                 onChange={this.handleInputChange}
+                aria-label="Ime"
               />
             </label>
           </div>
@@ -164,6 +165,7 @@ class MultipleContactForm extends Component {
                 name="email"
                 required
                 onChange={this.handleInputChange}
+                aria-label="Email"
               />
             </label>
           </div>
@@ -174,6 +176,7 @@ class MultipleContactForm extends Component {
                 type="text"
                 name="mob"
                 onChange={this.handleInputChange}
+                aria-label="Kontakt broj"
               />
             </label>
           </div>
@@ -187,6 +190,7 @@ class MultipleContactForm extends Component {
                 required
                 minLength="10"
                 onChange={this.handleInputChange}
+                aria-label="Poruka"
               />
             </label>
           </div>
@@ -196,6 +200,7 @@ class MultipleContactForm extends Component {
               className="button button--primary"
               value="Pošalji upit"
               disabled={disabled}
+              aria-labelledby="Pošalji upit"
             />
           </div>
         </div>

@@ -15,7 +15,7 @@ export default ({ data }) => {
   const breadcrumbItems = [
     {
       label: "Korisne Informacije",
-      link: "/korisne-informacije",
+      link: "/korisne-informacije/",
     },
   ];
   return (

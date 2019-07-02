@@ -54,6 +54,7 @@ class Tražilica extends Component {
               placeholder="Upišite pojam za pretraživanje"
               id="search-input"
               autoComplete="off"
+              aria-label="Tražilica"
             />
             {!loading && results && (
               <div className="search-results">
