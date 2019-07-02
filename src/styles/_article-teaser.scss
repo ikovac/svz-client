@@ -159,6 +159,7 @@
 
       .right-section__group-body {
         display: flex;
+        height: calc(100% - 60px);
 
         .teaser-summary {
           border-right: 1px solid $border-color;
@@ -169,10 +170,15 @@
           border-bottom: unset;
         }
 
-        > div {
+        .additional-info {
+          display: flex;
+          flex-direction: column;
+
           .saznaj-vise {
             text-align: right;
+            margin-top: auto;
           }
+          
         }
       }
     }

@@ -55,7 +55,7 @@ const ArticleTeaser = ({ article }) => {
               }}
             />
           </div>
-          <div className="columns medium-6">
+          <div className="columns medium-6 additional-info">
             <div className="group-body__lokacija paragraph-icon">
               <p>
                 <FaMapMarkerAlt />
