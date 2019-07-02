@@ -11,6 +11,7 @@ import PaketiTabs from "../components/PaketiTabs";
 import LeafletMap from "../components/LeafletMap";
 import UslugeNavBar from "../components/UslugeNavBar";
 import Breadcrumbs from "../components/Breadcrumbs";
+import PosebnaPonuda from "../components/Blocks/PosebnaPonuda";
 
 import SEO from "../components/seo";
 import escapeHtml from "../utils/escapeHtml";

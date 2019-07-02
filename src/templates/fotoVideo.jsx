@@ -9,6 +9,7 @@ import MainInfo from "../components/MainInfo";
 import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
 import UslugeNavBar from "../components/UslugeNavBar";
+import PosebnaPonuda from "../components/Blocks/PosebnaPonuda";
 
 import SEO from "../components/seo";
 import escapeHtml from "../utils/escapeHtml";

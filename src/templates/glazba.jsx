@@ -9,6 +9,8 @@ import MainInfo from "../components/MainInfo";
 import Slideshow from "../components/Slideshow";
 import PaketiTabs from "../components/PaketiTabs";
 import UslugeNavBar from "../components/UslugeNavBar";
+import Breadcrumbs from "../components/Breadcrumbs";
+import PosebnaPonuda from "../components/Blocks/PosebnaPonuda";
 
 import SEO from "../components/seo";
 import escapeHtml from "../utils/escapeHtml";
@@ -19,7 +21,6 @@ import {
   FaQuestionCircle,
   FaTelegramPlane,
 } from "react-icons/fa";
-import Breadcrumbs from "../components/Breadcrumbs";
 
 export default ({ data }) => {
   const { nodeGlazba: nodeContentType } = data;
@@ -96,7 +97,7 @@ export default ({ data }) => {
           <span className="section-represent__icon">
             <FaQuestionCircle />
           </span>
-          
+
           {nodeContentType.relationships.field_posebna_ponuda && (
             <PosebnaPonuda
               field_pp={nodeContentType.relationships.field_posebna_ponuda}
