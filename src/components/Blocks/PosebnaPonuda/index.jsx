@@ -9,12 +9,12 @@ const PosebnaPonuda = ({ field_pp }) => {
 
   return (
     <div id="field-posebna-ponuda">
-      <div className="field-pp__icon">
-        <GiCampfire />
-      </div>
-      <div className="field_pp__opis">
-        <p>{field_pp.field_posebna_ponuda_opis}</p>
-      </div>
+      <p>
+        <span className="field-pp__icon">
+          <GiCampfire />
+        </span>
+        {field_pp.field_posebna_ponuda_opis}
+      </p>
     </div>
   );
 };
