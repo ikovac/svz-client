@@ -32,6 +32,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
     `
   );
 
+  title += ` | ${site.siteMetadata.title}`;
   const metaDescription = description || site.siteMetadata.description;
   const metaImageSrc =
     image ||
@@ -43,7 +44,6 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,

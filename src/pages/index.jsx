@@ -10,7 +10,15 @@ const IndexPage = ({ data }) => (
   <div className="front-page-wrapper">
     <SEO
       title="Početna"
-      keywords={[`vjenčanje`, `organizacija`, `vjenčanja`, `sve`, `za`]}
+      keywords={[
+        "organizacija vjenčanja",
+        "organizacija svadbi",
+        "sve za vjenčanja",
+        "sve za svadbe",
+        "jednostavno",
+        "besplatno",
+        "sve na jednom mjestu",
+      ]}
     />
     <div className="front-page__image-section">
       <Image
