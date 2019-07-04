@@ -19,6 +19,7 @@ import Wishlist from "../components/Wishlist";
 import Swal from "sweetalert2";
 import MultipleContactForm from "../components/ContactForm/MultipleContactForm";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
 
 class OdabranaLista extends Component {
   constructor(props) {
@@ -187,6 +188,7 @@ class OdabranaLista extends Component {
     const { loading, empty, wishlistItems, err } = this.state;
     return (
       <>
+        <SEO title="Odabrana lista" />
         <Breadcrumbs current="Odabrana lista" />
         <Container>
           <PageTitle>Odabrana lista</PageTitle>

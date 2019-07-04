@@ -6,15 +6,11 @@ import PageTitle from "../components/PageTitle";
 import PartneriBlock from "../components/Blocks/Partneri";
 import Breadcrumbs from "../components/Breadcrumbs";
 import SEO from "../components/seo";
-import escapeHtml from "../utils/escapeHtml";
 
 export default ({ data }) => {
   return (
     <>
-      <SEO
-        title={data.nodePage.title}
-        description={escapeHtml(data.nodePage.body.processed)}
-      />
+      <SEO title={data.nodePage.title} />
       <Breadcrumbs current={data.nodePage.title} />
       <Container>
         <PageTitle>{data.nodePage.title}</PageTitle>

@@ -5,6 +5,7 @@ import { DebounceInput } from "react-debounce-input";
 import axios from "axios";
 import { Link } from "gatsby";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
 
 class Tražilica extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Tražilica extends Component {
     const { results, loading } = this.state;
     return (
       <>
+        <SEO title="Pretraži stranicu" />
         <Breadcrumbs current="Tražilica" />
         <Container>
           <PageTitle>Pretraži stranicu</PageTitle>

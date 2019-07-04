@@ -7,6 +7,7 @@ import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import SEO from "../../components/seo";
 
 class bendoviPage extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class bendoviPage extends Component {
     ];
     return (
       <>
+        <SEO title="Bendovi za vjenčanja" />
         <Breadcrumbs items={breadcrumbItems} current="Bendovi" />
         <PageTitle>Bendovi</PageTitle>
         <div className="usluge-all-container">

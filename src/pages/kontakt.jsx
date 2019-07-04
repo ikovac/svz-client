@@ -7,10 +7,12 @@ import SimpleContactForm from "../components/ContactForm/SimpleContactForm";
 import { FaPhone, FaMobileAlt } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
 
 const KontaktPage = () => {
   return (
     <>
+      <SEO title="Kontakt" />
       <Breadcrumbs current="Kontakt" />
       <Container>
         <PageTitle>Kontakt</PageTitle>

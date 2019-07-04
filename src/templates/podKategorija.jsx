@@ -5,6 +5,7 @@ import PageTitle from "../components/PageTitle";
 import Image from "../components/Image";
 import Masonry from "react-masonry-css";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
 
 export default ({ data }) => {
   const podKategorije = data.nodeKategorije.relationships.field_podkategorije;
@@ -15,6 +16,7 @@ export default ({ data }) => {
   };
   return (
     <>
+      <SEO title="Portal za svadbe" />
       <Breadcrumbs current={data.nodeKategorije.title} />
       <Container>
         <PageTitle>{data.nodeKategorije.title}</PageTitle>

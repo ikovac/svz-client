@@ -7,6 +7,7 @@ import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import SEO from "../../components/seo";
 
 export default class extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ export default class extends Component {
     ];
     return (
       <>
+        <SEO title="Foto i video usluge" />
         <Breadcrumbs items={breadcrumbItems} current="Foto & Video" />
         <PageTitle>Foto & Video</PageTitle>
         <div className="usluge-all-container">

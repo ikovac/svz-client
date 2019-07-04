@@ -8,12 +8,17 @@ import returnMonthYearFormat from "../utils/dateUtils";
 
 import getTextSummary from "../utils/trimHtmlText";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
 
 const KorisneInformacijePage = ({ data }) => {
   const posts = data.allNodeKorisneInformacije.edges;
 
   return (
     <>
+      <SEO
+        title="Korisne informacije"
+        description="Korisne informacije, trendovi, savjeti stručnjaka, razne ideje kao i iskustva klijenata. Pronađite odgovore na sva Vaša pitanja za savršeno vjenčanje na jednom mjestu."
+      />
       <Breadcrumbs current="Korisne informacije" />
       <Container>
         <PageTitle>Korisne informacije</PageTitle>

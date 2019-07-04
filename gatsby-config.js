@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Sve za Vjenčanje`,
-    description: `Isplanirajte vaše vjenčanje jednostavno, u samo par koraka. Portal Sve za Vjenčanja sadrži oglašivače iz cijele Hrvatske`,
+    description: `Portal za potpuno besplatno organiziranje kompletnog vjenčanja u cijeloj Hrvatskoj. U samo par klikova odaberite i rezervirajte sve potrebno za Vaše vjenčanje iz snova.`,
     author: `@vetus-itinera`,
     menuLinks: [
       { name: "Početna", path: "/" },

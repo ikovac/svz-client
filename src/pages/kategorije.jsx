@@ -5,10 +5,15 @@ import PageTitle from "../components/PageTitle";
 import Kategorije from "../components/Kategorije";
 import { graphql } from "gatsby";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SEO from "../components/seo";
 
 const KategorijePage = ({ data }) => {
   return (
     <>
+      <SEO
+        title="Kategorije"
+        description="Da li Vam je potrebna sala, muzika, fotograf ili bilo koja druga usluga, uz par klikova do sudbonosnog Da! Potpuno besplatno!"
+      />
       <Breadcrumbs current="Kategorije" />
       <Container>
         <PageTitle>Kategorije</PageTitle>

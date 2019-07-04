@@ -7,6 +7,7 @@ import PageTitle from "../../components/PageTitle";
 import UslugeFilters from "../../components/UslugeFilters";
 import ArticleTeaser from "../../components/ArticleTeaser";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import SEO from "../../components/seo";
 
 class DJPage extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class DJPage extends Component {
     ];
     return (
       <>
+        <SEO title="DJ, glazba za vjenčanja" />
         <Breadcrumbs items={breadcrumbItems} current="DJ" />
         <PageTitle>DJ</PageTitle>
         <div className="usluge-all-container">
