@@ -58,12 +58,24 @@ function SEO({ description, lang, meta, keywords, title, image }) {
           content: title,
         },
         {
+          property: `og:type`,
+          content: 'article',
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: metaImageSrc,
+        },
+        {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:site_name`,
+          content: `Sve za vjenčanje`,
         },
         {
           name: `twitter:card`,
@@ -76,6 +88,10 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         {
           name: `twitter:title`,
           content: title,
+        },
+        {
+          name: `twitter:image`,
+          content: metaImageSrc,
         },
         {
           name: `twitter:description`,
