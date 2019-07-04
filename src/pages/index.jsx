@@ -9,7 +9,7 @@ import FrontPageFilters from "../components/FrontPageFilters";
 const IndexPage = ({ data }) => (
   <div className="front-page-wrapper">
     <SEO
-      title="Početna"
+      title="Portal za organizaciju vjenčanja"
       keywords={[
         "organizacija vjenčanja",
         "organizacija svadbi",
