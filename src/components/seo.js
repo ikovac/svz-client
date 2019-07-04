@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
             author
           }
         }
-        metaImage: file(relativePath: {eq: "cover.jpg"}) {
+        metaImage: file(relativePath: { eq: "cover.jpg" }) {
           childImageSharp {
             original {
               src
@@ -33,7 +33,9 @@ function SEO({ description, lang, meta, keywords, title, image }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImageSrc = image || `${process.env.GATSBY_SITE_URI}/${metaImage.childImageSharp.original.src}`;
+  const metaImageSrc =
+    image ||
+    `${process.env.GATSBY_SITE_URI}${metaImage.childImageSharp.original.src}`;
 
   return (
     <Helmet
