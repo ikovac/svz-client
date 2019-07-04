@@ -22,14 +22,18 @@ function SEO({ description, lang, meta, keywords, title, image }) {
           }
         }
         metaImage: file(relativePath: {eq: "cover.jpg"}) {
-          absolutePath
+          childImageSharp {
+            original {
+              src
+            }
+          }
         }
       }
     `
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImageSrc = image || metaImage.absolutePath;
+  const metaImageSrc = image || `${process.env.GATSBY_SITE_URI}/${metaImage.childImageSharp.original.src}`;
 
   return (
     <Helmet
