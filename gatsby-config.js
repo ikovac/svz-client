@@ -44,6 +44,10 @@ module.exports = {
       options: {
         baseUrl: `${process.env.GATSBY_DRUPAL_URI}`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
+        basicAuth: {
+          username: process.env.GATSBY_DRUPAL_ADMIN_USER,
+          password: process.env.GATSBY_DRUPAL_ADMIN_PASSWORD,
+        },
       },
     },
     {
