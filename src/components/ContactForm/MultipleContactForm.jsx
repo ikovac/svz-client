@@ -41,7 +41,9 @@ class MultipleContactForm extends Component {
     let toArr = [];
     for (let [key, value] of checkboxItems.entries()) {
       if (value) {
-        toArr.push(key);
+        if(!toArr.includes(value)) {
+          toArr.push(key);
+        }
       }
     }
 
