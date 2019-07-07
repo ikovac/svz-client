@@ -162,3 +162,10 @@ $section-color: #faeccf;
     }
   }
 }
+
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+  &::before {
+    color: $menu-color-active !important;
+  }
+}

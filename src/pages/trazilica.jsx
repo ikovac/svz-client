@@ -73,8 +73,12 @@ class Tražilica extends Component {
                 <ul>
                   {results.map(result => (
                     <li key={result.nid}>
-                      <Link to={result.view_node}>{result.title}</Link>
-                      <p className="label">{result.type.replace("amp;", "")}</p>
+                      <Link to={result.view_node}>
+                        <span>{result.title}</span>
+                        <p className="label">
+                          {result.type.replace("amp;", "")}
+                        </p>
+                      </Link>
                     </li>
                   ))}
                 </ul>
