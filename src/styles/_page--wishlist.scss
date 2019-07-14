@@ -104,6 +104,7 @@
     }
     tbody {
       background-color: transparent;
+      border: unset;
       tr {
         padding: 20px;
         box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
@@ -178,6 +179,8 @@
   }
 }
 
+
+
 @media screen and (min-width: 63.99875em) {
   .odabrana-lista {
     table {
@@ -192,6 +195,7 @@
       }
 
       tbody {
+        border: 1px solid #f1f1f1;
         tr {
           padding: 0px;
           box-shadow: none;
