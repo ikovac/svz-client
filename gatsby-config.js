@@ -32,7 +32,9 @@ module.exports = {
       options: {
         name: `Sve za Vjenčanje`,
         short_name: `SZV`,
+        description: `Portal za potpuno besplatno organiziranje kompletnog vjenčanja u cijeloj Hrvatskoj. U samo par klikova odaberite i rezervirajte sve potrebno za Vaše vjenčanje iz snova.`,
         start_url: `/`,
+        lang: `hr`,
         background_color: `#faeccf`,
         theme_color: `#faeccf`,
         display: `standalone`,
@@ -64,6 +66,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 };
